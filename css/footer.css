@@ -1,0 +1,399 @@
+/* ================ FOOTER STYLES ================ */
+.footer {
+  background-color: var(--secondary);
+  color: var(--text-light);
+  padding: 8rem 5% 4rem;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+}
+
+.footerContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footerMain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  margin-bottom: 6rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Logo Column */
+.footerLogo {
+  flex: 0 1 25%;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 4%;
+}
+
+.footerLogo img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.footerDescription {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 2rem 0;
+}
+
+/* Centered Columns Container */
+.centeredColumns {
+  display: flex;
+  gap: 6rem;
+  margin: 0 auto;
+  padding: 0 4rem;
+  flex: 0 1 40%;
+  justify-content: center;
+}
+
+/* Navigation/Legal Columns */
+.footerColumn {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.footerColumnTitle {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  color: var(--text-light);
+  position: relative;
+  padding-bottom: 1rem;
+  font-family: 'Lexend', sans-serif;
+}
+
+.footerColumnTitle::after {
+  content: '';
+  position: absolute;
+  
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--primary);
+}
+
+.footerLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  flex-grow: 1;
+}
+
+.footerLinks li {
+  margin: 0;
+  padding: 0;
+}
+
+.footerLinks a {
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.footerLinks a:hover {
+  color: var(--primary);
+  padding-left: 5px;
+}
+
+/* Register Column */
+.registerColumn {
+  flex: 0 1 25%;
+  min-width: 250px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.footerJoinText {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.footerRegisterBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  background: var(--primary);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(142, 178, 5, 0.2);
+
+  width: 100%;
+  max-width: 220px;
+}
+
+.footerRegisterBtn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(142, 178, 5, 0.3);
+}
+
+/* Social Buttons */
+.footerSocial {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.socialButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.socialButton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.socialButton:hover::after {
+  opacity: 1;
+}
+
+.socialButton.facebook {
+  background: var(--primary);
+}
+
+.socialButton.twitter {
+  background: var(--primary);
+}
+
+.socialButton.instagram {
+  background: var(--primary);
+}
+
+.socialButton.linkedin {
+  background: var(--primary);
+}
+
+.socialButton:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Bottom */
+.footerBottom {
+  width: 100%;
+  text-align: center;
+  padding-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footerCopyright {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+
+/* ================ SCROLL TO TOP BUTTON ================ */
+.scrollToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: var(--text-light);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: var(--box-shadow);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.scrollToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scrollToTop:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+}
+
+
+
+/* ================ RESPONSIVE DESIGN ================ */
+@media (max-width: 1200px) {
+  .centeredColumns {
+    gap: 4rem;
+    padding: 0 2rem;
+    flex: 0 1 50%;
+  }
+}
+
+@media (max-width: 992px) {
+  .footerMain {
+    flex-direction: column;
+    gap: 5rem;
+    align-items: center;
+    text-align: center;
+  }
+  .centeredColumns {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    justify-content: space-between;
+    flex: 1;
+    order: 2;
+  }
+  
+ .footerLogo,
+  .registerColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  
+  .footerColumn {
+    align-items: center;
+  }
+  
+  .footerLinks {
+    align-items: center;
+  }
+  
+  .footerRegisterBtn {
+    margin: 0 auto;
+  }
+
+  
+  .footerSocial {
+    justify-content: center;
+  }
+  
+  .footerRegisterBtn {
+    margin: 0 auto;
+  }
+  
+  .footerColumnTitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 6rem 5% 3rem;
+  }
+
+   .footerMain {
+    text-align: center;
+  }
+  
+  .centeredColumns {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footerColumn {
+    width: 100%;
+  }
+  
+  .footerColumnTitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .centeredColumns {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  
+  .footerColumn {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .footerLinks {
+    align-items: center;
+  }
+  
+  .footerLinks a:hover {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 5rem 5% 3rem;
+  }
+  
+  .footerLogo img {
+    width: 180px;
+  }
+  
+  .footerColumnTitle {
+    font-size: 1.7rem;
+    margin-bottom: 2rem;
+  }
+  
+  .footerLinks a {
+    font-size: 1.5rem;
+  }
+  
+  .footerJoinText {
+    font-size: 1.4rem;
+  }
+  
+  .footerRegisterBtn {
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem;
+  }
+  
+  .socialButton {
+    width: 38px;
+    height: 38px;
+    font-size: 1.5rem;
+  }
+}

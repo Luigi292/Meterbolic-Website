@@ -1,0 +1,410 @@
+/* ================ NAVBAR STYLES ================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background: var(--secondary);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  height: var(--navbar-height);
+  box-sizing: border-box;
+}
+
+/* Scrolled state */
+.navbar.scrolled {
+  padding: 1rem 5%;
+  background: rgba(6, 64, 52, 0.98);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+.logo {
+  flex: 1;
+  max-width: 180px;
+  transition: var(--transition);
+  z-index: 1002;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: var(--transition);
+}
+
+/* Navigation Links */
+.navLinks {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4rem;
+}
+
+.navLinks a {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--text-light);
+  transition: var(--transition);
+  position: relative;
+  padding: 0.5rem 0;
+  
+}
+
+.navLinks a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: var(--transition);
+}
+
+.navLinks a:hover {
+  color: var(--primary);
+}
+
+.navLinks a:hover::after {
+  width: 100%;
+}
+
+/* Active Link */
+.activeLink {
+  color: var(--primary) !important;
+}
+
+.activeLink::after {
+  width: 100% !important;
+}
+
+/* Register Button */
+.registerButton {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.registerBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  background: var(--primary);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(142, 178, 5, 0.2);
+}
+
+.registerBtn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(142, 178, 5, 0.3);
+}
+
+.registerIcon {
+  font-size: 1.4rem;
+}
+
+/* Mobile Menu Button */
+.mobileMenuButton {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 2.4rem;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0.8rem;
+  transition: var(--transition);
+}
+
+.mobileMenuButton:hover {
+  color: var(--primary);
+}
+
+/* Mobile Menu Overlay */
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(6, 64, 52, 0.98);
+  backdrop-filter: blur(15px);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transform: translateY(-20px);
+}
+
+.mobileMenuOverlay.mobileMenuOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobileMenuContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+  padding: 2rem;
+}
+
+.mobileLink {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--text-light);
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 1rem 2rem;
+}
+
+.mobileLink:hover {
+  color: var(--primary);
+}
+
+.mobileRegisterBtn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 3rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  background: var(--primary);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.mobileRegisterBtn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* ================ REGISTRATION MODAL ================ */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modalOverlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 1.2rem;
+  width: 100%;
+  max-width: 500px;
+  padding: 3rem;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.modalCloseButton:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--primary);
+}
+
+.modalHeader {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.modalHeader h2 {
+  font-size: 2.8rem;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.modalHeader p {
+  font-size: 1.6rem;
+  color: #666;
+}
+
+.registrationForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.formGroup label {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(142, 178, 5, 0.2);
+}
+
+.checkboxGroup {
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.checkboxGroup input {
+  width: auto;
+}
+
+.checkboxGroup label {
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+.submitButton {
+  padding: 1.5rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submitButton:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================ RESPONSIVE DESIGN ================ */
+@media (max-width: 992px) {
+  .navLinks {
+    display: none;
+  }
+  
+  .mobileMenuButton {
+    display: block;
+  }
+  
+  .registerButton {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 5%;
+  }
+  
+  .logo {
+    max-width: 160px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    max-width: 140px;
+  }
+  
+  .modalContent {
+    padding: 2rem;
+  }
+  
+  .modalHeader h2 {
+    font-size: 2.4rem;
+  }
+}

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meterbolic | Where health meets Longevity</title>
+  <meta name="description" content="Advanced metabolic testing for optimal health">
+  <link rel="icon" href="images/favicon.ico">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.cdnfonts.com/css/arial" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+  <div class="container">
+    <!-- New Navbar -->
+    <nav class="navbar">
+      <!-- Logo on the left -->
+      <div class="logo">
+        <a href="/">
+          <img src="images/original-logo.png" alt="Meterbolic Logo" width="300" height="100">
+        </a>
+      </div>
+
+      <!-- Centered Navigation Links - Desktop -->
+      <div class="navLinks">
+        <a href="#home" class="activeLink">Home</a>
+        <a href="#features">Features</a>
+        <a href="#journey">Journey</a>
+        <a href="#team">Team</a>
+      </div>
+
+      <!-- Register Button - Desktop -->
+      <div class="registerButton">
+        <button class="registerBtn" id="registerBtn">
+          <i class="fas fa-user-plus registerIcon"></i>
+          Register with Us
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="mobileMenuButton" id="mobileMenuButton" aria-label="Toggle menu">
+        <i class="fas fa-bars mobileMenuIcon"></i>
+      </button>
+
+      <!-- Mobile Menu Overlay -->
+      <div class="mobileMenuOverlay" id="mobileMenuOverlay">
+        <div class="mobileMenuContent">
+          <a href="#home" class="mobileLink activeLink">Home</a>
+          <a href="#features" class="mobileLink">Features</a>
+          <a href="#journey" class="mobileLink">Journey</a>
+          <a href="#team" class="mobileLink">Team</a>
+          
+          <button class="mobileRegisterBtn" id="mobileRegisterBtn">
+            <i class="fas fa-user-plus registerIcon"></i>
+            Register with Us
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Registration Modal -->
+    <div class="modalOverlay" id="registrationModal">
+      <div class="modalContent">
+        <button class="modalCloseButton" id="modalCloseButton" aria-label="Close registration form">
+          <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="modalHeader">
+          <h2>Join Our Waitlist</h2>
+          <p>Be the first to know when we launch our platform</p>
+        </div>
+        
+        <form id="registrationForm" class="registrationForm">
+          <div class="formGroup">
+            <label for="fullName">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              required
+              placeholder="Your full name"
+            />
+          </div>
+          
+          <div class="formGroup">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="your@email.com"
+            />
+          </div>
+          
+          <div class="formGroup">
+            <label for="interest">What interests you about Meterbolic?</label>
+            <select id="interest" name="interest" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="metabolic-testing">Metabolic Testing</option>
+              <option value="health-optimization">Health Optimization</option>
+              <option value="longevity">Longevity</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="formGroup checkboxGroup">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">I agree to receive emails from Meterbolic</label>
+          </div>
+          
+          <button type="submit" class="submitButton">
+            Submit Registration
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="heroOverlay"></div>
+      <div class="heroContent">
+        <h1>Glucose Alone <br>is Not Enough</h1>
+        <h2>Discover the Full Picture of Your <br> Metabolic Health</h2>
+        <p>
+          Introducing the only at-home test that measures both glucose and insulin response, 
+          giving you the most advanced insights into your metabolic health.
+        </p>
+        <button class="button primaryButton">Learn More</button>
+      </div>
+    </section>
+
+<!-- Banner Section -->
+<section class="banner">
+  <div class="banner-track">
+    <div class="banner-container">
+      <div class="banner-item">
+        <img src="images/banner1.png" alt="Partner Logo" loading="lazy">
+      </div>
+      <div class="banner-item">
+        <img src="images/banner2.png" alt="Partner Logo" loading="lazy">
+      </div>
+      <div class="banner-item">
+        <img src="images/banner3.png" alt="Partner Logo" loading="lazy">
+      </div>
+      <div class="banner-item">
+        <img src="images/banner4.png" alt="Partner Logo" loading="lazy">
+      </div>
+      <div class="banner-item">
+        <img src="images/banner5.png" alt="Partner Logo" loading="lazy">
+      </div>
+      <!-- Duplicate items for seamless looping -->
+      <div class="banner-item">
+        <img src="images/banner1.png" alt="Partner Logo" loading="lazy">
+      </div>
+      <div class="banner-item">
+        <img src="images/banner2.png" alt="Partner Logo" loading="lazy">
+      </div>
+      <div class="banner-item">
+        <img src="images/banner3.png" alt="Partner Logo" loading="lazy">
+      </div>
+      <div class="banner-item">
+        <img src="images/banner4.png" alt="Partner Logo" loading="lazy">
+      </div>
+      <div class="banner-item">
+        <img src="images/banner5.png" alt="Partner Logo" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Glucose Insight Section -->
+    <section class="glucoseInsight">
+      <div class="glucoseContainer">
+              
+
+        <div class="glucoseContent">
+            <div class="sectionTag">METABOLIC TEST</div>
+          <h2>Many people track their glucose levels, but glucose alone doesn't tell the full story.</h2>
+          <p>
+            Insulin resistance begins long before blood glucose levels show any signs of trouble. In fact, insulin is the first to break down—often years before glucose levels rise. This means standard glucose tests can appear normal while insulin resistance silently develops. By the time glucose levels increase, significant metabolic damage has already occurred.
+          </p>
+          <button class="button primaryButton">Learn More</button>
+        </div>
+        <div class="glucoseImage">
+          <img src="images/footprint.png" alt="Glucose monitoring chart" width="500" height="500">
+        </div>
+      </div>
+    </section>
+    
+    <!-- Journey Section -->
+    <section class="journey" id="journey">
+      <div class="journeyOverlay"></div>
+      <div class="journeyContainer">
+        <div class="journeyContent">
+          <h2>Journey Starts Here</h2>
+          <div class="journeySteps">
+            <div class="step">
+              <div class="stepImage">
+                <img src="images/icon1-journey-section.png" alt="Subscribe" width="180" height="180">
+              </div>
+              <div class="stepNumber">1</div>
+              <h3>Subscribe</h3>
+              <p>Begin your metabolic health journey with our comprehensive subscription plan tailored to your needs.</p>
+            </div>
+            <div class="step">
+              <div class="stepImage">
+                <img src="images/icon2-journey-section.png" alt="Test kit" width="180" height="180">
+              </div>
+              <div class="stepNumber">2</div>
+              <h3>Test</h3>
+              <p>Receive our advanced metabolic testing kit and gain insights into your body's unique responses.</p>
+            </div>
+            <div class="step">
+              <div class="stepImage">
+                <img src="images/icon3-journey-section.png" alt="AI Coach" width="180" height="180">
+              </div>
+              <div class="stepNumber">3</div>
+              <h3>AI Coaching</h3>
+              <p>Get personalized recommendations and continuous support from our AI-powered health coach.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="featuresContainer">
+        <div class="featuresContent">
+          <span class="sectionTag">Metabolic Health</span>
+          <h2>Reveal The Truth About Your Health</h2>
+          
+          <div class="textColumns">
+            <div class="textColumn">
+              <p>
+                You're not lazy. You're not broken. You're likely metabolically stuck. 
+                Metabolic dysfunction is a silent epidemic — impacting fat storage, sleep, and thinking.
+              </p>
+            </div>
+            <div class="textColumn">
+              <p>
+                It affects how we age, long before diabetes strikes. 
+                Your body's already showing signs — and the Kraft Test can catch them before it's too late.
+              </p>
+            </div>
+          </div>
+
+          <div class="featureList">
+            <div class="featureItem">
+              <span class="featureIcon">✓</span>
+              <div>Comprehensive metabolic analysis</div>
+            </div>
+            <div class="featureItem">
+              <span class="featureIcon">✓</span>
+              <div>Early detection of dysfunction</div>
+            </div>
+            <div class="featureItem">
+              <span class="featureIcon">✓</span>
+              <div>Personalized health insights</div>
+            </div>
+            <div class="featureItem">
+              <span class="featureIcon">✓</span>
+              <div>Actionable recommendations</div>
+            </div>
+          </div>
+        </div>
+        <div class="featuresImage">
+          <img src="images/mailbox-leaf-feature-section.png" alt="Metabolic health visualization" width="400" height="400">
+        </div>
+      </div>
+    </section>
+
+    <!-- Health Longevity Section -->
+    <section class="healthLongevity">
+      <div class="healthLongevityOverlay"></div>
+      <div class="healthLongevityContainer">
+        <div class="healthLongevityImage">
+          <img src="images/heart-longevity-pict.png" alt="Health and longevity" width="500" height="500">
+        </div>
+        <div class="healthLongevityContent">
+          <h2>Where health meets Longevity</h2>
+          <p>
+            Unlock the secrets of health and longevity with cutting-edge metabolic testing. 
+            Dive deep into the unique needs of your body, enabling you to customize and 
+            elevate your wellness journey for unparalleled effectiveness and vitality.
+          </p>
+          <p>
+            Discover the life-changing benefits of metabolic testing that can boost your 
+            health and extend your lifespan. Access crucial insights that empower you to 
+            make smarter choices, setting the stage for a vibrant and healthier future.
+          </p>
+          <button class="button primaryButton">More About Meterbolic</button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Info Cards Section -->
+    <section class="infoCards">
+      <div class="infoCardsContainer">
+        <div class="infoCard">
+          <div class="infoCardIcon">
+            <i class="fas fa-cogs fa-4x"></i>
+          </div>
+          <h3>How it Works</h3>
+          <p>Discover our simple process for metabolic testing and health optimization.</p>
+        </div>
+        <div class="infoCard">
+          <div class="infoCardIcon">
+            <i class="fas fa-box-open fa-4x"></i>
+          </div>
+          <h3>Products</h3>
+          <p>Explore our range of metabolic testing kits and health products.</p>
+        </div>
+        <div class="infoCard">
+          <div class="infoCardIcon">
+            <i class="fas fa-info-circle fa-4x"></i>
+          </div>
+          <h3>About Meterbolic</h3>
+          <p>Learn about our mission to revolutionize metabolic health.</p>
+        </div>
+        <div class="infoCard">
+          <div class="infoCardIcon">
+            <i class="fas fa-robot fa-4x"></i>
+          </div>
+          <h3>Metabolic AI</h3>
+          <p>See how our AI technology provides personalized health insights.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stay in Touch Section -->
+    <section class="stayInTouch">
+      <div class="stayInTouchContainer">
+        <div class="stayInTouchContent">
+          <h2 class="stayInTouchTitle">Stay in Touch</h2>
+          <p class="stayInTouchText">
+            Take your health in your own hands and subscribe now to our newsletter
+          </p>
+          <form class="stayInTouchForm">
+            <input type="text" placeholder="First Name" class="stayInTouchInput">
+            <input type="email" placeholder="Email Address" class="stayInTouchInput">
+            <button type="submit" class="stayInTouchButton">
+              Subscribe
+            </button>
+          </form>
+        </div>
+        <div class="stayInTouchImage">
+          <img src="images/stay-in-touch.png" alt="Health newsletter" width="600" height="400">
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+      <div class="sectionHeader">
+        <div class="sectionTag">METERBOLIC TEAM</div>
+        <h2>Meet Our Team</h2>
+        <p>The innovators and scientists behind Meterbolic</p>
+      </div>
+
+      <div class="teamGrid">
+        <div class="teamMember">
+          <div class="memberImage">
+            <img src="images/eric.png" alt="Dr. Eric Smith" loading="lazy">
+          </div>
+          <h3>Dr. Eric Smith</h3>
+          <p class="memberTitle">Founder</p>
+          <p class="memberBio">Innovative engineer and medical doctor who founded Meterbolic to revolutionize metabolic health diagnostics.</p>
+        </div>
+        
+        <div class="teamMember">
+          <div class="memberImage">
+            <img src="images/andy.png" alt="Andy Taylor" loading="lazy">
+          </div>
+          <h3>Andy Taylor</h3>
+          <p class="memberTitle">Clinic Lead</p>
+          <p class="memberBio">Former professional footballer turned metabolic health expert and UKSCA-accredited coach.</p>
+        </div>
+        
+        <div class="teamMember">
+          <div class="memberImage">
+            <img src="images/spencer.png" alt="Spencer Martin" loading="lazy">
+          </div>
+          <h3>Spencer Martin</h3>
+          <p class="memberTitle">Sales Manager</p>
+          <p class="memberBio">25+ years in pharmaceutical sales with expertise in diabetes therapy and coaching.</p>
+        </div>
+        
+        <div class="teamMember">
+          <div class="memberImage">
+            <img src="images/matteo.png" alt="Matteo Argiolas" loading="lazy">
+          </div>
+          <h3>Matteo Argiolas</h3>
+          <p class="memberTitle">Investment Specialist</p>
+          <p class="memberBio">Fintech expert with experience leading top 100 global financial technology companies.</p>
+        </div>
+        
+        <div class="teamMember">
+          <div class="memberImage">
+            <img src="images/tool.png" alt="Professor Gabor Erdosi" loading="lazy">
+          </div>
+          <h3>Prof. Gabor Erdosi</h3>
+          <p class="memberTitle">Chief Metabolic Scientist</p>
+          <p class="memberBio">Molecular biologist specializing in metabolic dysfunction research and sweetener science.</p>
+        </div>
+        
+        <div class="teamMember">
+          <div class="memberImage">
+            <img src="images/meterbolic_drop.jpeg" alt="Adam Measor" loading="lazy">
+          </div>
+          <h3>Adam Measor</h3>
+          <p class="memberTitle">Operations</p>
+          <p class="memberBio">Ensuring smooth execution of our metabolic health programs and services.</p>
+        </div>
+        
+        <div class="teamMember">
+          <div class="memberImage">
+            <img src="images/georgina.jpeg" alt="Georgina Bostock" loading="lazy">
+          </div>
+          <h3>Georgina Bostock</h3>
+          <p class="memberTitle">Business Development</p>
+          <p class="memberBio">Driving strategic partnerships and growth opportunities for Meterbolic.</p>
+        </div>
+        
+        <div class="teamMember">
+          <div class="memberImage">
+            <img src="images/natasha.jpg" alt="Natasha Chugani" loading="lazy">
+          </div>
+          <h3>Natasha Chugani</h3>
+          <p class="memberTitle">Marketing</p>
+          <p class="memberBio">Communicating the Meterbolic mission and value to the world.</p>
+        </div>
+      </div>
+    </section>
+
+   
+    <!-- New Footer -->
+<!-- New Footer -->
+<footer class="footer">
+  <div class="footerContainer">
+    <div class="footerMain">
+      <!-- First Column - Logo and Description -->
+      <div class="footerLogo">
+        <img src="images/original-logo.png" alt="Meterbolic Logo" width="200">
+        <p class="footerDescription">
+          Advanced metabolic testing for optimal health and longevity.
+        </p>
+        <div class="footerSocial">
+          <a href="#" aria-label="Facebook" class="socialButton facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter" class="socialButton twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram" class="socialButton instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn" class="socialButton linkedin"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Centered Columns Container -->
+      <div class="centeredColumns">
+        <!-- Second Column - Navigation -->
+        <div class="footerColumn">
+          <h3 class="footerColumnTitle">Navigation</h3>
+          <ul class="footerLinks">
+         
+            <li><a href="#features">Features</a></li>
+            <li><a href="#journey">Our Journey</a></li>
+            <li><a href="#team">Our Team</a></li>
+          </ul>
+        </div>
+
+        <!-- Third Column - Legal -->
+        <div class="footerColumn">
+          <h3 class="footerColumnTitle">Legal</h3>
+          <ul class="footerLinks">
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Cookies</a></li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Fourth Column - Registration -->
+      <div class="footerColumn registerColumn">
+        <h3 class="footerColumnTitle">Join Us</h3>
+        <p class="footerJoinText">
+          Register with us to stay updated <br>on our App launch
+        </p>
+       
+        <button class="footerRegisterBtn" id="footerRegisterBtn">
+  <i class="fas fa-user-plus registerIcon"></i>
+  Register with Us
+</button>
+      </div>
+  <button id="scrollToTop" class="scrollToTop" aria-label="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
+          </button>
+      
+    </div>
+
+    <div class="footerBottom">
+      <p class="footerCopyright">
+        &copy; <span id="currentYear"></span> Meterbolic. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+  </div>
+
+
+
+
+  <!-- JavaScript -->
+<script src="js/navbar.js"></script>
+<script src="js/banner.js"></script>
+<script src="js/footer.js"></script>
+  <script>
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Registration form handling
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+      
+      // Here you would typically send this data to your server
+      console.log('Form submitted:', data);
+      
+      // Send email notification (this would be server-side in a real implementation)
+      // For demo purposes, we'll just show an alert
+      alert('Thank you for registering! We will contact you soon.');
+      
+      // Close the modal
+      document.getElementById('registrationModal').classList.remove('show');
+      
+      // Reset form
+      this.reset();
+    });
+
+    // Scroll to top button
+    document.getElementById('scrollToTop').addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Show scroll to top button when scrolling
+    window.addEventListener('scroll', function() {
+      const scrollToTop = document.getElementById('scrollToTop');
+      if (window.pageYOffset > 300) {
+        scrollToTop.classList.add('show');
+      } else {
+        scrollToTop.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>
