@@ -1,47 +1,72 @@
-// api/server.js
 require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
-const path = require('path');
 
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../public')));
 
-// Email transporter configuration
+// Configure transporter with more robust settings
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST || 'smtp.gmail.com',
-  port: process.env.EMAIL_PORT || 587,
+  port: parseInt(process.env.EMAIL_PORT) || 587,
   secure: process.env.EMAIL_SECURE === 'true',
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASSWORD
   },
   tls: {
+    // Important for some email providers
     rejectUnauthorized: false
+  },
+  // Better timeout handling
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 10000
+});
+
+// Verify transporter on startup
+transporter.verify((error) => {
+  if (error) {
+    console.error('SMTP Connection Error:', error);
+  } else {
+    console.log('SMTP Server is ready to take our messages');
   }
 });
 
-// Newsletter subscription endpoint
+// Enhanced error handling middleware
+app.use((err, req, res, next) => {
+  console.error('Server Error:', err);
+  res.status(500).json({ success: false, error: 'Internal server error' });
+});
+
+// Newsletter endpoint with improved validation
 app.post('/api/subscribe', async (req, res) => {
   try {
     const { firstName, email } = req.body;
 
-    if (!firstName || !email) {
+    // Enhanced validation
+    if (!firstName?.trim() || !email?.trim()) {
       return res.status(400).json({ 
         success: false, 
         error: 'First name and email are required' 
       });
     }
 
-    // 1. Email to admin
-    await transporter.sendMail({
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return res.status(400).json({ 
+        success: false, 
+        error: 'Please enter a valid email address' 
+      });
+    }
+
+    // Prepare email promises
+    const adminEmail = transporter.sendMail({
       from: `"Meterbolic Website" <${process.env.EMAIL_USER}>`,
-      to: process.env.ADMIN_EMAIL || 'luigi.maretto@meterbolic.com',
+      to: process.env.ADMIN_EMAIL || process.env.EMAIL_USER,
       subject: 'New Newsletter Subscription',
       html: `
         <h2>New Subscriber</h2>
@@ -51,8 +76,7 @@ app.post('/api/subscribe', async (req, res) => {
       `
     });
 
-    // 2. Confirmation email to user
-    await transporter.sendMail({
+    const userEmail = transporter.sendMail({
       from: `"Meterbolic Team" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: 'Thanks for subscribing to our newsletter',
@@ -65,9 +89,21 @@ app.post('/api/subscribe', async (req, res) => {
       `
     });
 
-    res.status(200).json({ success: true, message: 'Subscription successful!' });
+    // Execute both emails in parallel
+    await Promise.all([adminEmail, userEmail]);
+    
+    res.status(200).json({ success: true });
   } catch (error) {
-    console.error('Email sending error:', error);
+    console.error('Subscription Error:', error);
+    
+    // Special handling for SMTP errors
+    if (error.code === 'ECONNECTION' || error.code === 'ETIMEDOUT') {
+      return res.status(502).json({ 
+        success: false, 
+        error: 'Email service temporarily unavailable. Your subscription was recorded but confirmation email may be delayed.' 
+      });
+    }
+    
     res.status(500).json({ 
       success: false, 
       error: 'Failed to process subscription. Please try again later.' 
@@ -75,22 +111,28 @@ app.post('/api/subscribe', async (req, res) => {
   }
 });
 
-// Registration endpoint
+// Registration endpoint with similar improvements
 app.post('/api/register', async (req, res) => {
   try {
     const { fullName, email, interest, consent } = req.body;
 
-    if (!fullName || !email || !interest || !consent) {
+    if (!fullName?.trim() || !email?.trim() || !interest || !consent) {
       return res.status(400).json({ 
         success: false, 
         error: 'All fields are required' 
       });
     }
 
-    // Email to admin
-    await transporter.sendMail({
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return res.status(400).json({ 
+        success: false, 
+        error: 'Please enter a valid email address' 
+      });
+    }
+
+    const adminEmail = transporter.sendMail({
       from: `"Meterbolic Website" <${process.env.EMAIL_USER}>`,
-      to: process.env.ADMIN_EMAIL || 'luigi.maretto@meterbolic.com',
+      to: process.env.ADMIN_EMAIL || process.env.EMAIL_USER,
       subject: 'New Registration for Waitlist',
       html: `
         <h2>New Waitlist Registration</h2>
@@ -101,8 +143,7 @@ app.post('/api/register', async (req, res) => {
       `
     });
 
-    // Confirmation email to user
-    await transporter.sendMail({
+    const userEmail = transporter.sendMail({
       from: `"Meterbolic Team" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: 'Thanks for joining our waitlist',
@@ -116,19 +157,24 @@ app.post('/api/register', async (req, res) => {
       `
     });
 
-    res.status(200).json({ success: true, message: 'Registration successful!' });
+    await Promise.all([adminEmail, userEmail]);
+    
+    res.status(200).json({ success: true });
   } catch (error) {
-    console.error('Registration error:', error);
+    console.error('Registration Error:', error);
+    
+    if (error.code === 'ECONNECTION' || error.code === 'ETIMEDOUT') {
+      return res.status(502).json({ 
+        success: false, 
+        error: 'Email service temporarily unavailable. Your registration was recorded but confirmation email may be delayed.' 
+      });
+    }
+    
     res.status(500).json({ 
       success: false, 
       error: 'Failed to process registration. Please try again later.' 
     });
   }
-});
-
-// Serve static files
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 module.exports = app;

@@ -527,105 +527,129 @@
   <script src="js/banner.js"></script>
   <script src="js/footer.js"></script>
   
-  <script>
-    // Set current year in footer
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
+<script>
+  // Set current year in footer
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-    // Newsletter form handling
-    document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
+  // Newsletter form handling
+  document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const formData = new FormData(form);
+    const submitButton = form.querySelector('button[type="submit"]');
+    const messageElement = document.getElementById('formMessage');
+    
+    try {
+      // Disable button during submission
+      submitButton.disabled = true;
+      submitButton.textContent = 'Subscribing...';
       
-      const form = e.target;
-      const formData = new FormData(form);
-      const submitButton = form.querySelector('button[type="submit"]');
-      const messageElement = document.getElementById('formMessage');
-      
-      try {
-        // Disable button during submission
-        submitButton.disabled = true;
-        submitButton.textContent = 'Subscribing...';
-        
-        const response = await fetch('/api/subscribe', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            firstName: formData.get('firstName'),
-            email: formData.get('email')
-          })
-        });
-        
-        const data = await response.json();
-        
-        if (data.success) {
-          messageElement.textContent = 'Thank you for subscribing!';
-          messageElement.style.color = 'green';
-          form.reset();
-        } else {
-          messageElement.textContent = data.error || 'Subscription failed. Please try again.';
-          messageElement.style.color = 'red';
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        messageElement.textContent = 'An error occurred. Please try again later.';
-        messageElement.style.color = 'red';
-      } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = 'Subscribe';
-        
-        // Hide message after 5 seconds
-        setTimeout(() => {
-          messageElement.textContent = '';
-        }, 5000);
-      }
-    });
-
-    // Registration form handling (for modal)
-    document.getElementById('registrationForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      const form = e.target;
-      const formData = new FormData(form);
-      const submitButton = form.querySelector('button[type="submit"]');
-      
-      try {
-        submitButton.disabled = true;
-        submitButton.textContent = 'Processing...';
-        
-        // Here you would typically send to your server
-        // For demo, we'll just show an alert
-        alert('Thank you for registering! We will contact you soon.');
-        
-        // Close the modal
-        document.getElementById('registrationModal').classList.remove('show');
-        form.reset();
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Registration failed. Please try again.');
-      } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = 'Submit Registration';
-      }
-    });
-
-    // Scroll to top button
-    document.getElementById('scrollToTop').addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formData.get('firstName'),
+          email: formData.get('email')
+        })
       });
-    });
-
-    // Show scroll to top button when scrolling
-    window.addEventListener('scroll', function() {
-      const scrollToTop = document.getElementById('scrollToTop');
-      if (window.pageYOffset > 300) {
-        scrollToTop.classList.add('show');
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        messageElement.textContent = data.success ? 
+          'Thank you for subscribing! Check your email for confirmation.' : 
+          data.error || 'Subscription processed but email might not have been sent.';
+        messageElement.style.color = data.success ? 'green' : 'orange';
+        if (data.success) form.reset();
       } else {
-        scrollToTop.classList.remove('show');
+        messageElement.textContent = data.error || 'Subscription failed. Please try again.';
+        messageElement.style.color = 'red';
       }
-    });
-  </script>
+    } catch (error) {
+      console.error('Error:', error);
+      messageElement.textContent = 'Network error. Please check your connection and try again.';
+      messageElement.style.color = 'red';
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Subscribe';
+      
+      setTimeout(() => {
+        messageElement.textContent = '';
+      }, 5000);
+    }
+  });
+
+  // Registration form handling
+  document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const formData = new FormData(form);
+    const submitButton = form.querySelector('button[type="submit"]');
+    const messageElement = document.createElement('div');
+    messageElement.className = 'form-message';
+    form.appendChild(messageElement);
+    
+    try {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Processing...';
+      
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fullName: formData.get('fullName'),
+          email: formData.get('email'),
+          interest: formData.get('interest'),
+          consent: formData.get('consent') === 'on'
+        })
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        messageElement.textContent = data.success ? 
+          'Thank you for registering! Check your email for confirmation.' : 
+          data.error || 'Registration processed but email might not have been sent.';
+        messageElement.style.color = data.success ? 'green' : 'orange';
+        if (data.success) {
+          document.getElementById('registrationModal').classList.remove('show');
+          form.reset();
+        }
+      } else {
+        messageElement.textContent = data.error || 'Registration failed. Please try again.';
+        messageElement.style.color = 'red';
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      messageElement.textContent = 'Network error. Please check your connection and try again.';
+      messageElement.style.color = 'red';
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Submit Registration';
+      
+      setTimeout(() => {
+        messageElement.textContent = '';
+      }, 5000);
+    }
+  });
+
+  // Scroll to top functionality
+  document.getElementById('scrollToTop').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', function() {
+    const scrollToTop = document.getElementById('scrollToTop');
+    scrollToTop.classList.toggle('show', window.pageYOffset > 300);
+  });
+</script>
+
+
 </body>
 </html>
