@@ -137,80 +137,71 @@
           Introducing the only at-home test that measures both glucose and insulin response, 
           giving you the most advanced insights into your metabolic health.
         </p>
-        <button class="button primaryButton">Learn More</button>
       </div>
     </section>
 
-<!-- Banner Section -->
-<section class="banner">
-  <div class="banner-track">
-    <div class="banner-container">
-      <div class="banner-item">
-        <img src="images/banner1.png" alt="Partner Logo" loading="lazy">
+    <!-- Banner Section -->
+    <section class="banner">
+      <div class="banner-track">
+        <div class="banner-container">
+          <div class="banner-item">
+            <img src="images/banner1.png" alt="Partner Logo" loading="lazy">
+          </div>
+          <div class="banner-item">
+            <img src="images/banner2.png" alt="Partner Logo" loading="lazy">
+          </div>
+          <div class="banner-item">
+            <img src="images/banner3.png" alt="Partner Logo" loading="lazy">
+          </div>
+          <div class="banner-item">
+            <img src="images/banner4.png" alt="Partner Logo" loading="lazy">
+          </div>
+          <div class="banner-item">
+            <img src="images/banner5.png" alt="Partner Logo" loading="lazy">
+          </div>
+          <div class="banner-item">
+            <img src="images/banner1.png" alt="Partner Logo" loading="lazy">
+          </div>
+          <div class="banner-item">
+            <img src="images/banner2.png" alt="Partner Logo" loading="lazy">
+          </div>
+          <div class="banner-item">
+            <img src="images/banner3.png" alt="Partner Logo" loading="lazy">
+          </div>
+          <div class="banner-item">
+            <img src="images/banner4.png" alt="Partner Logo" loading="lazy">
+          </div>
+          <div class="banner-item">
+            <img src="images/banner5.png" alt="Partner Logo" loading="lazy">
+          </div>
+          <div class="banner-item">
+            <img src="images/banner1.png" alt="Partner Logo" loading="lazy">
+          </div>
+          <div class="banner-item">
+            <img src="images/banner2.png" alt="Partner Logo" loading="lazy">
+          </div>
+          <div class="banner-item">
+            <img src="images/banner3.png" alt="Partner Logo" loading="lazy">
+          </div>
+          <div class="banner-item">
+            <img src="images/banner4.png" alt="Partner Logo" loading="lazy">
+          </div>
+          <div class="banner-item">
+            <img src="images/banner5.png" alt="Partner Logo" loading="lazy">
+          </div>
+        </div>
       </div>
-      <div class="banner-item">
-        <img src="images/banner2.png" alt="Partner Logo" loading="lazy">
-      </div>
-      <div class="banner-item">
-        <img src="images/banner3.png" alt="Partner Logo" loading="lazy">
-      </div>
-      <div class="banner-item">
-        <img src="images/banner4.png" alt="Partner Logo" loading="lazy">
-      </div>
-      <div class="banner-item">
-        <img src="images/banner5.png" alt="Partner Logo" loading="lazy">
-      </div>
-      <!-- Duplicate items for seamless looping -->
-      <div class="banner-item">
-        <img src="images/banner1.png" alt="Partner Logo" loading="lazy">
-      </div>
-      <div class="banner-item">
-        <img src="images/banner2.png" alt="Partner Logo" loading="lazy">
-      </div>
-      <div class="banner-item">
-        <img src="images/banner3.png" alt="Partner Logo" loading="lazy">
-      </div>
-      <div class="banner-item">
-        <img src="images/banner4.png" alt="Partner Logo" loading="lazy">
-      </div>
-      <div class="banner-item">
-        <img src="images/banner5.png" alt="Partner Logo" loading="lazy">
-      </div>
-
-      <div class="banner-item">
-        <img src="images/banner1.png" alt="Partner Logo" loading="lazy">
-      </div>
-      <div class="banner-item">
-        <img src="images/banner2.png" alt="Partner Logo" loading="lazy">
-      </div>
-      <div class="banner-item">
-        <img src="images/banner3.png" alt="Partner Logo" loading="lazy">
-      </div>
-      <div class="banner-item">
-        <img src="images/banner4.png" alt="Partner Logo" loading="lazy">
-      </div>
-      <div class="banner-item">
-        <img src="images/banner5.png" alt="Partner Logo" loading="lazy">
-      </div>
-
-
-      
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Glucose Insight Section -->
     <section class="glucoseInsight">
       <div class="glucoseContainer">
-              
-
         <div class="glucoseContent">
-            <div class="sectionTag">METABOLIC TEST</div>
+          <div class="sectionTag">METABOLIC TEST</div>
           <h2>Many people track their glucose levels, but glucose alone doesn't tell the full story.</h2>
           <p>
             Insulin resistance begins long before blood glucose levels show any signs of trouble. In fact, insulin is the first to break down—often years before glucose levels rise. This means standard glucose tests can appear normal while insulin resistance silently develops. By the time glucose levels increase, significant metabolic damage has already occurred.
           </p>
-          <button class="button primaryButton">Learn More</button>
         </div>
         <div class="glucoseImage">
           <img src="images/footprint.png" alt="Glucose monitoring chart" width="500" height="500">
@@ -320,7 +311,6 @@
             health and extend your lifespan. Access crucial insights that empower you to 
             make smarter choices, setting the stage for a vibrant and healthier future.
           </p>
-          <button class="button primaryButton">More About Meterbolic</button>
         </div>
       </div>
     </section>
@@ -367,13 +357,14 @@
           <p class="stayInTouchText">
             Take your health in your own hands and subscribe now to our newsletter
           </p>
-          <form class="stayInTouchForm">
-            <input type="text" placeholder="First Name" class="stayInTouchInput">
-            <input type="email" placeholder="Email Address" class="stayInTouchInput">
+          <form id="newsletterForm" class="stayInTouchForm">
+            <input type="text" name="firstName" placeholder="First Name" class="stayInTouchInput" required>
+            <input type="email" name="email" placeholder="Email Address" class="stayInTouchInput" required>
             <button type="submit" class="stayInTouchButton">
               Subscribe
             </button>
           </form>
+          <div id="formMessage" class="form-message"></div>
         </div>
         <div class="stayInTouchImage">
           <img src="images/stay-in-touch.png" alt="Health newsletter" width="600" height="400">
@@ -464,110 +455,158 @@
       </div>
     </section>
 
-   
-    <!-- New Footer -->
-<!-- New Footer -->
-<footer class="footer">
-  <div class="footerContainer">
-    <div class="footerMain">
-      <!-- First Column - Logo and Description -->
-      <div class="footerLogo">
-        <img src="images/original-logo.png" alt="Meterbolic Logo" width="200">
-        <p class="footerDescription">
-          Advanced metabolic testing for optimal health and longevity.
-        </p>
-        <div class="footerSocial">
-          <a href="#" aria-label="Facebook" class="socialButton facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="Twitter" class="socialButton twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="Instagram" class="socialButton instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="LinkedIn" class="socialButton linkedin"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footerContainer">
+        <div class="footerMain">
+          <!-- First Column - Logo and Description -->
+          <div class="footerLogo">
+            <img src="images/original-logo.png" alt="Meterbolic Logo" width="200">
+            <p class="footerDescription">
+              Advanced metabolic testing for optimal health and longevity.
+            </p>
+            <div class="footerSocial">
+              <a href="#" aria-label="Facebook" class="socialButton facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Twitter" class="socialButton twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Instagram" class="socialButton instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn" class="socialButton linkedin"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
 
-      <!-- Centered Columns Container -->
-      <div class="centeredColumns">
-        <!-- Second Column - Navigation -->
-        <div class="footerColumn">
-          <h3 class="footerColumnTitle">Navigation</h3>
-          <ul class="footerLinks">
-         
-            <li><a href="#features">Features</a></li>
-            <li><a href="#journey">Our Journey</a></li>
-            <li><a href="#team">Our Team</a></li>
-          </ul>
-        </div>
+          <!-- Centered Columns Container -->
+          <div class="centeredColumns">
+            <!-- Second Column - Navigation -->
+            <div class="footerColumn">
+              <h3 class="footerColumnTitle">Navigation</h3>
+              <ul class="footerLinks">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#journey">Our Journey</a></li>
+                <li><a href="#team">Our Team</a></li>
+              </ul>
+            </div>
 
-        <!-- Third Column - Legal -->
-        <div class="footerColumn">
-          <h3 class="footerColumnTitle">Legal</h3>
-          <ul class="footerLinks">
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Cookies</a></li>
+            <!-- Third Column - Legal -->
+            <div class="footerColumn">
+              <h3 class="footerColumnTitle">Legal</h3>
+              <ul class="footerLinks">
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Cookies</a></li>
+              </ul>
+            </div>
+          </div>
 
-          </ul>
-        </div>
-      </div>
-
-      <!-- Fourth Column - Registration -->
-      <div class="footerColumn registerColumn">
-        <h3 class="footerColumnTitle">Join Us</h3>
-        <p class="footerJoinText">
-          Register with us to stay updated <br>on our App launch
-        </p>
-       
-        <button class="footerRegisterBtn" id="footerRegisterBtn">
-  <i class="fas fa-user-plus registerIcon"></i>
-  Register with Us
-</button>
-      </div>
-  <button id="scrollToTop" class="scrollToTop" aria-label="Scroll to top">
+          <!-- Fourth Column - Registration -->
+          <div class="footerColumn registerColumn">
+            <h3 class="footerColumnTitle">Join Us</h3>
+            <p class="footerJoinText">
+              Register with us to stay updated <br>on our App launch
+            </p>
+           
+            <button class="footerRegisterBtn" id="footerRegisterBtn">
+              <i class="fas fa-user-plus registerIcon"></i>
+              Register with Us
+            </button>
+          </div>
+          <button id="scrollToTop" class="scrollToTop" aria-label="Scroll to top">
             <i class="fas fa-arrow-up"></i>
           </button>
-      
-    </div>
+        </div>
 
-    <div class="footerBottom">
-      <p class="footerCopyright">
-        &copy; <span id="currentYear"></span> Meterbolic. All rights reserved.
-      </p>
-    </div>
+        <div class="footerBottom">
+          <p class="footerCopyright">
+            &copy; <span id="currentYear"></span> Meterbolic. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
   </div>
-</footer>
-
-  </div>
-
-
-
 
   <!-- JavaScript -->
-<script src="js/navbar.js"></script>
-<script src="js/banner.js"></script>
-<script src="js/footer.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/banner.js"></script>
+  <script src="js/footer.js"></script>
+  
   <script>
     // Set current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-    // Registration form handling
-    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    // Newsletter form handling
+    document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       
-      // Get form data
-      const formData = new FormData(this);
-      const data = Object.fromEntries(formData.entries());
+      const form = e.target;
+      const formData = new FormData(form);
+      const submitButton = form.querySelector('button[type="submit"]');
+      const messageElement = document.getElementById('formMessage');
       
-      // Here you would typically send this data to your server
-      console.log('Form submitted:', data);
+      try {
+        // Disable button during submission
+        submitButton.disabled = true;
+        submitButton.textContent = 'Subscribing...';
+        
+        const response = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            firstName: formData.get('firstName'),
+            email: formData.get('email')
+          })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+          messageElement.textContent = 'Thank you for subscribing!';
+          messageElement.style.color = 'green';
+          form.reset();
+        } else {
+          messageElement.textContent = data.error || 'Subscription failed. Please try again.';
+          messageElement.style.color = 'red';
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        messageElement.textContent = 'An error occurred. Please try again later.';
+        messageElement.style.color = 'red';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Subscribe';
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          messageElement.textContent = '';
+        }, 5000);
+      }
+    });
+
+    // Registration form handling (for modal)
+    document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
       
-      // Send email notification (this would be server-side in a real implementation)
-      // For demo purposes, we'll just show an alert
-      alert('Thank you for registering! We will contact you soon.');
+      const form = e.target;
+      const formData = new FormData(form);
+      const submitButton = form.querySelector('button[type="submit"]');
       
-      // Close the modal
-      document.getElementById('registrationModal').classList.remove('show');
-      
-      // Reset form
-      this.reset();
+      try {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Processing...';
+        
+        // Here you would typically send to your server
+        // For demo, we'll just show an alert
+        alert('Thank you for registering! We will contact you soon.');
+        
+        // Close the modal
+        document.getElementById('registrationModal').classList.remove('show');
+        form.reset();
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Registration failed. Please try again.');
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Submit Registration';
+      }
     });
 
     // Scroll to top button

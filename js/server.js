@@ -1,62 +1,77 @@
+// js/server.js
+require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '../public')));
 
-// Email configuration
+// Email configuration using environment variables
 const transporter = nodemailer.createTransport({
-  service: 'gmail', // or your email service
+  service: process.env.EMAIL_SERVICE || 'gmail',
   auth: {
-    user: 'your-email@gmail.com',
-    pass: 'your-email-password'
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD
   }
 });
 
-app.post('/send-email', async (req, res) => {
+// Form submission endpoint
+app.post('/api/subscribe', async (req, res) => {
   try {
-    const { toCompany, toUser, subject, userData } = req.body;
+    const { firstName, email } = req.body;
 
-    // Email to company
+    if (!firstName || !email) {
+      return res.status(400).json({ 
+        success: false, 
+        error: 'First name and email are required' 
+      });
+    }
+
+    // 1. Email to admin
     await transporter.sendMail({
-      from: '"Meterbolic Website" <noreply@meterbolic.com>',
-      to: toCompany,
-      subject: subject,
+      from: `"Meterbolic Website" <${process.env.EMAIL_USER}>`,
+      to: 'luigi.marets@gmail.com',
+      subject: 'New Newsletter Subscription',
       html: `
-        <h2>New Registration</h2>
-        <p><strong>Name:</strong> ${userData.fullName}</p>
-        <p><strong>Email:</strong> ${userData.email}</p>
-        <p><strong>Interest:</strong> ${userData.interest}</p>
-        <p><strong>Message:</strong> ${userData.message || 'N/A'}</p>
+        <h2>New Subscriber</h2>
+        <p><strong>Name:</strong> ${firstName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
       `
     });
 
-    // Confirmation email to user
+    // 2. Confirmation email to user
     await transporter.sendMail({
-      from: '"Meterbolic Team" <info@meterbolic.com>',
-      to: toUser,
-      subject: 'Thank you for registering with Meterbolic',
+      from: `"Meterbolic Team" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: 'Thanks for subscribing to our newsletter',
       html: `
-        <h2>Thank you for your interest!</h2>
-        <p>Dear ${userData.fullName},</p>
-        <p>We've received your registration and will contact you soon with more information about our services.</p>
-        <p>Here's what you told us:</p>
-        <ul>
-          <li><strong>Interest:</strong> ${userData.interest}</li>
-          ${userData.message ? `<li><strong>Your message:</strong> ${userData.message}</li>` : ''}
-        </ul>
+        <h2>Thank you for subscribing, ${firstName}!</h2>
+        <p>You've been successfully added to our newsletter list.</p>
+        <p>We'll keep you updated with the latest news about metabolic health and our services.</p>
+        <p>If you have any questions, please reply to this email.</p>
         <p>Best regards,<br>The Meterbolic Team</p>
       `
     });
 
-    res.status(200).json({ success: true });
+    res.status(200).json({ success: true, message: 'Subscription successful!' });
   } catch (error) {
     console.error('Email sending error:', error);
-    res.status(500).json({ success: false, error: 'Failed to send email' });
+    res.status(500).json({ 
+      success: false, 
+      error: 'Failed to process subscription. Please try again later.' 
+    });
   }
+});
+
+// Serve HTML file for all other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 const PORT = process.env.PORT || 3001;
