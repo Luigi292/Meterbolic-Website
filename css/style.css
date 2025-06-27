@@ -1039,8 +1039,16 @@ section {
     grid-template-columns: 1fr;
   }
   
+  .banner {
+    height: 80px; /* Slightly smaller on tablets */
+  }
+  
   .banner-item {
-    flex: 1 0 calc(50% - 2rem);
+    height: 70px;
+  }
+  
+  .banner-container {
+    gap: 3rem;
   }
   
   .teamGrid {
@@ -1075,16 +1083,22 @@ section {
     padding: 4rem;
   }
   
-  .banner-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
+  .banner {
+    height: 80px;
+    padding: 2rem 0;
   }
   
   .banner-item {
-    flex: 1 0 calc(50% - 2rem);
-    min-width: 120px;
-    height: 60px;
+    height: 40px;
+  }
+  
+  .banner-container {
+    gap: 2rem;
+    animation-duration: 20s; /* Faster animation on mobile */
+  }
+  
+  .banner-item img {
+    max-width: 120px;
   }
   
   .glucoseContainer {
@@ -1146,9 +1160,20 @@ section {
     grid-template-columns: 1fr;
   }
   
+  .banner {
+    height: 60px;
+  }
+  
   .banner-item {
-    flex: 1 0 calc(50% - 1rem);
-    height: 50px;
+    height: 40px;
+  }
+  
+  .banner-container {
+    gap: 1.5rem;
+  }
+  
+  .banner-item img {
+    max-width: 100px;
   }
   
   .featuresContainer,
