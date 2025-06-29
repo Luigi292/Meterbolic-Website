@@ -464,7 +464,7 @@ section {
 }
 
 /* ================ FEATURES SECTION ================ */
-/* ================ FEATURES SECTION ================ */
+
 .features {
   width: 100%;
   padding: var(--section-padding);
@@ -1100,6 +1100,7 @@ section {
   .banner-item img {
     max-width: 120px;
   }
+
   
   .glucoseContainer {
     flex-direction: column;
@@ -1127,6 +1128,28 @@ section {
   .testimonialsGrid {
     grid-template-columns: 1fr;
   }
+
+
+  .featuresContainer {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .featuresImage {
+    margin-left: 5%;
+    order: -1;
+    width: 100%;
+    height: auto;
+  }
+  .featuresImage img {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  .featuresContent {
+    padding: 0;
+  }
+
   
   .healthLongevityImage img {
     max-width: 300px;
