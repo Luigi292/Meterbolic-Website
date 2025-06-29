@@ -69,63 +69,83 @@
       </div>
     </nav>
 
+
+
     <!-- Registration Modal -->
-    <div class="modalOverlay" id="registrationModal">
-      <div class="modalContent">
-        <button class="modalCloseButton" id="modalCloseButton" aria-label="Close registration form">
-          <i class="fas fa-times"></i>
-        </button>
+
+
+      <!-- Fixed Registration Modal Form -->
+  <div class="modalOverlay" id="registrationModal">
+    <div class="modalContent">
+      <button class="modalCloseButton" id="modalCloseButton" aria-label="Close registration form">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <div class="modalHeader">
+        <h2>Join Our Waitlist</h2>
+        <p>Be the first to know when we launch our platform</p>
+      </div>
+      
+      <form id="registrationForm" class="registrationForm" 
+            action="https://formsubmit.co/luigi.maretto@meterbolic.com" 
+            method="POST">
+        <!-- FormSubmit Configuration -->
+        <input type="hidden" name="_subject" value="New Waitlist Registration - Meterbolic">
+        <input type="hidden" name="_next" value="https://meterbolic.vercel.app///thank-you.html">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_autoresponse" value="Thank you for joining Meterbolic's waitlist! We'll notify you when we launch.">
+        <input type="hidden" name="_cc" value="luigi.maretto@meterbolic.com">
         
-        <div class="modalHeader">
-          <h2>Join Our Waitlist</h2>
-          <p>Be the first to know when we launch our platform</p>
+        <!-- Form Fields -->
+        <div class="formGroup">
+          <label for="fullName">Full Name</label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            required
+            placeholder="Your full name"
+          />
         </div>
         
-        <form id="registrationForm" class="registrationForm">
-          <div class="formGroup">
-            <label for="fullName">Full Name</label>
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              required
-              placeholder="Your full name"
-            />
-          </div>
-          
-          <div class="formGroup">
-            <label for="email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              placeholder="your@email.com"
-            />
-          </div>
-          
-          <div class="formGroup">
-            <label for="interest">What interests you about Meterbolic?</label>
-            <select id="interest" name="interest" required>
-              <option value="" disabled selected>Select an option</option>
-              <option value="metabolic-testing">Metabolic Testing</option>
-              <option value="health-optimization">Health Optimization</option>
-              <option value="longevity">Longevity</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          
-          <div class="formGroup checkboxGroup">
-            <input type="checkbox" id="consent" name="consent" required>
-            <label for="consent">I agree to receive emails from Meterbolic</label>
-          </div>
-          
-          <button type="submit" class="submitButton">
-            Submit Registration
-          </button>
-        </form>
-      </div>
+        <div class="formGroup">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="your@email.com"
+          />
+        </div>
+        
+        <div class="formGroup">
+          <label for="interest">What interests you about Meterbolic?</label>
+          <select id="interest" name="interest" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="Metabolic Testing">Metabolic Testing</option>
+            <option value="Health Optimization">Health Optimization</option>
+            <option value="Longevity">Longevity</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        
+        <div class="formGroup checkboxGroup">
+          <input type="checkbox" id="consent" name="consent" required>
+          <label for="consent">I agree to receive emails from Meterbolic</label>
+        </div>
+        
+        <button type="submit" class="submitButton" id="waitlistSubmitBtn">
+          Submit Registration
+        </button>
+      </form>
     </div>
+  </div>
+
+
+
+
+ 
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -350,6 +370,7 @@
     </section>
 
     <!-- Stay in Touch Section -->
+
     <section class="stayInTouch">
       <div class="stayInTouchContainer">
         <div class="stayInTouchContent">
@@ -357,7 +378,16 @@
           <p class="stayInTouchText">
             Take your health in your own hands and subscribe now to our newsletter
           </p>
-          <form id="newsletterForm" class="stayInTouchForm">
+          <form id="newsletterForm" class="stayInTouchForm" 
+                action="https://formsubmit.co/luigi.maretto@meterbolic.com" 
+                method="POST">
+            <!-- FormSubmit hidden fields -->
+            <input type="hidden" name="_subject" value="New Newsletter Subscription">
+            <input type="hidden" name="_next" value="https://meterbolic.vercel.app///thank-you.html">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_autoresponse" value="Thank you for subscribing to Meterbolic! You'll now receive our latest updates on metabolic health.">
+            <input type="hidden" name="_cc" value="luigi.maretto@meterbolic.com">
+            
             <input type="text" name="firstName" placeholder="First Name" class="stayInTouchInput" required>
             <input type="email" name="email" placeholder="Email Address" class="stayInTouchInput" required>
             <button type="submit" class="stayInTouchButton">
@@ -371,6 +401,8 @@
         </div>
       </div>
     </section>
+
+
 
     <!-- Team Section -->
     <section class="team" id="team">
@@ -522,134 +554,72 @@
     </footer>
   </div>
 
+  
+
   <!-- JavaScript -->
   <script src="js/navbar.js"></script>
   <script src="js/banner.js"></script>
   <script src="js/footer.js"></script>
   
-<script>
-  // Set current year in footer
-  document.getElementById('currentYear').textContent = new Date().getFullYear();
+  
 
-  // Newsletter form handling
-  document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const form = e.target;
-    const formData = new FormData(form);
-    const submitButton = form.querySelector('button[type="submit"]');
-    const messageElement = document.getElementById('formMessage');
-    
-    try {
-      // Disable button during submission
-      submitButton.disabled = true;
-      submitButton.textContent = 'Subscribing...';
-      
-      const response = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          firstName: formData.get('firstName'),
-          email: formData.get('email')
-        })
-      });
-      
-      const data = await response.json();
-      
-      if (response.ok) {
-        messageElement.textContent = data.success ? 
-          'Thank you for subscribing! Check your email for confirmation.' : 
-          data.error || 'Subscription processed but email might not have been sent.';
-        messageElement.style.color = data.success ? 'green' : 'orange';
-        if (data.success) form.reset();
-      } else {
-        messageElement.textContent = data.error || 'Subscription failed. Please try again.';
-        messageElement.style.color = 'red';
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      messageElement.textContent = 'Network error. Please check your connection and try again.';
-      messageElement.style.color = 'red';
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = 'Subscribe';
-      
-      setTimeout(() => {
-        messageElement.textContent = '';
-      }, 5000);
-    }
-  });
+  <script>
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-  // Registration form handling
-  document.getElementById('registrationForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const form = e.target;
-    const formData = new FormData(form);
-    const submitButton = form.querySelector('button[type="submit"]');
-    const messageElement = document.createElement('div');
-    messageElement.className = 'form-message';
-    form.appendChild(messageElement);
-    
-    try {
+    // Waitlist Form Handling
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const submitButton = document.getElementById('waitlistSubmitBtn');
+      const originalButtonText = submitButton.innerHTML;
+      
+      // Show processing state
       submitButton.disabled = true;
-      submitButton.textContent = 'Processing...';
+      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
       
-      const response = await fetch('/api/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          fullName: formData.get('fullName'),
-          email: formData.get('email'),
-          interest: formData.get('interest'),
-          consent: formData.get('consent') === 'on'
-        })
-      });
+      // Create temporary form for submission
+      const tempForm = document.createElement('form');
+      tempForm.style.display = 'none';
+      tempForm.method = 'POST';
+      tempForm.action = form.action;
       
-      const data = await response.json();
-      
-      if (response.ok) {
-        messageElement.textContent = data.success ? 
-          'Thank you for registering! Check your email for confirmation.' : 
-          data.error || 'Registration processed but email might not have been sent.';
-        messageElement.style.color = data.success ? 'green' : 'orange';
-        if (data.success) {
-          document.getElementById('registrationModal').classList.remove('show');
-          form.reset();
+      // Copy all inputs to temporary form
+      Array.from(form.elements).forEach(element => {
+        if (element.name) {
+          const newElement = element.cloneNode(true);
+          tempForm.appendChild(newElement);
         }
-      } else {
-        messageElement.textContent = data.error || 'Registration failed. Please try again.';
-        messageElement.style.color = 'red';
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      messageElement.textContent = 'Network error. Please check your connection and try again.';
-      messageElement.style.color = 'red';
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = 'Submit Registration';
+      });
       
+      document.body.appendChild(tempForm);
+      
+      // Submit the temporary form
+      tempForm.submit();
+      
+      // Redirect to thank-you page after a short delay
       setTimeout(() => {
-        messageElement.textContent = '';
-      }, 5000);
-    }
-  });
+        window.location.href = form.querySelector('[name="_next"]').value;
+      }, 1000);
+      
+      // Reset original form
+      setTimeout(() => {
+        form.reset();
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonText;
+      }, 1500);
+    });
 
-  // Scroll to top functionality
-  document.getElementById('scrollToTop').addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+    // Scroll to top functionality
+    document.getElementById('scrollToTop').addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-  window.addEventListener('scroll', function() {
-    const scrollToTop = document.getElementById('scrollToTop');
-    scrollToTop.classList.toggle('show', window.pageYOffset > 300);
-  });
-</script>
-
-
+    window.addEventListener('scroll', function() {
+      const scrollToTop = document.getElementById('scrollToTop');
+      scrollToTop.classList.toggle('show', window.pageYOffset > 300);
+    });
+  </script>
 </body>
 </html>
