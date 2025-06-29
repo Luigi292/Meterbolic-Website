@@ -74,77 +74,73 @@
     <!-- Registration Modal -->
 
 
-      <!-- Fixed Registration Modal Form -->
-  <div class="modalOverlay" id="registrationModal">
-    <div class="modalContent">
-      <button class="modalCloseButton" id="modalCloseButton" aria-label="Close registration form">
-        <i class="fas fa-times"></i>
-      </button>
-      
-      <div class="modalHeader">
-        <h2>Join Our Waitlist</h2>
-        <p>Be the first to know when we launch our platform</p>
-      </div>
-      
-      <form id="registrationForm" class="registrationForm" 
-            action="https://formsubmit.co/luigi.maretto@meterbolic.com" 
-            method="POST">
-        <!-- FormSubmit Configuration -->
-        <input type="hidden" name="_subject" value="New Waitlist Registration - Meterbolic">
-        <input type="hidden" name="_next" value="https://meterbolic.vercel.app///thank-you.html">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_autoresponse" value="Thank you for joining Meterbolic's waitlist! We'll notify you when we launch.">
-        <input type="hidden" name="_cc" value="luigi.maretto@meterbolic.com">
-        
-        <!-- Form Fields -->
-        <div class="formGroup">
-          <label for="fullName">Full Name</label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            required
-            placeholder="Your full name"
-          />
-        </div>
-        
-        <div class="formGroup">
-          <label for="email">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="your@email.com"
-          />
-        </div>
-        
-        <div class="formGroup">
-          <label for="interest">What interests you about Meterbolic?</label>
-          <select id="interest" name="interest" required>
-            <option value="" disabled selected>Select an option</option>
-            <option value="Metabolic Testing">Metabolic Testing</option>
-            <option value="Health Optimization">Health Optimization</option>
-            <option value="Longevity">Longevity</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        
-        <div class="formGroup checkboxGroup">
-          <input type="checkbox" id="consent" name="consent" required>
-          <label for="consent">I agree to receive emails from Meterbolic</label>
-        </div>
-        
-        <button type="submit" class="submitButton" id="waitlistSubmitBtn">
-          Submit Registration
+          <!-- Fixed Registration Modal Form -->
+    <div class="modalOverlay" id="registrationModal">
+      <div class="modalContent">
+        <button class="modalCloseButton" id="modalCloseButton" aria-label="Close registration form">
+          <i class="fas fa-times"></i>
         </button>
-      </form>
+        
+        <div class="modalHeader">
+          <h2>Join Our Waitlist</h2>
+          <p>Be the first to know when we launch our platform</p>
+        </div>
+        
+        <form id="registrationForm" class="registrationForm" 
+              action="https://formsubmit.co/luigi.maretto@meterbolic.com" 
+              method="POST">
+          <!-- FormSubmit Configuration -->
+          <input type="hidden" name="_subject" value="New Waitlist Registration - Meterbolic">
+          <input type="hidden" name="_next" value="http://127.0.0.1:5500/thank-you.html">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_autoresponse" value="Thank you for joining Meterbolic's waitlist! We'll notify you when we launch.">
+          <input type="hidden" name="_cc" value="luigi.maretto@meterbolic.com">
+          
+          <!-- Form Fields -->
+          <div class="formGroup">
+            <label for="fullName">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              required
+              placeholder="Your full name"
+            />
+          </div>
+          
+          <div class="formGroup">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="your@email.com"
+            />
+          </div>
+          
+          <div class="formGroup">
+            <label for="interest">What interests you about Meterbolic?</label>
+            <select id="interest" name="interest" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="Metabolic Testing">Metabolic Testing</option>
+              <option value="Health Optimization">Health Optimization</option>
+              <option value="Longevity">Longevity</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          
+          <div class="formGroup checkboxGroup">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">I agree to receive emails from Meterbolic</label>
+          </div>
+          
+          <button type="submit" class="submitButton" id="waitlistSubmitBtn">
+            Submit Registration
+          </button>
+        </form>
+      </div>
     </div>
-  </div>
-
-
-
-
  
 
     <!-- Hero Section -->
@@ -371,6 +367,7 @@
 
     <!-- Stay in Touch Section -->
 
+    <!-- Stay in Touch Section with Fixes -->
     <section class="stayInTouch">
       <div class="stayInTouchContainer">
         <div class="stayInTouchContent">
@@ -383,14 +380,14 @@
                 method="POST">
             <!-- FormSubmit hidden fields -->
             <input type="hidden" name="_subject" value="New Newsletter Subscription">
-            <input type="hidden" name="_next" value="https://meterbolic.vercel.app///thank-you.html">
+            <input type="hidden" name="_next" value="http://127.0.0.1:5500/thank-you.html">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_autoresponse" value="Thank you for subscribing to Meterbolic! You'll now receive our latest updates on metabolic health.">
             <input type="hidden" name="_cc" value="luigi.maretto@meterbolic.com">
             
             <input type="text" name="firstName" placeholder="First Name" class="stayInTouchInput" required>
             <input type="email" name="email" placeholder="Email Address" class="stayInTouchInput" required>
-            <button type="submit" class="stayInTouchButton">
+            <button type="submit" class="stayInTouchButton" id="newsletterSubmitBtn">
               Subscribe
             </button>
           </form>
@@ -401,6 +398,8 @@
         </div>
       </div>
     </section>
+
+
 
 
 
@@ -556,60 +555,95 @@
 
   
 
-  <!-- JavaScript -->
+ <!-- JavaScript -->
   <script src="js/navbar.js"></script>
   <script src="js/banner.js"></script>
   <script src="js/footer.js"></script>
   
-  
-
   <script>
     // Set current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-    // Waitlist Form Handling
-    document.getElementById('registrationForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+    // Form Submission Handler for Both Forms
+    function setupForm(formId, buttonId) {
+      const form = document.getElementById(formId);
+      const submitButton = document.getElementById(buttonId);
+      const messageElement = formId === 'newsletterForm' ? 
+        document.getElementById('formMessage') : 
+        document.createElement('div');
       
-      const form = e.target;
-      const submitButton = document.getElementById('waitlistSubmitBtn');
-      const originalButtonText = submitButton.innerHTML;
-      
-      // Show processing state
-      submitButton.disabled = true;
-      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-      
-      // Create temporary form for submission
-      const tempForm = document.createElement('form');
-      tempForm.style.display = 'none';
-      tempForm.method = 'POST';
-      tempForm.action = form.action;
-      
-      // Copy all inputs to temporary form
-      Array.from(form.elements).forEach(element => {
-        if (element.name) {
-          const newElement = element.cloneNode(true);
-          tempForm.appendChild(newElement);
+      if (formId === 'registrationForm') {
+        messageElement.className = 'form-message';
+        form.appendChild(messageElement);
+      }
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Show processing state
+        const originalText = submitButton.innerHTML;
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+        
+        if (messageElement) {
+          messageElement.textContent = 'Processing your submission...';
+          messageElement.style.color = '#2a5885';
+        }
+        
+        try {
+          // Create form data
+          const formData = new FormData(form);
+          
+          // Submit to FormSubmit
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            // Show success message
+            if (messageElement) {
+              messageElement.textContent = 'Submission successful! Redirecting...';
+              messageElement.style.color = 'green';
+            }
+            
+            // Redirect to thank-you page after a short delay
+            setTimeout(() => {
+              window.location.href = 'http://127.0.0.1:5500/thank-you.html';
+            }, 1500);
+          } else {
+            if (messageElement) {
+              messageElement.textContent = 'Submission failed. Please try again.';
+              messageElement.style.color = 'red';
+            }
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          if (messageElement) {
+            messageElement.textContent = 'An error occurred. Please try again.';
+            messageElement.style.color = 'red';
+          }
+        } finally {
+          // Reset button state
+          setTimeout(() => {
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalText;
+          }, 2000);
         }
       });
-      
-      document.body.appendChild(tempForm);
-      
-      // Submit the temporary form
-      tempForm.submit();
-      
-      // Redirect to thank-you page after a short delay
-      setTimeout(() => {
-        window.location.href = form.querySelector('[name="_next"]').value;
-      }, 1000);
-      
-      // Reset original form
-      setTimeout(() => {
-        form.reset();
-        submitButton.disabled = false;
-        submitButton.innerHTML = originalButtonText;
-      }, 1500);
-    });
+    }
+
+    // Initialize both forms
+    if (document.getElementById('registrationForm')) {
+      setupForm('registrationForm', 'waitlistSubmitBtn');
+    }
+    
+    if (document.getElementById('newsletterForm')) {
+      setupForm('newsletterForm', 'newsletterSubmitBtn');
+    }
 
     // Scroll to top functionality
     document.getElementById('scrollToTop').addEventListener('click', function() {
@@ -618,7 +652,34 @@
 
     window.addEventListener('scroll', function() {
       const scrollToTop = document.getElementById('scrollToTop');
-      scrollToTop.classList.toggle('show', window.pageYOffset > 300);
+      if (scrollToTop) {
+        scrollToTop.classList.toggle('show', window.pageYOffset > 300);
+      }
+    });
+
+    // Modal functionality
+    document.getElementById('registerBtn').addEventListener('click', function() {
+      document.getElementById('registrationModal').classList.add('show');
+    });
+
+    document.getElementById('modalCloseButton').addEventListener('click', function() {
+      document.getElementById('registrationModal').classList.remove('show');
+    });
+
+    document.getElementById('mobileRegisterBtn').addEventListener('click', function() {
+      document.getElementById('mobileMenuOverlay').classList.remove('show');
+      document.getElementById('registrationModal').classList.add('show');
+    });
+
+    document.getElementById('footerRegisterBtn').addEventListener('click', function() {
+      document.getElementById('registrationModal').classList.add('show');
+    });
+
+    // Close modal when clicking outside
+    document.getElementById('registrationModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.classList.remove('show');
+      }
     });
   </script>
 </body>
