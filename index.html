@@ -87,50 +87,53 @@
         </div>
         
 <!-- Registration Modal Form -->
-<!-- Registration Modal Form -->
-<form id="registrationForm" class="registrationForm" 
-      action="https://formspree.io/f/mjkrlkdp" 
-      method="POST">
-  <input type="hidden" name="_subject" value="New Waitlist Registration - Meterbolic">
-  <input type="hidden" name="_next" value="https://meterbolic-website.vercel.app/thank-you.html">
-  <input type="hidden" name="_replyto" value="_auto">
-  <input type="hidden" name="_cc" value="luigi.maretto@meterbolic.com">
-  
-  <!-- Form Fields -->
-  <div class="formGroup">
-    <label for="fullName">Full Name</label>
-    <input type="text" id="fullName" name="fullName" required placeholder="Your full name">
-    <div class="error-message" id="fullNameError"></div>
-  </div>
-  
-  <div class="formGroup">
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" required placeholder="your@email.com">
-    <div class="error-message" id="emailError"></div>
-  </div>
-  
-  <div class="formGroup">
-    <label for="interest">What interests you about Meterbolic?</label>
-    <select id="interest" name="interest" required>
-      <option value="" disabled selected>Select an option</option>
-      <option value="Metabolic Testing">Metabolic Testing</option>
-      <option value="Health Optimization">Health Optimization</option>
-      <option value="Longevity">Longevity</option>
-      <option value="Other">Other</option>
-    </select>
-    <div class="error-message" id="interestError"></div>
-  </div>
-  
-  <div class="formGroup checkboxGroup">
-    <input type="checkbox" id="consent" name="consent" required>
-    <label for="consent">I agree to receive emails from Meterbolic</label>
-    <div class="error-message" id="consentError"></div>
-  </div>
-  
-  <button type="submit" class="submitButton" id="waitlistSubmitBtn">
-    Submit Registration
-  </button>
-</form>
+    <form id="registrationForm" class="registrationForm" 
+          action="send-email.php" 
+          method="POST">
+      <input type="hidden" name="_subject" value="New Waitlist Registration - Meterbolic">
+      <input type="hidden" name="_next" value="https://meterbolic-website.vercel.app/thank-you.html">
+      <input type="hidden" name="_replyto" value="_auto">
+      <input type="hidden" name="teamEmail" value="luigi.maretto@meterbolic.com">
+      
+      <!-- Form Fields -->
+      <div class="formGroup">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required placeholder="Your full name">
+        <div class="error-message" id="fullNameError"></div>
+      </div>
+      
+      <div class="formGroup">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="your@email.com">
+        <div class="error-message" id="emailError"></div>
+      </div>
+      
+      <div class="formGroup">
+        <label for="interest">What interests you about Meterbolic?</label>
+        <select id="interest" name="interest" required>
+          <option value="" disabled selected>Select an option</option>
+          <option value="Metabolic Testing">Metabolic Testing</option>
+          <option value="Health Optimization">Health Optimization</option>
+          <option value="Longevity">Longevity</option>
+          <option value="Other">Other</option>
+        </select>
+        <div class="error-message" id="interestError"></div>
+      </div>
+      
+      <div class="formGroup checkboxGroup">
+        <input type="checkbox" id="consent" name="consent" required>
+        <label for="consent">I agree to receive emails from Meterbolic</label>
+        <div class="error-message" id="consentError"></div>
+      </div>
+      
+      <button type="submit" class="submitButton" id="waitlistSubmitBtn">
+        Submit Registration
+      </button>
+    </form>
+
+
+
+    
       </div>
     </div>
  
@@ -367,25 +370,30 @@
           <p class="stayInTouchText">
             Take your health in your own hands and subscribe now to our newsletter
           </p>
+
+
 <!-- Newsletter Form -->
-<form id="newsletterForm" class="stayInTouchForm" 
-      action="https://formspree.io/f/mjkrlkdp" 
-      method="POST">
-  <input type="hidden" name="_subject" value="New Newsletter Subscription">
-  <input type="hidden" name="_next" value="https://meterbolic-website.vercel.app/thank-you.html">
-  <input type="hidden" name="_replyto" value="_auto">
-  <input type="hidden" name="_cc" value="luigi.maretto@meterbolic.com">
-  
-  <input type="text" name="firstName" placeholder="First Name" class="stayInTouchInput" required>
-  <div class="error-message" id="firstNameError"></div>
-  
-  <input type="email" name="email" placeholder="Email Address" class="stayInTouchInput" required>
-  <div class="error-message" id="newsletterEmailError"></div>
-  
-  <button type="submit" class="stayInTouchButton" id="newsletterSubmitBtn">
-    Subscribe
-  </button>
-</form>
+    <form id="newsletterForm" class="stayInTouchForm" 
+          action="send-email.php" 
+          method="POST">
+      <input type="hidden" name="_subject" value="New Newsletter Subscription">
+      <input type="hidden" name="_next" value="https://meterbolic-website.vercel.app/thank-you.html">
+      <input type="hidden" name="_replyto" value="_auto">
+      <input type="hidden" name="teamEmail" value="luigi.maretto@meterbolic.com">
+      
+      <input type="text" name="firstName" placeholder="First Name" class="stayInTouchInput" required>
+      <div class="error-message" id="firstNameError"></div>
+      
+      <input type="email" name="email" placeholder="Email Address" class="stayInTouchInput" required>
+      <div class="error-message" id="newsletterEmailError"></div>
+      
+      <button type="submit" class="stayInTouchButton" id="newsletterSubmitBtn">
+        Subscribe
+      </button>
+    </form>
+
+
+
           <div id="newsletterMessage" class="form-message"></div>
         </div>
         <div class="stayInTouchImage">
@@ -558,7 +566,8 @@
   <script src="js/footer.js"></script>
   
  
-<script>
+  <!-- Updated JavaScript -->
+  <script>
     // Set current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
@@ -613,7 +622,9 @@
       const form = document.getElementById(formId);
       const submitButton = form.querySelector('button[type="submit"]');
       
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
         // Validate form
         let isValid = true;
         
@@ -628,13 +639,41 @@
         }
         
         if (!isValid) {
-          e.preventDefault();
           return;
         }
         
         // Show loading state
         submitButton.disabled = true;
         submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        
+        try {
+          const formData = new FormData(form);
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData
+          });
+          
+          const result = await response.json();
+          
+          if (result.status === 'success') {
+            // Show success message
+            alert('Thank you for your submission! We will contact you soon.');
+            
+            // Redirect if _next is specified
+            const nextUrl = form.querySelector('input[name="_next"]').value;
+            if (nextUrl) {
+              window.location.href = nextUrl;
+            }
+          } else {
+            alert('There was an error submitting your form. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('There was an error submitting your form. Please try again.');
+        } finally {
+          submitButton.disabled = false;
+          submitButton.innerHTML = formId === 'registrationForm' ? 'Submit Registration' : 'Subscribe';
+        }
       });
     }
 
