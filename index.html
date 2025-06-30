@@ -86,56 +86,51 @@
           <p>Be the first to know when we launch our platform</p>
         </div>
         
-        <form id="registrationForm" class="registrationForm">
-          <!-- Form Fields -->
-          <div class="formGroup">
-            <label for="fullName">Full Name</label>
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              required
-              placeholder="Your full name"
-            />
-            <div class="error-message" id="fullNameError"></div>
-          </div>
-          
-          <div class="formGroup">
-            <label for="email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              placeholder="your@email.com"
-            />
-            <div class="error-message" id="emailError"></div>
-          </div>
-          
-          <div class="formGroup">
-            <label for="interest">What interests you about Meterbolic?</label>
-            <select id="interest" name="interest" required>
-              <option value="" disabled selected>Select an option</option>
-              <option value="Metabolic Testing">Metabolic Testing</option>
-              <option value="Health Optimization">Health Optimization</option>
-              <option value="Longevity">Longevity</option>
-              <option value="Other">Other</option>
-            </select>
-            <div class="error-message" id="interestError"></div>
-          </div>
-          
-          <div class="formGroup checkboxGroup">
-            <input type="checkbox" id="consent" name="consent" required>
-            <label for="consent">I agree to receive emails from Meterbolic</label>
-            <div class="error-message" id="consentError"></div>
-          </div>
-          
-          <button type="submit" class="submitButton" id="waitlistSubmitBtn">
-            Submit Registration
-          </button>
-          
-          <div id="waitlistMessage" class="form-message"></div>
-        </form>
+<!-- Registration Modal Form -->
+<!-- Registration Modal Form -->
+<form id="registrationForm" class="registrationForm" 
+      action="https://formspree.io/f/mjkrlkdp" 
+      method="POST">
+  <input type="hidden" name="_subject" value="New Waitlist Registration - Meterbolic">
+  <input type="hidden" name="_next" value="https://meterbolic-website.vercel.app/thank-you.html">
+  <input type="hidden" name="_replyto" value="_auto">
+  <input type="hidden" name="_cc" value="luigi.maretto@meterbolic.com">
+  
+  <!-- Form Fields -->
+  <div class="formGroup">
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" name="fullName" required placeholder="Your full name">
+    <div class="error-message" id="fullNameError"></div>
+  </div>
+  
+  <div class="formGroup">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required placeholder="your@email.com">
+    <div class="error-message" id="emailError"></div>
+  </div>
+  
+  <div class="formGroup">
+    <label for="interest">What interests you about Meterbolic?</label>
+    <select id="interest" name="interest" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="Metabolic Testing">Metabolic Testing</option>
+      <option value="Health Optimization">Health Optimization</option>
+      <option value="Longevity">Longevity</option>
+      <option value="Other">Other</option>
+    </select>
+    <div class="error-message" id="interestError"></div>
+  </div>
+  
+  <div class="formGroup checkboxGroup">
+    <input type="checkbox" id="consent" name="consent" required>
+    <label for="consent">I agree to receive emails from Meterbolic</label>
+    <div class="error-message" id="consentError"></div>
+  </div>
+  
+  <button type="submit" class="submitButton" id="waitlistSubmitBtn">
+    Submit Registration
+  </button>
+</form>
       </div>
     </div>
  
@@ -372,17 +367,25 @@
           <p class="stayInTouchText">
             Take your health in your own hands and subscribe now to our newsletter
           </p>
-          <form id="newsletterForm" class="stayInTouchForm">
-            <input type="text" name="firstName" placeholder="First Name" class="stayInTouchInput" required>
-            <div class="error-message" id="firstNameError"></div>
-            
-            <input type="email" name="email" placeholder="Email Address" class="stayInTouchInput" required>
-            <div class="error-message" id="newsletterEmailError"></div>
-            
-            <button type="submit" class="stayInTouchButton" id="newsletterSubmitBtn">
-              Subscribe
-            </button>
-          </form>
+<!-- Newsletter Form -->
+<form id="newsletterForm" class="stayInTouchForm" 
+      action="https://formspree.io/f/mjkrlkdp" 
+      method="POST">
+  <input type="hidden" name="_subject" value="New Newsletter Subscription">
+  <input type="hidden" name="_next" value="https://meterbolic-website.vercel.app/thank-you.html">
+  <input type="hidden" name="_replyto" value="_auto">
+  <input type="hidden" name="_cc" value="luigi.maretto@meterbolic.com">
+  
+  <input type="text" name="firstName" placeholder="First Name" class="stayInTouchInput" required>
+  <div class="error-message" id="firstNameError"></div>
+  
+  <input type="email" name="email" placeholder="Email Address" class="stayInTouchInput" required>
+  <div class="error-message" id="newsletterEmailError"></div>
+  
+  <button type="submit" class="stayInTouchButton" id="newsletterSubmitBtn">
+    Subscribe
+  </button>
+</form>
           <div id="newsletterMessage" class="form-message"></div>
         </div>
         <div class="stayInTouchImage">
@@ -555,16 +558,9 @@
   <script src="js/footer.js"></script>
   
  
-
 <script>
     // Set current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-    // Email configuration with your details
-    const emailConfig = {
-      teamEmail: 'luigi.maretto@meterbolic.com',
-      endpoint: 'https://meterbolic-app.vercel.app/api/send-email.php'
-    };
 
     // Form validation functions
     function validateField(field, errorElement, validationFn) {
@@ -612,131 +608,39 @@
       return checkbox.checked;
     }
 
-    // Email sending function
-    async function sendEmail(formData) {
-      try {
-        const response = await fetch(emailConfig.endpoint, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            ...formData,
-            teamEmail: emailConfig.teamEmail,
-            redirect: 'https://meterbolic-app.vercel.app/thank-you.html'
-          })
-        });
-        
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        
-        const result = await response.json();
-        
-        // Redirect if successful
-        if (result.status === 'success') {
-          window.location.href = result.redirect || 'https://meterbolic-app.vercel.app/thank-you.html';
-        }
-        
-        return { status: response.status, data: result };
-      } catch (error) {
-        console.error('Email sending error:', error);
-        throw new Error('Failed to send email');
-      }
-    }
-
     // Form Submission Handler
-    async function submitForm(formId, formData) {
+    function handleFormSubmit(formId) {
       const form = document.getElementById(formId);
       const submitButton = form.querySelector('button[type="submit"]');
-      const messageElement = document.getElementById(`${formId}Message`);
       
-      // Show processing state
-      const originalText = submitButton.innerHTML;
-      submitButton.disabled = true;
-      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-      
-      if (messageElement) {
-        messageElement.textContent = 'Processing your submission...';
-        messageElement.className = 'form-message';
-        messageElement.style.display = 'block';
-      }
-      
-      try {
-        // Send email
-        await sendEmail(formData);
+      form.addEventListener('submit', function(e) {
+        // Validate form
+        let isValid = true;
         
-        // The redirect happens in sendEmail() if successful
-      } catch (error) {
-        console.error('Form submission error:', error);
-        if (messageElement) {
-          messageElement.textContent = `Error: ${error.message || 'An error occurred. Please try again.'}`;
-          messageElement.className = 'form-message error';
+        if (formId === 'registrationForm') {
+          isValid = validateField(form.fullName, document.getElementById('fullNameError'), validateFullName) &&
+                   validateField(form.email, document.getElementById('emailError'), validateEmail) &&
+                   validateField(form.interest, document.getElementById('interestError'), validateInterest) &&
+                   validateField(form.consent, document.getElementById('consentError'), validateConsent);
+        } else if (formId === 'newsletterForm') {
+          isValid = validateField(form.firstName, document.getElementById('firstNameError'), validateFullName) &&
+                   validateField(form.email, document.getElementById('newsletterEmailError'), validateEmail);
         }
-      } finally {
-        // Reset button state
-        submitButton.disabled = false;
-        submitButton.innerHTML = originalText;
-      }
+        
+        if (!isValid) {
+          e.preventDefault();
+          return;
+        }
+        
+        // Show loading state
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      });
     }
 
-    // Waitlist Form Handler
-    document.getElementById('registrationForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      // Validate all fields
-      const fullName = document.getElementById('fullName');
-      const email = document.getElementById('email');
-      const interest = document.getElementById('interest');
-      const consent = document.getElementById('consent');
-      
-      const isNameValid = validateField(fullName, document.getElementById('fullNameError'), validateFullName);
-      const isEmailValid = validateField(email, document.getElementById('emailError'), validateEmail);
-      const isInterestValid = validateField(interest, document.getElementById('interestError'), validateInterest);
-      const isConsentValid = validateField(consent, document.getElementById('consentError'), validateConsent);
-      
-      if (!isNameValid || !isEmailValid || !isInterestValid || !isConsentValid) {
-        return;
-      }
-      
-      // Create form data
-      const formData = {
-        fullName: fullName.value,
-        email: email.value,
-        interest: interest.value,
-        consent: consent.checked ? 'Agreed' : 'Not agreed',
-        _subject: 'New Waitlist Registration - Meterbolic'
-      };
-      
-      // Submit the form
-      await submitForm('registrationForm', formData);
-    });
-
-    // Newsletter Form Handler
-    document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      // Validate all fields
-      const firstName = document.querySelector('#newsletterForm input[name="firstName"]');
-      const email = document.querySelector('#newsletterForm input[name="email"]');
-      
-      const isNameValid = validateField(firstName, document.getElementById('firstNameError'), validateFullName);
-      const isEmailValid = validateField(email, document.getElementById('newsletterEmailError'), validateEmail);
-      
-      if (!isNameValid || !isEmailValid) {
-        return;
-      }
-      
-      // Create form data
-      const formData = {
-        firstName: firstName.value,
-        email: email.value,
-        _subject: 'New Newsletter Subscription - Meterbolic'
-      };
-      
-      // Submit the form
-      await submitForm('newsletterForm', formData);
-    });
+    // Initialize form handlers
+    handleFormSubmit('registrationForm');
+    handleFormSubmit('newsletterForm');
 
     // Scroll to top functionality
     document.getElementById('scrollToTop').addEventListener('click', function() {
@@ -802,7 +706,6 @@
       });
     });
   </script>
-
 
 
 </body>
