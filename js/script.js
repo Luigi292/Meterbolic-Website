@@ -41,78 +41,41 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 
-// Updated Form Submission Handler
-function handleFormSubmit(formId) {
-    const form = document.getElementById(formId);
-    const submitButton = form.querySelector('button[type="submit"]');
+// Update your form submission handler to this:
+document.getElementById('stayInTouchForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
     
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
+    const form = this;
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.innerHTML;
+    
+    // Show loading state
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    
+    try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData
+        });
         
-        // Validate form
-        let isValid = true;
+        const result = await response.json();
         
-        if (formId === 'registrationForm' || formId === 'stayInTouchForm') {
-            const fullNameField = formId === 'registrationForm' ? form.fullName : form.querySelector('#stayFullName');
-            const emailField = formId === 'registrationForm' ? form.email : form.querySelector('#stayEmail');
-            const interestField = formId === 'registrationForm' ? form.interest : form.querySelector('#stayInterest');
-            const consentField = formId === 'registrationForm' ? form.consent : form.querySelector('#stayConsent');
-            
-            const fullNameError = formId === 'registrationForm' ? document.getElementById('fullNameError') : document.getElementById('stayFullNameError');
-            const emailError = formId === 'registrationForm' ? document.getElementById('emailError') : document.getElementById('stayEmailError');
-            const interestError = formId === 'registrationForm' ? document.getElementById('interestError') : document.getElementById('stayInterestError');
-            const consentError = formId === 'registrationForm' ? document.getElementById('consentError') : document.getElementById('stayConsentError');
-            
-            isValid = validateField(fullNameField, fullNameError, validateFullName) &&
-                     validateField(emailField, emailError, validateEmail) &&
-                     validateField(interestField, interestError, validateInterest) &&
-                     validateField(consentField, consentError, validateConsent);
-        }
-        
-        if (!isValid) {
-            return;
-        }
-        
-        // Show loading state
-        submitButton.disabled = true;
-        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        
-        try {
-            const formData = new FormData(form);
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: formData
-            });
-            
-            const result = await response.json();
-            
-            if (result.status === 'success') {
-                // Show success message
-                alert(result.message);
-                
-                // Close modal if this is the registration form
-                if (formId === 'registrationForm') {
-                    document.getElementById('registrationModal').classList.remove('show');
-                }
-                
-                // Redirect if _next is specified
-                const nextUrl = form.querySelector('input[name="_next"]')?.value;
-                if (nextUrl) {
-                    window.location.href = nextUrl;
-                }
-                
-                // Reset form
-                form.reset();
-            } else {
-                alert(result.message || 'There was an error submitting your form. Please try again.');
+        if (result.status === 'success') {
+            alert(result.message);
+            if (result.redirect) {
+                window.location.href = result.redirect;
             }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('There was an error submitting your form. Please try again.');
-        } finally {
-            submitButton.disabled = false;
-            submitButton.innerHTML = formId === 'registrationForm' ? 'Submit Registration' : 'Subscribe';
+            form.reset();
+        } else {
+            alert(result.message || 'There was an error submitting your form.');
         }
-    });
-}
-
+    } catch (error) {
+        console.error('Error:', error);
+        alert('There was an error submitting your form. Please try again.');
+    } finally {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonText;
+    }
+});
