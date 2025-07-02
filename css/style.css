@@ -54,11 +54,9 @@ h1 {
 }
 
 h2 {
-  font-size: 3.6rem; /* Changed from 3.8rem */
+  font-size: 3.6rem;
   letter-spacing: -0.3px;
 }
-
-
 
 h3 {
   font-size: 2.8rem;
@@ -69,7 +67,7 @@ h4 {
 }
 
 p {
-  font-size: 1.6rem; /* Changed from 1.8rem */
+  font-size: 1.6rem;
   line-height: 1.8;
   color: var(--text-dark);
   margin-bottom: 2rem;
@@ -271,8 +269,6 @@ section {
   height: 100%;
   width: auto;
   object-fit: contain;
- 
-
   transition: var(--transition);
 }
 
@@ -335,7 +331,6 @@ section {
   object-fit: contain;
   object-position: bottom right;
   border-radius: var(--border-radius);
-
 }
 
 .glucoseFeatures {
@@ -464,7 +459,6 @@ section {
 }
 
 /* ================ FEATURES SECTION ================ */
-
 .features {
   width: 100%;
   padding: var(--section-padding);
@@ -475,7 +469,7 @@ section {
   max-width: var(--content-max-width);
   margin: 0 auto;
   display: flex;
-  align-items: stretch; /* Changed from center to stretch */
+  align-items: stretch;
   gap: 8rem;
   min-height: 500px;
 }
@@ -485,8 +479,8 @@ section {
   min-width: 55%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribute space evenly */
-  padding: 3rem 0; /* Added padding top and bottom */
+  justify-content: space-between;
+  padding: 3rem 0;
 }
 
 .featuresImage {
@@ -509,7 +503,7 @@ section {
 .features h2 {
   font-size: 3.8rem;
   font-weight: 800;
-  margin-bottom: 2rem; /* Reduced from 4rem */
+  margin-bottom: 2rem;
   color: var(--secondary);
 }
 
@@ -517,7 +511,7 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  margin-bottom: 2rem; /* Reduced from 4rem */
+  margin-bottom: 2rem;
 }
 
 .textColumn {
@@ -529,25 +523,24 @@ section {
   font-size: 1.8rem;
   line-height: 1.8;
   color: var(--text-dark);
-  margin-bottom: 0; /* Remove bottom margin to tighten spacing */
+  margin-bottom: 0;
 }
 
 .featureList {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2.2rem;
-  margin-top: 3rem; /* Added margin-top instead of bottom */
+  margin-top: 3rem;
 }
 
 .featureItem {
   display: flex;
   align-items: flex-start;
-  gap: 1rem; /* Reduced from 1.8rem */
+  gap: 1rem;
   font-size: 1.8rem;
-  line-height: 1.6; /* Slightly tighter line height */
+  line-height: 1.6;
   border-radius: var(--border-radius);
   transition: var(--transition);
-
 }
 
 .featureItem:hover {
@@ -559,34 +552,6 @@ section {
   font-weight: bold;
   font-size: 2rem;
   margin-top: 0.3rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 992px) {
-  .featuresContainer {
-    flex-direction: column;
-    gap: 4rem; /* Reduced from 6rem */
-    min-height: auto;
-  }
-  
-  .featuresContent {
-    padding: 0;
-  }
-  
-  .featuresImage {
-    order: -1;
-  }
-}
-
-@media (max-width: 768px) {
-  .textColumns {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .featureList {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ================ HEALTH LONGEVITY SECTION ================ */
@@ -632,7 +597,6 @@ section {
   max-height: 400px;
   object-fit: contain;
   border-radius: var(--border-radius);
-
 }
 
 .healthLongevityContent {
@@ -792,7 +756,7 @@ section {
 /* ================ STAY IN TOUCH SECTION ================ */
 .stayInTouch {
   width: 100%;
-  padding: var(--section-padding);
+  padding: 8rem 10%;
   background-color: var(--secondary);
   color: var(--text-light);
 }
@@ -802,12 +766,12 @@ section {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 8rem;
+  gap: 6rem;
 }
 
 .stayInTouchContent {
   flex: 1;
-  padding: 0 3rem;
+  padding-right: 4rem;
 }
 
 .stayInTouchImage {
@@ -815,6 +779,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
 .stayInTouchImage img {
@@ -825,63 +790,117 @@ section {
   border-radius: var(--border-radius);
 }
 
+.stayInTouch .sectionTag {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
 .stayInTouchTitle {
-  font-size: 4.2rem;
-  font-weight: 800;
-  margin-bottom: 3rem;
+  font-size: 3.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
   color: var(--text-light);
+  line-height: 1.3;
 }
 
 .stayInTouchText {
   font-size: 1.8rem;
-  line-height: 1.8;
-  margin-bottom: 4rem;
+  line-height: 0.5;
+  margin-bottom: 1rem;
   color: rgba(255, 255, 255, 0.9);
+  max-width: 90%;
 }
 
-.stayInTouchForm {
+/* Ultra-compact form styling */
+.stayInTouch .registrationForm {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0;
   max-width: 500px;
 }
 
-.stayInTouchInput {
-  padding: 1.5rem 2rem;
+.stayInTouch .formGroup {
+  margin-bottom: 0.1rem;
+}
+
+.stayInTouch label {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.stayInTouch input[type="text"],
+.stayInTouch input[type="email"],
+.stayInTouch select {
+  width: 100%;
+  padding: 0.7rem 1.4rem;
   border-radius: var(--border-radius);
-  border: none;
-  font-size: 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.1);
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1.4rem;
   transition: var(--transition);
 }
 
-.stayInTouchInput:focus {
-  outline: none;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 0 3px rgba(142, 178, 5, 0.3);
+.stayInTouch select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
 }
 
-.stayInTouchInput::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+/* Dropdown options styling */
+.stayInTouch select option {
+  background-color: var(--secondary);
+  color: white;
+  padding: 0.5rem;
 }
 
-.stayInTouchButton {
-  padding: 1.5rem 2.5rem;
+.stayInTouch .checkboxGroup {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.stayInTouch .checkboxGroup input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.8rem;
+  accent-color: var(--primary);
+}
+
+.stayInTouch .checkboxGroup label {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0;
+}
+
+.stayInTouch .submitButton {
+  width: 100%;
+  padding: 1.2rem;
+  margin-top: 0.5rem;
   border-radius: var(--border-radius);
   background: var(--primary);
   color: white;
   border: none;
   font-weight: 600;
+  font-size: 1.5rem;
   cursor: pointer;
-  font-size: 1.6rem;
   transition: var(--transition);
 }
 
-.stayInTouchButton:hover {
+.stayInTouch .submitButton:hover {
   background: var(--primary-dark);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(142, 178, 5, 0.4);
+}
+
+.stayInTouch .error-message {
+  color: #ff6b6b;
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
+  display: none;
 }
 
 /* ================ TEAM SECTION ================ */
@@ -972,8 +991,6 @@ section {
   color: var(--text-dark);
 }
 
-
-
 /* ================ RESPONSIVE DESIGN ================ */
 @media (max-width: 1200px) {
   html {
@@ -1010,10 +1027,17 @@ section {
     order: -1;
   }
   
-
-  
   .teamGrid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Stay in Touch adjustments */
+  .stayInTouch .registrationForm {
+    gap: 0.4rem;
+  }
+  
+  .stayInTouch .formGroup {
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -1040,7 +1064,7 @@ section {
   }
   
   .banner {
-    height: 80px; /* Slightly smaller on tablets */
+    height: 80px;
   }
   
   .banner-item {
@@ -1053,6 +1077,15 @@ section {
   
   .teamGrid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Stay in Touch adjustments */
+  .stayInTouchContainer {
+    gap: 4rem;
+  }
+  
+  .stayInTouchContent {
+    padding-right: 0;
   }
 }
 
@@ -1094,13 +1127,12 @@ section {
   
   .banner-container {
     gap: 2rem;
-    animation-duration: 20s; /* Faster animation on mobile */
+    animation-duration: 20s;
   }
   
   .banner-item img {
     max-width: 120px;
   }
-
   
   .glucoseContainer {
     flex-direction: column;
@@ -1129,33 +1161,70 @@ section {
     grid-template-columns: 1fr;
   }
 
-
   .featuresContainer {
     flex-direction: column;
     gap: 4rem;
   }
+  
   .featuresImage {
     margin-left: 5%;
     order: -1;
     width: 100%;
     height: auto;
   }
+  
   .featuresImage img {
     margin: 0 auto;
     width: 100%;
     max-width: 400px;
     height: auto;
   }
+  
   .featuresContent {
     padding: 0;
   }
-
   
   .healthLongevityImage img {
     max-width: 300px;
   }
-  
 
+  /* Stay in Touch adjustments */
+  .stayInTouch {
+    padding: 6rem 5%;
+  }
+  
+  .stayInTouchTitle {
+    font-size: 3rem;
+  }
+  
+  .stayInTouchText {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .stayInTouch .registrationForm {
+    gap: 0.3rem;
+  }
+  
+  .stayInTouch .formGroup {
+    margin-bottom: 0.4rem;
+  }
+  
+  .stayInTouch input[type="text"],
+  .stayInTouch input[type="email"],
+  .stayInTouch select {
+    padding: 0.8rem 1.2rem;
+    font-size: 1.3rem;
+  }
+  
+  .stayInTouch .checkboxGroup {
+    margin: 0.8rem 0;
+  }
+  
+  .stayInTouch .submitButton {
+    padding: 1rem;
+    font-size: 1.4rem;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1270,5 +1339,32 @@ section {
   .heroButtons {
     flex-direction: column;
     gap: 1.5rem;
+  }
+
+  /* Stay in Touch adjustments */
+  .stayInTouch {
+    padding: 5rem 3%;
+  }
+  
+  .stayInTouchTitle {
+    font-size: 2.8rem;
+  }
+  
+  .stayInTouchText {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .stayInTouch .registrationForm {
+    gap: 0.2rem;
+  }
+  
+  .stayInTouch label {
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .stayInTouch .checkboxGroup label {
+    font-size: 1.2rem;
   }
 }
