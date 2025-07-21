@@ -45,7 +45,7 @@ try {
     
     // First email - to your team
     $mail->setFrom($email, $fullName);
-    $mail->addAddress('luigimaretto292@gmail.com', 'Meterbolic Team');
+    $mail->addAddress('uiux@meterbolic.com', 'Meterbolic Team');
     $mail->addReplyTo($email, $fullName);
     
     $mail->isHTML(true);
