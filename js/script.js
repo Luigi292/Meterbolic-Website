@@ -1,81 +1,120 @@
-// Mobile menu toggle
-document.getElementById('hamburger').addEventListener('click', function() {
-  const mobileMenu = document.getElementById('mobileMenu');
-  const icon = this.querySelector('i');
-  
-  mobileMenu.classList.toggle('mobileMenuOpen');
-  
-  if (mobileMenu.classList.contains('mobileMenuOpen')) {
-    icon.classList.remove('fa-bars');
-    icon.classList.add('fa-times');
-  } else {
-    icon.classList.remove('fa-times');
-    icon.classList.add('fa-bars');
-  }
-});
-
-// Set current year in footer
-document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-// Close mobile menu when clicking on links
-document.querySelectorAll('.mobileNavLinks a').forEach(link => {
-  link.addEventListener('click', function() {
-    document.getElementById('mobileMenu').classList.remove('mobileMenuOpen');
-    document.getElementById('hamburger').querySelector('i').classList.remove('fa-times');
-    document.getElementById('hamburger').querySelector('i').classList.add('fa-bars');
-  });
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    // ======================
+    // GENERAL PAGE SCRIPTS
+    // ======================
     
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            // Skip if the link is part of the navbar (handled in navbar.js)
+            if (!this.closest('.navbar') && !this.classList.contains('mobileLink')) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
     });
-  });
-});
-
-
-
-
-
-// Update your form submission handler to this:
-document.getElementById('stayInTouchForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
     
-    const form = this;
-    const submitButton = form.querySelector('button[type="submit"]');
-    const originalButtonText = submitButton.innerHTML;
-    
-    // Show loading state
-    submitButton.disabled = true;
-    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    
-    try {
-        const formData = new FormData(form);
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData
+    // ======================
+    // BANNER ANIMATION
+    // ======================
+    const bannerTrack = document.querySelector('.banner-track');
+    if (bannerTrack) {
+        const bannerContainer = bannerTrack.querySelector('.banner-container');
+        const bannerItems = bannerContainer.querySelectorAll('.banner-item');
+        
+        // Duplicate items for infinite loop
+        bannerItems.forEach(item => {
+            const clone = item.cloneNode(true);
+            bannerContainer.appendChild(clone);
         });
         
-        const result = await response.json();
+        // Animation variables
+        let animationId;
+        let position = 0;
+        const speed = 1; // Adjust speed as needed
         
-        if (result.status === 'success') {
-            alert(result.message);
-            if (result.redirect) {
-                window.location.href = result.redirect;
+        function animateBanner() {
+            position -= speed;
+            
+            // Reset position when half of the content has scrolled
+            if (position <= -bannerContainer.scrollWidth / 2) {
+                position = 0;
             }
-            form.reset();
-        } else {
-            alert(result.message || 'There was an error submitting your form.');
+            
+            bannerContainer.style.transform = `translateX(${position}px)`;
+            animationId = requestAnimationFrame(animateBanner);
         }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('There was an error submitting your form. Please try again.');
-    } finally {
-        submitButton.disabled = false;
-        submitButton.innerHTML = originalButtonText;
+        
+        // Start animation
+        animateBanner();
+        
+        // Pause on hover
+        bannerTrack.addEventListener('mouseenter', () => {
+            cancelAnimationFrame(animationId);
+        });
+        
+        bannerTrack.addEventListener('mouseleave', () => {
+            animateBanner();
+        });
+    }
+    
+    // ======================
+    // LAZY LOADING IMAGES
+    // ======================
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src || img.src;
+                    img.removeAttribute('data-src');
+                    observer.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+    
+    // ======================
+    // HERO SECTION ANIMATION
+    // ======================
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+        // Add animation class after short delay
+        setTimeout(() => {
+            heroSection.classList.add('animate-in');
+        }, 300);
+    }
+    
+    // ======================
+    // FEATURES SECTION INTERACTIVITY
+    // ======================
+    const featureItems = document.querySelectorAll('.featureItem');
+    if (featureItems.length > 0) {
+        featureItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.querySelector('.featureIcon').style.transform = 'scale(1.2)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.querySelector('.featureIcon').style.transform = 'scale(1)';
+            });
+        });
     }
 });

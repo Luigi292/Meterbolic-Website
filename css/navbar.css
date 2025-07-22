@@ -56,7 +56,6 @@
   transition: var(--transition);
   position: relative;
   padding: 0.5rem 0;
-  
 }
 
 .navLinks a::after {
@@ -134,16 +133,25 @@
   transition: var(--transition);
 }
 
+.mobileMenuButton.active .mobileMenuIcon {
+  transform: rotate(90deg);
+}
+
 .mobileMenuButton:hover {
   color: var(--primary);
+}
+
+.mobileMenuIcon {
+  transition: transform 0.3s ease;
 }
 
 /* Mobile Menu Overlay */
 .mobileMenuOverlay {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  right: 0; /* Changed from left: 0 */
+  width: 80%;
+  max-width: 400px;
   height: 100vh;
   background: rgba(6, 64, 52, 0.98);
   backdrop-filter: blur(15px);
@@ -152,35 +160,35 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transform: translateY(-20px);
+  transform: translateX(100%); /* Start off-screen to the right */
+  transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  will-change: transform;
 }
 
+
 .mobileMenuOverlay.mobileMenuOpen {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+  transform: translateX(0); /* Slide in from right */
 }
 
 .mobileMenuContent {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4rem;
-  width: 100%;
+  gap: 3rem;
+  width: 90%;
   padding: 2rem;
 }
 
 .mobileLink {
   font-family: 'Inter', sans-serif;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 600;
   color: var(--text-light);
   transition: all 0.3s ease;
   position: relative;
   padding: 1rem 2rem;
+  width: 100%;
+  text-align: center;
 }
 
 .mobileLink:hover {
@@ -190,11 +198,12 @@
 .mobileRegisterBtn {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   padding: 1.5rem 3rem;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 1.8rem;
   background: var(--primary);
   color: var(--text-light);
   border: none;
@@ -202,6 +211,8 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 2rem;
+  width: 80%;
+  max-width: 250px;
 }
 
 .mobileRegisterBtn:hover {
@@ -209,165 +220,9 @@
   transform: translateY(-2px);
 }
 
-/* ================ REGISTRATION MODAL ================ */
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-  padding: 2rem;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.modalOverlay.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modalContent {
-  background: white;
-  border-radius: 1.2rem;
-  width: 100%;
-  max-width: 500px;
-  padding: 3rem;
-  position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.modalCloseButton {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: var(--secondary);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.modalCloseButton:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: var(--primary);
-}
-
-.modalHeader {
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
-.modalHeader h2 {
-  font-size: 2.8rem;
-  color: var(--secondary);
-  margin-bottom: 1rem;
-}
-
-.modalHeader p {
-  font-size: 1.6rem;
-  color: #666;
-}
-
-.registrationForm {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.formGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.formGroup label {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--secondary);
-}
-
-.formGroup input,
-.formGroup select,
-.formGroup textarea {
-  padding: 1.5rem;
-  border: 1px solid #ddd;
-  border-radius: 0.8rem;
-  font-size: 1.6rem;
-  transition: all 0.3s ease;
-  font-family: 'Inter', sans-serif;
-}
-
-.formGroup input:focus,
-.formGroup select:focus,
-.formGroup textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(142, 178, 5, 0.2);
-}
-
-.checkboxGroup {
-  flex-direction: row;
-  align-items: center;
-  gap: 1rem;
-}
-
-.checkboxGroup input {
-  width: auto;
-}
-
-.checkboxGroup label {
-  font-weight: normal;
-  margin-bottom: 0;
-}
-
-.submitButton {
-  padding: 1.5rem;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 0.8rem;
-  font-size: 1.6rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 1rem;
-}
-
-.submitButton:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Body no scroll when menu is open */
+body.noScroll {
+  overflow: hidden;
 }
 
 /* ================ RESPONSIVE DESIGN ================ */
@@ -393,6 +248,14 @@
   .logo {
     max-width: 160px;
   }
+  
+  .mobileMenuContent {
+    gap: 2.5rem;
+  }
+  
+  .mobileLink {
+    font-size: 1.8rem;
+  }
 }
 
 @media (max-width: 576px) {
@@ -400,11 +263,22 @@
     max-width: 140px;
   }
   
-  .modalContent {
-    padding: 2rem;
+  .mobileMenuOverlay {
+    width: 100%;
+    max-width: none;
   }
   
-  .modalHeader h2 {
-    font-size: 2.4rem;
+  .mobileMenuContent {
+    padding: 1rem;
+  }
+  
+  .mobileLink {
+    font-size: 1.6rem;
+    padding: 0.8rem 1rem;
+  }
+  
+  .mobileRegisterBtn {
+    font-size: 1.6rem;
+    padding: 1.2rem 2rem;
   }
 }
