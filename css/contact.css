@@ -231,36 +231,3 @@
   }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .contactSection {
-    padding: 6rem 5%;
-  }
-  
-  .contactContainer {
-    padding: 3rem;
-  }
-  
-  .contactSection::before {
-    animation-duration: 80s;
-  }
-}
-
-@media (max-width: 576px) {
-  .contactContainer {
-    padding: 2rem;
-  }
-  
-  .contactHeader h2 {
-    font-size: 2.8rem;
-  }
-  
-  .formGroup input,
-  .formGroup select {
-    padding: 1.2rem;
-  }
-  
-  .submitButton {
-    padding: 1.2rem;
-  }
-}

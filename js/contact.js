@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   forms.forEach(form => {
     form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
       // Reset error messages
       const errorMessages = form.querySelectorAll('.error-message');
       errorMessages.forEach(msg => {
@@ -60,35 +58,54 @@ document.addEventListener('DOMContentLoaded', function() {
         isValid = false;
       }
       
-      // If form is valid, submit it
+      // If form is not valid, prevent submission
+      if (!isValid) {
+        e.preventDefault();
+      }
+      
+      // If valid, let the form submit naturally to the PHP file
+      // The button will show loading state
       if (isValid) {
         const submitBtn = form.querySelector('.submitButton') || document.getElementById('waitlistSubmitBtn');
         if (submitBtn) {
           submitBtn.disabled = true;
           submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-          
-          // Simulate form submission
-          setTimeout(() => {
-            // Reset form
-            form.reset();
-            
-            // Show success message
-            alert('Thank you for registering! We will be in touch soon.');
-            
-            // Close modal if this is the modal form
-            const modal = document.querySelector('.modalOverlay');
-            if (modal && modal.classList.contains('show')) {
-              modal.classList.remove('show');
-            }
-            
-            // Reset button
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit Registration';
-          }, 1500);
         }
       }
     });
   });
+
+  // Handle error messages from PHP
+  const urlParams = new URLSearchParams(window.location.search);
+  const errorParam = urlParams.get('error');
+  
+  if (errorParam) {
+    const errors = errorParam.split('|');
+    errors.forEach(error => {
+      if (error === 'send_error') {
+        alert('There was an error sending your message. Please try again later.');
+      } else {
+        // Map errors to fields
+        if (error.includes('name')) {
+          const errorElement = document.getElementById('fullNameError');
+          errorElement.textContent = error;
+          errorElement.style.display = 'block';
+        } else if (error.includes('email')) {
+          const errorElement = document.getElementById('emailError');
+          errorElement.textContent = error;
+          errorElement.style.display = 'block';
+        } else if (error.includes('interest')) {
+          const errorElement = document.getElementById('interestError');
+          errorElement.textContent = error;
+          errorElement.style.display = 'block';
+        } else if (error.includes('agree')) {
+          const errorElement = document.getElementById('consentError');
+          errorElement.textContent = error;
+          errorElement.style.display = 'block';
+        }
+      }
+    });
+  }
 
   // Modal specific functionality (only if modal exists on page)
   const modal = document.querySelector('.modalOverlay');
@@ -112,6 +129,19 @@ document.addEventListener('DOMContentLoaded', function() {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.classList.remove('show');
+      }
+    });
+  }
+
+  // Contact section click handler
+  const contactSection = document.querySelector('.contactSection');
+  const contactContainer = document.querySelector('.contactContainer');
+  
+  if (contactSection && contactContainer) {
+    contactSection.addEventListener('click', function(e) {
+      // If the click is NOT inside the form container
+      if (!contactContainer.contains(e.target)) {
+        window.location.href = 'index.html';
       }
     });
   }

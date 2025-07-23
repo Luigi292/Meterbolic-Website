@@ -18,16 +18,32 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
     exit;
 }
 
-// Get form data
-$fullName = isset($_POST['fullName']) ? htmlspecialchars(trim($_POST['fullName'])) : '';
+// Get form data with proper sanitization
+$fullName = isset($_POST['fullName']) ? htmlspecialchars(trim($_POST['fullName']), ENT_QUOTES, 'UTF-8') : '';
 $email = isset($_POST['email']) ? filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL) : '';
-$interest = isset($_POST['interest']) ? htmlspecialchars(trim($_POST['interest'])) : '';
+$interest = isset($_POST['interest']) ? htmlspecialchars(trim($_POST['interest']), ENT_QUOTES, 'UTF-8') : '';
 $consent = isset($_POST['consent']) ? true : false;
 $teamEmail = isset($_POST['teamEmail']) ? filter_var(trim($_POST['teamEmail']), FILTER_SANITIZE_EMAIL) : 'uiux@meterbolic.com';
 
 // Validate required fields
-if (empty($fullName) || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($interest) || !$consent) {
-    header("Location: https://meterbolic-website.infy.uk/contact.html?error=validation");
+$errors = [];
+if (empty($fullName)) {
+    $errors[] = 'Full name is required';
+}
+if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors[] = 'Valid email is required';
+}
+if (empty($interest)) {
+    $errors[] = 'Please select an area of interest';
+}
+if (!$consent) {
+    $errors[] = 'You must agree to receive emails';
+}
+
+// If validation errors, redirect back with error messages
+if (!empty($errors)) {
+    $errorString = urlencode(implode('|', $errors));
+    header("Location: https://meterbolic-website.infy.uk/contact.html?error=" . $errorString);
     exit;
 }
 
@@ -43,6 +59,7 @@ try {
     $mail->Password = 'kmhrgmacjgeojfzi';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port = 465;
+    $mail->CharSet = 'UTF-8';
     
     // First email - to your team
     $mail->setFrom($email, $fullName);
@@ -54,7 +71,7 @@ try {
     $mail->Body = "
         <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #2d3748;'>
             <div style='text-align: center; margin-bottom: 20px;'>
-                <img src='https://meterbolic-website.infy.uk/images/original-logo.png' alt='Meterbolic Logo' style='max-width: 200px;'>
+                <img src='images/original-logo.png' alt='Meterbolic Logo' style='max-width: 200px;'>
             </div>
             
             <h2 style='color: #2d3748;'>New Waitlist Registration</h2>
@@ -85,7 +102,7 @@ try {
     $mail->Body = "
         <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #2d3748;'>
             <div style='text-align: center; margin-bottom: 20px;'>
-                <img src='https://meterbolic-website.infy.uk/images/original-logo.png' alt='Meterbolic Logo' style='max-width: 200px;'>
+                <img src='images/original-logo.png' alt='Meterbolic Logo' style='max-width: 200px;'>
             </div>
             
             <h2 style='color: #2d3748;'>Thank you for joining our waitlist, $fullName!</h2>
@@ -113,6 +130,10 @@ try {
     exit;
     
 } catch (Exception $e) {
+    // Log the error for debugging
+    error_log('Mailer Error: ' . $mail->ErrorInfo);
+    
+    // Redirect with error message
     header("Location: https://meterbolic-website.infy.uk/contact.html?error=send_error");
     exit;
 }

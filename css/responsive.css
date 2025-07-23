@@ -1,0 +1,966 @@
+/* ================ RESPONSIVE DESIGN ================ */
+@media (max-width: 1200px) {
+  /* Global */
+  html {
+    font-size: 58%;
+  }
+  
+  :root {
+    --section-padding: 8rem 8%;
+  }
+
+  /* Footer */
+  .centeredColumns {
+    gap: 4rem;
+    padding: 0 2rem;
+    flex: 0 1 50%;
+  }
+
+  /* Journey Section */
+  .journeySteps {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .step {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  /* Testimonials */
+  .testimonialsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Health Longevity */
+  .healthLongevityContainer {
+    flex-direction: column;
+    gap: 6rem;
+  }
+  
+  .healthLongevityImage,
+  .stayInTouchImage {
+    order: -1;
+  }
+  
+  /* Team */
+  .teamGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  /* Navbar */
+  .navLinks {
+    display: none;
+  }
+  
+  .mobileMenuButton {
+    display: block;
+  }
+  
+  .registerButton {
+    display: none;
+  }
+
+  /* Mobile Menu Fixes */
+  .mobileMenuOverlay {
+    top: var(--navbar-height);
+    height: calc(100vh - var(--navbar-height));
+    padding-top: 4rem;
+    justify-content: flex-start;
+  }
+
+  .mobileMenuContent {
+    margin-top: 8rem;
+    padding-top: 2rem;
+    gap: 2.5rem;
+    width: 100%;
+  }
+
+  .mobileLink {
+    font-size: 2.2rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .mobileRegisterBtn {
+    font-size: 2.2rem;
+    padding: 1rem 2rem;
+    margin-top: 1.5rem;
+  }
+
+  /* Features */
+  .featuresContainer {
+    flex-direction: column;
+    gap: 6rem;
+  }
+  
+  .featuresImage {
+    order: -1;
+  }
+  
+  /* Info Cards */
+  .infoCardsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .textColumns {
+    grid-template-columns: 1fr;
+  }
+  
+  .featureList {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Banner */
+  .banner {
+    height: 80px;
+  }
+  
+  .banner-item {
+    height: 70px;
+  }
+  
+  .banner-container {
+    gap: 3rem;
+  }
+  
+  /* Team */
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  /* Footer */
+  .footerMain {
+    flex-direction: column;
+    gap: 5rem;
+    align-items: center;
+    text-align: center;
+  }
+  .centeredColumns {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    justify-content: space-between;
+    flex: 1;
+    order: 2;
+  }
+  
+  .footerLogo,
+  .registerColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  
+  .footerColumn {
+    align-items: center;
+  }
+  
+  .footerLinks {
+    align-items: center;
+  }
+  
+  .footerRegisterBtn {
+    margin: 0 auto;
+  }
+
+  .footerSocial {
+    justify-content: center;
+  }
+  
+  .footerRegisterBtn {
+    margin: 0 auto;
+  }
+  
+  .footerColumnTitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Team Member Cards */
+  .teamMember {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Global */
+  html {
+    font-size: 56%;
+  }
+  
+  :root {
+    --section-padding: 8rem 5%;
+  }
+  
+  h1 {
+    font-size: 4.8rem;
+  }
+  
+  h2 {
+    font-size: 3.6rem;
+  }
+
+  /* Navbar */
+  .navbar {
+    padding: 1rem 5%;
+  }
+  
+  .logo {
+    max-width: 160px;
+  }
+  
+  /* Mobile Menu Fixes */
+  .mobileMenuOverlay {
+    padding-top: 1.5rem;
+  }
+
+  .mobileMenuContent {
+    gap: 2rem;
+  }
+
+   .mobileLink {
+    font-size: 2.2rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .mobileRegisterBtn {
+    font-size: 2.2rem;
+    padding: 1rem 2rem;
+    margin-top: 1.5rem;
+  }
+
+  /* Hero */
+  .hero {
+    height: auto;
+    min-height: auto;
+    padding: 15rem 5% 10rem;
+  }
+  
+  .heroContent {
+    padding: 4rem;
+    text-align: center;
+  }
+  
+  /* Banner */
+  .banner {
+    height: 80px;
+    padding: 2rem 0;
+  }
+  
+  .banner-item {
+    height: 40px;
+  }
+  
+  .banner-container {
+    gap: 2rem;
+    animation-duration: 20s;
+  }
+  
+  .banner-item img {
+    max-width: 120px;
+  }
+  
+  /* Glucose */
+  .glucoseContainer {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  
+  .glucoseImage {
+    position: relative;
+    width: 100%;
+    height: auto;
+    order: -1;
+  }
+  
+  .glucoseImage img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-position: center;
+  }
+  
+  .glucoseContent {
+    padding-right: 0;
+    text-align: center;
+  }
+  
+  /* Testimonials */
+  .testimonialsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Features */
+  .featuresContainer {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  
+  .featuresImage {
+    margin-left: 5%;
+    order: -1;
+    width: 100%;
+    height: auto;
+  }
+  
+  .featuresImage img {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  
+  .featuresContent {
+    padding: 0;
+    text-align: center;
+  }
+  
+  .healthLongevityImage img {
+    max-width: 300px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 6rem 5% 3rem;
+  }
+
+  .footerMain {
+    text-align: center;
+  }
+  
+  .centeredColumns {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footerColumn {
+    width: 100%;
+  }
+  
+  .footerColumnTitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .centeredColumns {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  
+  .footerColumn {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .footerLinks {
+    align-items: center;
+  }
+  
+  .footerLinks a:hover {
+    padding-left: 0;
+  }
+
+  /* Contact */
+  .contactSection {
+    padding: 6rem 5%;
+  }
+  
+  .contactContainer {
+    padding: 3rem;
+  }
+  
+  .contactSection::before {
+    animation-duration: 80s;
+  }
+  
+  /* Team Section */
+  .teamGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .teamMember {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  /* Journey Section */
+  .journeySteps {
+    padding: 0 2rem;
+  }
+  
+  .step {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Global */
+  html {
+    font-size: 54%;
+  }
+  
+  h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+  }
+  
+  h2 {
+    font-size: 3rem;
+    line-height: 1.3;
+  }
+  
+  section {
+    padding: 6rem 5%;
+  }
+
+  /* Navbar */
+  .logo {
+    max-width: 140px;
+  }
+  
+  .mobileMenuOverlay {
+    width: 100%;
+    max-width: none;
+  }
+  
+  /* Mobile Menu Fixes */
+  .mobileMenuOverlay {
+    padding-top: 1rem;
+  }
+
+  .mobileMenuContent {
+    gap: 1.8rem;
+    padding-top: 1rem;
+  }
+
+  .mobileLink {
+    font-size: 2.2rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .mobileRegisterBtn {
+    font-size: 2.2rem;
+    padding: 1rem 2rem;
+    margin-top: 1.5rem;
+  }
+  
+  /* Hero */
+  .heroContent {
+    padding: 3rem 2rem;
+  }
+  
+  /* Info Cards */
+  .infoCardsContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  /* Banner */
+  .banner {
+    height: 60px;
+  }
+  
+  .banner-item {
+    height: 40px;
+  }
+  
+  .banner-container {
+    gap: 1.5rem;
+  }
+  
+  .banner-item img {
+    max-width: 100px;
+  }
+  
+  /* Features */
+  .featuresContainer,
+  .healthLongevityContainer,
+  .stayInTouchContainer {
+    gap: 4rem;
+  }
+  
+  .featureItem {
+    font-size: 1.6rem;
+  }
+  
+  .infoCardIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
+  }
+  
+  .infoCard h3 {
+    font-size: 2rem;
+  }
+  
+  .infoCard p {
+    font-size: 1.5rem;
+  }
+  
+  /* Team */
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 5rem 5% 3rem;
+  }
+  
+  .footerLogo img {
+    width: 180px;
+  }
+  
+  .footerColumnTitle {
+    font-size: 1.7rem;
+    margin-bottom: 2rem;
+  }
+  
+  .footerLinks a {
+    font-size: 1.5rem;
+  }
+  
+  .footerJoinText {
+    font-size: 1.4rem;
+  }
+  
+  .footerRegisterBtn {
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem;
+  }
+  
+  .socialButton {
+    width: 38px;
+    height: 38px;
+    font-size: 1.5rem;
+  }
+
+  /* Contact */
+  .contactContainer {
+    padding: 2rem;
+  }
+  
+  .contactHeader h2 {
+    font-size: 2.8rem;
+  }
+  
+  .formGroup input,
+  .formGroup select {
+    padding: 1.2rem;
+  }
+  
+  .submitButton {
+    padding: 1.2rem;
+  }
+  
+  /* Health Longevity */
+  .healthLongevityContent {
+    text-align: center;
+  }
+  
+  /* Journey Steps */
+  .stepImage {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 400px) {
+  /* Global */
+  html {
+    font-size: 52%;
+  }
+  
+  :root {
+    --section-padding: 6rem 3%;
+  }
+
+  /* Banner */
+  .banner-item {
+    flex: 1 0 calc(50% - 1rem);
+    height: 40px;
+  }
+  
+  /* Hero */
+  .hero h1 {
+    font-size: 3.6rem;
+  }
+  
+  .hero h2 {
+    font-size: 2.4rem;
+  }
+  
+  .hero p {
+    font-size: 1.6rem;
+  }
+  
+  /* Journey */
+  .step {
+    padding: 3rem 1.5rem;
+  }
+  
+  .stepImage {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .heroButtons {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  /* Team Section */
+  .teamMember {
+    padding: 1.5rem;
+  }
+  
+  .memberImage img {
+    max-width: 150px;
+  }
+  
+  /* Features */
+  .featureList {
+    gap: 1.5rem;
+  }
+  
+  /* Info Cards */
+  .infoCard {
+    padding: 2rem;
+  }
+
+  /* Mobile Menu Fixes */
+  .mobileMenuContent {
+    gap: 1.5rem;
+  }
+
+   .mobileLink {
+    font-size: 2.2rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .mobileRegisterBtn {
+    font-size: 2.2rem;
+    padding: 1rem 2rem;
+    margin-top: 1.5rem;
+  }
+}
+
+/* Special adjustments for very small devices */
+@media (max-width: 360px) {
+  /* Hero */
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+  
+  .hero h2 {
+    font-size: 2.2rem;
+  }
+  
+  /* Team */
+  .teamMember h3 {
+    font-size: 2rem;
+  }
+  
+  /* Footer */
+  .footerLogo img {
+    width: 160px;
+  }
+}
+
+/* Tablet-specific adjustments */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Team Grid */
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Features */
+  .featuresContainer {
+    flex-direction: row;
+  }
+  
+  .featuresImage {
+    order: 1;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 992px) and (orientation: landscape) {
+  /* Hero */
+  .hero {
+    padding: 10rem 5% 6rem;
+  }
+  
+  /* Team */
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ================ STAY IN TOUCH SECTION ================ */
+@media (max-width: 1600px) {
+  .stayInTouchContainer {
+    padding: 0 5%;
+  }
+  
+  .stayInTouchImage img {
+    width: 70%;
+    margin-right: 15%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .stayInTouchTitle {
+    margin-left: 15%;
+    font-size: 3.4rem;
+  }
+  
+  .stayInTouchText {
+    margin-left: 15%;
+    max-width: 70%;
+  }
+  
+  .stayregisterBtn {
+    margin-left: 15%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .stayInTouch {
+    height: auto;
+    padding: 8rem 0;
+  }
+  
+  .stayInTouchContainer {
+    flex-direction: row;
+    gap: 4rem;
+  }
+  
+  .stayInTouchContent {
+    padding-right: 2rem;
+  }
+  
+  .stayInTouchImage img {
+    width: 100%;
+    margin-right: 0;
+    height: auto;
+  }
+  
+  .stayInTouch .sectionTag,
+  .stayInTouchTitle,
+  .stayInTouchText,
+  .stayregisterBtn {
+    margin-left: 10%;
+  }
+  
+  .stayInTouchText {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 992px) {
+  .stayInTouchContainer {
+    flex-direction: column;
+    gap: 5rem;
+    text-align: center;
+  }
+  
+  .stayInTouchContent {
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stayInTouchImage {
+    order: -1;
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .stayInTouchImage img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .stayInTouch .sectionTag,
+  .stayInTouchTitle,
+  .stayInTouchText,
+  .stayregisterBtn {
+    margin-left: 0;
+    text-align: center;
+  }
+  
+  .stayInTouchText {
+    max-width: 90%;
+  }
+  
+  .stayregisterBtn {
+    align-self: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .stayInTouch {
+    padding: 6rem 5%;
+    height: auto;
+  }
+  
+  .stayInTouchTitle {
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .stayInTouchText {
+    font-size: 1.7rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stayregisterBtn {
+    font-size: 1.8rem;
+    padding: 1.3rem 2.5rem;
+  }
+  
+  .stayInTouchImage {
+    width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .stayInTouch {
+    padding: 5rem 5%;
+  }
+  
+  .stayInTouchTitle {
+    font-size: 2.8rem;
+    line-height: 1.2;
+  }
+  
+  .stayInTouchText {
+    font-size: 1.6rem;
+    max-width: 100%;
+    line-height: 1.7;
+  }
+  
+  .stayregisterBtn {
+    font-size: 1.6rem;
+    padding: 1.2rem 2rem;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+  
+  .stayInTouchImage {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .stayInTouchTitle {
+    font-size: 2.6rem;
+  }
+  
+  .stayInTouchText {
+    font-size: 1.5rem;
+  }
+  
+  .stayregisterBtn {
+    font-size: 1.5rem;
+  }
+  
+  .stayInTouch .sectionTag {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .stayInTouch {
+    padding: 4rem 5%;
+  }
+  
+  .stayInTouchTitle {
+    font-size: 2.4rem;
+  }
+  
+  .stayInTouchText {
+    font-size: 1.4rem;
+  }
+  
+  .stayregisterBtn {
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* Tablet Landscape */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .stayInTouch {
+    height: auto;
+    padding: 6rem 5%;
+  }
+  
+  .stayInTouchContainer {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .stayInTouchImage {
+    order: 1;
+    flex: 0 1 40%;
+  }
+  
+  .stayInTouchContent {
+    flex: 0 1 60%;
+    padding-right: 3rem;
+  }
+  
+  .stayInTouch .sectionTag,
+  .stayInTouchTitle,
+  .stayInTouchText,
+  .stayregisterBtn {
+    margin-left: 0;
+    text-align: left;
+  }
+  
+  .stayInTouchText {
+    max-width: 90%;
+  }
+}
+
+/* Special adjustments for very small devices */
+@media (max-width: 360px) {
+  .stayInTouchTitle {
+    font-size: 2.2rem;
+  }
+  
+  .stayInTouchText {
+    font-size: 1.3rem;
+  }
+  
+  .stayregisterBtn {
+    font-size: 1.4rem;
+  }
+}
+
+/* Height-based adjustments */
+@media (max-height: 700px) and (min-width: 992px) {
+  .stayInTouch {
+    height: auto;
+    padding: 6rem 0;
+  }
+}
+
+/* High-density displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+  .stayInTouchImage img {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
