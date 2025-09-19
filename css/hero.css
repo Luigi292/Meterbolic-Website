@@ -1,0 +1,142 @@
+/* =========================
+   Unified Hero Section - All Pages
+============================= */
+.hero-default {
+  display: flex;
+  align-items: center;
+  min-height: 700px; /* same as How It Works hero */
+  padding: 0 60px;
+  position: relative;
+  background: linear-gradient(0deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 100%);
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Overlay */
+.hero-default .overlay {
+  background-color: #0640344c;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Background image */
+.hero-default .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Container */
+.hero-default .container {
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
+  margin-top: -60px; /* lift content slightly higher */
+  margin-left: 4%;
+  z-index: 2;
+  text-align: left;
+}
+
+/* Heading - Standardized to use .heading class */
+.hero-default .heading,
+.hero-default .div { /* Keep .div for backward compatibility */
+  max-width: 600px;
+  font-family: var(--font-lexend);
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 24px;
+  text-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+}
+
+/* Subheading wrapper */
+.hero-default .introducing-the-only-wrapper {
+  margin-bottom: 36px;
+  opacity: 0.95;
+}
+
+/* Subheading text */
+.hero-default .introducing-the-only {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+/* Optional button / component styling */
+.hero-default .component {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background-color: #8eb205;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+}
+
+.hero-default .component:hover {
+  background-color: #7a9e04;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.hero-default .component:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.hero-default .text {
+  font-family: "Arial-Bold", Helvetica, sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero-default {
+    padding: 0 40px;
+  }
+  .hero-default .heading,
+  .hero-default .div {
+    font-size: 44px;
+  }
+  .hero-default .introducing-the-only {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-default {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 30px;
+    min-height: 500px;
+    text-align: center;
+  }
+  .hero-default .container {
+    margin-top: 0; /* re-center content */
+    margin-left: 0;
+  }
+  .hero-default .heading,
+  .hero-default .div {
+    font-size: 36px;
+  }
+  .hero-default .introducing-the-only {
+    font-size: 16px;
+  }
+}

@@ -18,8 +18,8 @@
   
 
 <!-- CSS -->
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/navbar-footer.css">
 <link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/legal.css">
 <link rel="stylesheet" href="css/responsive.css">
@@ -28,51 +28,53 @@
 </head>
 <body>
   <div class="container">
-    <!-- Navbar -->
-    <nav class="navbar">
-      <!-- Logo on the left -->
-      <div class="logo">
-        <a href="/">
-          <img src="images/original-logo.png" alt="Meterbolic Logo" width="300" height="100">
-        </a>
-      </div>
 
-      <!-- Centered Navigation Links - Desktop -->
-      <div class="navLinks">
-        <a href="index.html#home">Home</a>
-        <a href="index.html#features">Features</a>
-        <a href="index.html#journey">Journey</a>
-        <a href="index.html#team">Team</a>
-      </div>
+    
 
-      <!-- Register Button - Desktop -->
-      <div class="registerButton">
-        <button class="registerBtn" id="registerBtn">
-          <i class="fas fa-user-plus registerIcon"></i>
-          Register with Us
-        </button>
-      </div>
+    <!-- Navigation Bar -->
+<nav class="nav-top-variant2" role="navigation" aria-label="Main navigation">
+  <img class="logo" src="images/logo.png" alt="Meterbolic Logo" />
 
-      <!-- Mobile Menu Button -->
-      <button class="mobileMenuButton" id="mobileMenuButton" aria-label="Toggle menu">
-        <i class="fas fa-bars mobileMenuIcon"></i>
-      </button>
+  <!-- Desktop Navigation (visible on larger screens) -->
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="plans.html">Subscription plans</a>
+    <a href="services.html">Services</a>
+    <a href="press.html">Press</a>
+  </div>
+  
+  <div class="nav-buttons">
+    <button class="nav-button login-btn">Login</button>
+    <button class="nav-button get-started-btn">Get Started</button>
+  </div>
 
-      <!-- Mobile Menu Overlay -->
-      <div class="mobileMenuOverlay" id="mobileMenuOverlay">
-        <div class="mobileMenuContent">
-          <a href="index.html#home" class="mobileLink">Home</a>
-          <a href="index.html#features" class="mobileLink">Features</a>
-          <a href="index.html#journey" class="mobileLink">Journey</a>
-          <a href="index.html#team" class="mobileLink">Team</a>
-          
-          <button class="mobileRegisterBtn" id="mobileRegisterBtn">
-            <i class="fas fa-user-plus registerIcon"></i>
-            Register with Us
-          </button>
-        </div>
-      </div>
-    </nav>
+  <!-- Mobile Menu Container (hidden on desktop, shown on mobile) -->
+  <div class="mobile-menu">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="plans.html">Subscription plans</a>
+      <a href="services.html">Services</a>
+      <a href="press.html">Press</a>
+    </div>
+    
+    <div class="nav-buttons">
+      <button class="nav-button login-btn">Login</button>
+      <button class="nav-button get-started-btn">Get Started</button>
+    </div>
+  </div>
+
+  <!-- Hamburger Menu Toggle (hidden on desktop, shown on mobile) -->
+  <button class="hamburger-toggle" aria-label="Toggle navigation menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
 
     <!-- Legal Content -->
     <main class="legal-content">
@@ -127,112 +129,109 @@
 
 
     
-<!-- Footer -->
-
-    <footer class="footer">
-      <div class="footerContainer">
-        <div class="footerMain">
-          <!-- First Column - Logo and Description -->
-          <div class="footerLogo">
-            <img src="images/original-logo.png" alt="Meterbolic Logo" width="200">
-            <p class="footerDescription">
-              Advanced metabolic testing for optimal health and longevity.
-            </p>
-  
-            
-            <div class="footerSocial">
-             <a href="https://www.facebook.com/Meterbolic/" aria-label="Facebook" class="socialButton facebook"><i class="fab fa-facebook-f"></i></a>
-             <a href="https://x.com/meterbolic" aria-label="X (formerly Twitter)" class="socialButton twitter"><i class="fab fa-x"></i></a>
-             <a href="https://www.instagram.com/meterbolic" aria-label="Instagram" class="socialButton instagram"><i class="fab fa-instagram"></i></a>
-           </div>
-
-
-          </div>
-
-          <!-- Centered Columns Container -->
-          <div class="centeredColumns">
-            <!-- Second Column - Navigation -->
-            <div class="footerColumn">
-              <h3 class="footerColumnTitle">Navigation</h3>
-              <ul class="footerLinks">
-                <li><a href="index.html#features">Features</a></li>
-                <li><a href="index.html#journey">Our Journey</a></li>
-                <li><a href="index.html#team">Our Team</a></li>
-              </ul>
-            </div>
-
-            <!-- Third Column - Legal -->
-            <div class="footerColumn">
-              <h3 class="footerColumnTitle">Legal</h3>
-              <ul class="footerLinks">
-                <li><a href="terms.html">Terms</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
-                <li><a href="cookies.html">Cookies</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Fourth Column - Registration -->
-          <div class="footerColumn registerColumn">
-            <h3 class="footerColumnTitle">Join Us</h3>
-            <p class="footerJoinText">
-              Register with us to stay updated <br>on our App launch
-            </p>
-           
-            <button class="footerRegisterBtn" id="footerRegisterBtn">
-              <i class="fas fa-user-plus registerIcon"></i>
-              Register with Us
-            </button>
-          </div>
-          <button id="scrollToTop" class="scrollToTop" aria-label="Scroll to top">
-            <i class="fas fa-arrow-up"></i>
-          </button>
-        </div>
-
-        <div class="footerBottom">
-          <p class="footerCopyright">
-            &copy; <span id="currentYear"></span> Meterbolic. All rights reserved.
-          </p>
+<!-- Footer Section -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-container">
+    <!-- Products Column -->
+    <div class="footer-list left">
+      <div class="footer-heading3 left">
+        <div class="footer-heading-text">Products</div>
+        <div class="footer-divider left"></div>
+      </div>
+      <div class="footer-component3">
+        <div class="footer-text">Meterbolic AI</div>
+      </div>
+      <div class="footer-component3">
+        <div class="footer-text">How it works</div>
+      </div>
+      <div class="footer-component3">
+        <div class="footer-text">Features</div>
+      </div>
+      <div class="footer-component3">
+        <div class="footer-text">Subscription plans</div>
+      </div>
+      <div class="footer-component3">
+        <div class="footer-text">Meterbolic health coaching</div>
+      </div>
+    </div>
+    
+    <!-- About Column -->
+    <div class="footer-list middle">
+      <div class="footer-heading3 middle">
+        <div class="footer-heading-text">About</div>
+        <div class="footer-divider middle"></div>
+      </div>
+      <div class="footer-component3">
+        <div class="footer-text">About Meterbolic</div>
+      </div>
+      <div class="footer-component3">
+        <div class="footer-text">Contact</div>
+      </div>
+      <div class="footer-component3">
+        <div class="footer-text">FAQ Features</div>
+      </div>
+      <div class="footer-component3">
+        <div class="footer-text">Newsletter</div>
+      </div>
+      <div class="footer-component3">
+        <div class="footer-text">Press</div>
+      </div>
+    </div>
+    
+    <!-- Stay in Touch Column -->
+    <div class="footer-list right">
+      <div class="footer-heading3 right">
+        <div class="footer-heading-text">Stay in Touch</div>
+        <div class="footer-divider right"></div>
+      </div>
+      <div class="footer-input">
+        <div class="footer-input-container">
+          <div class="footer-input-text">First Name</div>
         </div>
       </div>
-    </footer>
+      <div class="footer-input">
+        <div class="footer-input-container">
+          <div class="footer-input-text">Email Address</div>
+        </div>
+      </div>
+      <button class="footer-subscribe-btn">
+        <div class="footer-subscribe-text">Subscribe</div>
+      </button>
+    </div>
+  </div>
+  
+  
+<!-- Social Icons -->
+<div class="footer-social-icons">
+  <div class="footer-social-icon" onclick="window.open('https://www.facebook.com/Meterbolic/', '_blank')">
+    <i class="fab fa-facebook-f"></i>
+  </div>
+  <div class="footer-social-icon" onclick="window.open('https://x.com/meterbolic', '_blank')">
+    <i class="fab fa-twitter"></i>
+  </div>
+  <div class="footer-social-icon" onclick="window.open('https://www.instagram.com/meterbolic/?hl=en', '_blank')">
+    <i class="fab fa-instagram"></i>
+  </div>
+  <div class="footer-social-icon" onclick="window.open('https://www.linkedin.com/company/meterbolic-org/posts/?feedView=all', '_blank')">
+    <i class="fab fa-linkedin-in"></i>
+  </div>
+</div>
+
+  
+  <!-- Copyright -->
+  <div class="footer-copyright">
+    <div class="footer-copyright-text">© 2025 Meterbolic health Ltd. All rights reserved.</div>
+  </div>
+</footer>
+
   </div>
 
 
 
 
-  <!-- JavaScript -->
-  <script src="js/navbar.js"></script>
-  <script src="js/footer.js"></script>
-  
-  <script>
-    // Set current year in footer
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="js/navbar.js"></script>
 
-    // Modal functionality
-    document.getElementById('registerBtn').addEventListener('click', function() {
-      window.location.href = 'index.html#home';
-    });
 
-    document.getElementById('mobileRegisterBtn').addEventListener('click', function() {
-      window.location.href = 'index.html#home';
-    });
-
-    document.getElementById('footerRegisterBtn').addEventListener('click', function() {
-      window.location.href = 'index.html#home';
-    });
-
-    // Scroll to top functionality
-    document.getElementById('scrollToTop').addEventListener('click', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    window.addEventListener('scroll', function() {
-      const scrollToTop = document.getElementById('scrollToTop');
-      if (scrollToTop) {
-        scrollToTop.classList.toggle('show', window.pageYOffset > 300);
-      }
-    });
-  </script>
 </body>
 </html>

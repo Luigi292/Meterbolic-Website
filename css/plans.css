@@ -1,0 +1,410 @@
+/* Pricing Section Styles */
+.pricing-section {
+  align-self: stretch;
+  padding: 80px 192px;
+  background: #FDFDFD;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 60px;
+  display: flex;
+}
+
+.pricing-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pricing-header {
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  display: flex;
+  margin-bottom: 60px;
+}
+
+.pricing-title {
+  align-self: stretch;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  color: #064034;
+  font-size: 40px;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 700;
+  line-height: 48px;
+  word-wrap: break-word;
+  margin-bottom: 15px;
+}
+
+.pricing-subtitle {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  color: #333333;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 36px;
+  word-wrap: break-word;
+  max-width: 700px;
+}
+
+.pricing-note {
+  text-align: center;
+  color: #4CAF50;
+  font-style: italic;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.pricing-cards {
+  width: 100%;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pricing-card {
+  flex: 1;
+  min-width: 320px;
+  max-width: 380px;
+  padding: 60px 30px 30px; /* Increased top padding for all cards */
+  background: white;
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  display: flex;
+  position: relative;
+  min-height: 670px; /* Slightly increased to accommodate new padding */
+}
+
+.pricing-card.popular {
+  outline: 2px #8EB205 solid;
+  /* Removed special padding-top as all cards now have same top padding */
+}
+
+.plan-header {
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  margin-bottom: 15px;
+  padding-top: 20px; /* Added padding to push all titles down equally */
+}
+
+.plan-name {
+  align-self: stretch;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  color: #064034;
+  font-size: 24px;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 700;
+  line-height: 28.80px;
+  word-wrap: break-word;
+  margin-top: 0;
+}
+
+.plan-price {
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-bottom: 5px;
+}
+
+.price-amount {
+  color: #8EB205;
+  font-size: 50px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  word-wrap: break-word;
+  margin-right: 5px;
+}
+
+.price-interval {
+  color: #333333;
+  font-size: 18px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.monthly-price {
+  align-self: stretch;
+  text-align: center;
+  margin-bottom: 25px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.monthly-price span {
+  color: #666;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+}
+
+.plan-features {
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  list-style: none;
+  margin: 0 0 30px 0;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.feature-item {
+  align-self: stretch;
+  padding: 12px 0;
+  border-bottom: 1.25px rgba(0, 0, 0, 0.10) solid;
+  color: #333333;
+  font-size: 18px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.plan-features li:last-child {
+  border-bottom: none;
+}
+
+.plan-button-container {
+  align-self: stretch;
+  margin-top: auto;
+}
+
+.plan-button {
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  word-wrap: break-word;
+  transition: all 0.3s ease;
+}
+
+.plan-button.outline {
+  background: #FDFDFD;
+  outline: 1px #8EB205 solid;
+  outline-offset: -1px;
+  color: #8EB205;
+}
+
+.plan-button.primary {
+  background: #8EB205;
+  box-shadow: 0px 4px 15px rgba(142, 178, 5, 0.30);
+  color: white;
+}
+
+.plan-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.payment-note {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  color: #666;
+  font-family: 'Inter', sans-serif;
+}
+
+.popular-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #8EB205;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  line-height: 1.4;
+  word-wrap: break-word;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* FAQ Section Styles */
+.faq-section {
+  align-self: stretch;
+  padding: 80px 192px;
+  background: #FDFDFD;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 60px;
+  display: flex;
+}
+
+.faq-container {
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+}
+
+.faq-title {
+  align-self: stretch;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  color: #064034;
+  font-size: 40px;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 700;
+  line-height: 48px;
+  word-wrap: break-word;
+  margin-bottom: 60px;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  width: 100%;
+}
+
+.faq-card {
+  padding: 30px;
+  background: white;
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.faq-question {
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  color: #064034;
+  font-size: 20px;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+  word-wrap: break-word;
+  margin-bottom: 15px;
+}
+
+.faq-answer {
+  align-self: stretch;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  color: #333333;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 25.60px;
+  word-wrap: break-word;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .pricing-section,
+  .faq-section {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  
+  .pricing-cards {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 992px) {
+  .pricing-section,
+  .faq-section {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  
+  .pricing-card {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 30px;
+    min-height: 650px;
+  }
+  
+  .faq-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  
+  .faq-card {
+    width: 100%;
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-section,
+  .faq-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .pricing-title,
+  .faq-title {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+  
+  .pricing-subtitle {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  
+  .pricing-card {
+    padding: 50px 20px 25px; /* Adjusted for mobile */
+    min-height: 620px;
+  }
+  
+  .plan-header {
+    padding-top: 15px; /* Adjusted for mobile */
+  }
+  
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}

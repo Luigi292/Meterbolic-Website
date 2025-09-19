@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Callback - Meterbolic</title>
+    <style>
+        body {
+            font-family: 'Figtree', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .loading {
+            text-align: center;
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #000;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading">
+        <div class="spinner"></div>
+        <p>Completing authentication...</p>
+    </div>
+    
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+    <script>
+        // Handle the redirect callback
+        (async () => {
+            const auth0 = await createAuth0Client({
+                domain: "dev-a4hml2pt06o7dkhg.uk.auth0.com",
+                client_id: "Uw5K5EsvF43NoE1n5kqGZaXTyJkVxg84",
+                redirect_uri: window.location.origin
+            });
+            
+            try {
+                await auth0.handleRedirectCallback();
+                // Redirect to the main application
+                window.location.replace("/");
+            } catch (error) {
+                console.error("Error handling redirect callback:", error);
+                // Redirect to home page with error
+                window.location.replace("/?auth_error=true");
+            }
+        })();
+    </script>
+</body>
+</html>
