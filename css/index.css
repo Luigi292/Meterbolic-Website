@@ -619,7 +619,7 @@ a {
 }
 
 .section-stay-in .frame-54 {
-  max-width: 1200px;
+  max-width: 90%;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -638,7 +638,8 @@ a {
 }
 
 .section-stay-in .frame-53 {
-  width: 55%;
+  width: 45%;
+  margin-right: 5%;
 }
 
 .section-stay-in .heading-2-stay {
