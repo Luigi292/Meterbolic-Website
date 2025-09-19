@@ -1,6 +1,4 @@
-// auth0-service.js
-import auth0Config from './auth0-config.js';
-
+// Auth0 service for handling authentication
 class Auth0Service {
   constructor() {
     this.auth0Client = null;
@@ -16,7 +14,10 @@ class Auth0Service {
         domain: auth0Config.domain,
         clientId: auth0Config.clientId,
         authorizationParams: {
-          redirect_uri: auth0Config.authorizationParams.redirect_uri
+          redirect_uri: window.location.hostname === 'localhost' ? 
+            auth0Config.development.redirect_uri : 
+            auth0Config.authorizationParams.redirect_uri,
+          audience: auth0Config.authorizationParams.audience
         }
       });
 
@@ -50,7 +51,9 @@ class Auth0Service {
     try {
       await this.auth0Client.loginWithRedirect({
         authorizationParams: {
-          redirect_uri: auth0Config.authorizationParams.redirect_uri
+          redirect_uri: window.location.hostname === 'localhost' ? 
+            auth0Config.development.redirect_uri : 
+            auth0Config.authorizationParams.redirect_uri
         }
       });
     } catch (error) {
@@ -62,7 +65,9 @@ class Auth0Service {
     try {
       await this.auth0Client.loginWithRedirect({
         authorizationParams: {
-          redirect_uri: auth0Config.authorizationParams.redirect_uri,
+          redirect_uri: window.location.hostname === 'localhost' ? 
+            auth0Config.development.redirect_uri : 
+            auth0Config.authorizationParams.redirect_uri,
           screen_hint: "signup"
         }
       });
@@ -75,7 +80,9 @@ class Auth0Service {
     try {
       await this.auth0Client.logout({
         logoutParams: {
-          returnTo: window.location.origin
+          returnTo: window.location.hostname === 'localhost' ? 
+            auth0Config.development.logout_redirect_uri : 
+            window.location.origin
         }
       });
     } catch (error) {
@@ -109,4 +116,3 @@ class Auth0Service {
 
 // Create a singleton instance
 const auth0Service = new Auth0Service();
-export default auth0Service;

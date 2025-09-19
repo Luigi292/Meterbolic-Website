@@ -37,17 +37,23 @@
     </div>
     
     <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+    <script src="js/auth0-config.js"></script>
     <script>
         // Handle the redirect callback
         (async () => {
-            const auth0 = await createAuth0Client({
-                domain: "dev-a4hml2pt06o7dkhg.uk.auth0.com",
-                client_id: "Uw5K5EsvF43NoE1n5kqGZaXTyJkVxg84",
-                redirect_uri: window.location.origin
+            const auth0Client = await auth0.createAuth0Client({
+                domain: auth0Config.domain,
+                clientId: auth0Config.clientId,
+                authorizationParams: {
+                    redirect_uri: window.location.hostname === 'localhost' ? 
+                        auth0Config.development.redirect_uri : 
+                        auth0Config.authorizationParams.redirect_uri,
+                    audience: auth0Config.authorizationParams.audience
+                }
             });
             
             try {
-                await auth0.handleRedirectCallback();
+                await auth0Client.handleRedirectCallback();
                 // Redirect to the main application
                 window.location.replace("/");
             } catch (error) {
