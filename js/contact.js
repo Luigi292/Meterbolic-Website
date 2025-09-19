@@ -1,3 +1,6 @@
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize form validation for both modal and contact page forms
   const forms = document.querySelectorAll('.registrationForm');

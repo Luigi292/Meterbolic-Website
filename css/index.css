@@ -514,7 +514,7 @@ a {
   font-size: 42px;
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .section-where-health .unlock-the-secrets,
@@ -526,7 +526,7 @@ a {
   margin-bottom: 20px;
 }
 
-.section-where-health .component-1 {
+.section-where-health .button-health {
   display: inline-flex;
   padding: 14px 28px;
   border-radius: 6px;
@@ -534,12 +534,12 @@ a {
   color: #8EB205;
   font-size: 16px;
   font-weight: 600;
-  margin-top: 30px;
+  margin-top: 15px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.section-where-health .component-1:hover {
+.section-where-health .button-health:hover {
   background-color: #8EB205;
   color: white;
   transform: translateY(-2px);
@@ -684,7 +684,7 @@ a {
 }
 
 
-.section-stay-in .component-1-subscribe {
+.section-stay-in .button-subscribe {
   padding: 14px 28px;
   background: #8EB205;
   border-radius: 6px;
@@ -696,7 +696,7 @@ a {
   transition: background-color 0.2s ease;
 }
 
-.section-stay-in .component-1-subscribe:hover {
+.section-stay-in .button-subscribe:hover {
   background: #7a9e04;
 }
 

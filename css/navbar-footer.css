@@ -20,9 +20,10 @@
 
 /* Logo */
 .nav-top-variant2 .logo {
-  height: 48px;
+  height: 2rem;
   cursor: pointer;
   z-index: 1001;
+  margin-left: 5.5%;
 }
 
 /* Links container - Desktop */
