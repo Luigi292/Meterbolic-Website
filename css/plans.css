@@ -78,8 +78,8 @@
 .pricing-card {
   flex: 1;
   min-width: 320px;
-  max-width: 380px;
-  padding: 60px 30px 30px; /* Increased top padding for all cards */
+  max-width: 480px; /* Increased max-width for better two-column layout */
+  padding: 60px 30px 30px;
   background: white;
   box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.12);
   border-radius: 16px;
@@ -88,12 +88,11 @@
   align-items: flex-start;
   display: flex;
   position: relative;
-  min-height: 670px; /* Slightly increased to accommodate new padding */
+  min-height: 550px; /* Reduced height for shorter feature lists */
 }
 
 .pricing-card.popular {
   outline: 2px #8EB205 solid;
-  /* Removed special padding-top as all cards now have same top padding */
 }
 
 .plan-header {
@@ -103,7 +102,7 @@
   align-items: center;
   display: flex;
   margin-bottom: 15px;
-  padding-top: 20px; /* Added padding to push all titles down equally */
+  padding-top: 20px;
 }
 
 .plan-name {
@@ -260,6 +259,95 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Feature Comparison Section */
+.feature-comparison-section {
+  align-self: stretch;
+  padding: 80px 192px;
+  background: #FDFDFD;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 60px;
+  display: flex;
+}
+
+.feature-comparison-container {
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+}
+
+.feature-comparison-title {
+  align-self: stretch;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  color: #064034;
+  font-size: 40px;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 700;
+  line-height: 48px;
+  word-wrap: break-word;
+  margin-bottom: 60px;
+}
+
+.comparison-table {
+  width: 100%;
+  background: white;
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.comparison-header {
+  display: flex;
+  background: #064034;
+  color: white;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.comparison-row {
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.comparison-row:last-child {
+  border-bottom: none;
+}
+
+.feature-column {
+  flex: 2;
+  padding: 20px 30px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.comparison-header .feature-column {
+  color: white;
+  font-weight: 700;
+}
+
+.plan-column {
+  flex: 1;
+  padding: 20px 30px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333333;
+}
+
+.comparison-header .plan-column {
+  color: white;
+  font-weight: 700;
+}
+
 /* FAQ Section Styles */
 .faq-section {
   align-self: stretch;
@@ -342,7 +430,8 @@
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .pricing-section,
-  .faq-section {
+  .faq-section,
+  .feature-comparison-section {
     padding-left: 100px;
     padding-right: 100px;
   }
@@ -354,7 +443,8 @@
 
 @media (max-width: 992px) {
   .pricing-section,
-  .faq-section {
+  .faq-section,
+  .feature-comparison-section {
     padding-left: 50px;
     padding-right: 50px;
   }
@@ -363,7 +453,7 @@
     width: 100%;
     max-width: 400px;
     margin-bottom: 30px;
-    min-height: 650px;
+    min-height: 550px;
   }
   
   .faq-grid {
@@ -375,17 +465,36 @@
     width: 100%;
     max-width: 480px;
   }
+  
+  .comparison-header,
+  .comparison-row {
+    flex-direction: column;
+  }
+  
+  .feature-column,
+  .plan-column {
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .comparison-row:last-child .feature-column,
+  .comparison-row:last-child .plan-column {
+    border-bottom: none;
+  }
 }
 
 @media (max-width: 768px) {
   .pricing-section,
-  .faq-section {
+  .faq-section,
+  .feature-comparison-section {
     padding-left: 20px;
     padding-right: 20px;
   }
   
   .pricing-title,
-  .faq-title {
+  .faq-title,
+  .feature-comparison-title {
     font-size: 32px;
     line-height: 1.2;
   }
@@ -396,15 +505,34 @@
   }
   
   .pricing-card {
-    padding: 50px 20px 25px; /* Adjusted for mobile */
-    min-height: 620px;
+    padding: 50px 20px 25px;
+    min-height: 520px;
   }
   
   .plan-header {
-    padding-top: 15px; /* Adjusted for mobile */
+    padding-top: 15px;
   }
   
   .faq-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-card {
+    min-width: 100%;
+    min-height: 500px;
+  }
+  
+  .price-amount {
+    font-size: 42px;
+  }
+  
+  .plan-name {
+    font-size: 22px;
+  }
+  
+  .feature-item {
+    font-size: 16px;
   }
 }

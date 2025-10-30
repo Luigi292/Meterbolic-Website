@@ -4,17 +4,20 @@
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
+
 html,
 body {
   margin: 0px;
   height: 100%;
   font-family: 'Figtree', Arial, Helvetica, sans-serif;
 }
+
 /* a blue color as a generic focus style */
 button:focus-visible {
   outline: 2px solid #4a90e2 !important;
   outline: -webkit-focus-ring-color auto 5px !important;
 }
+
 a {
   text-decoration: none;
 }
@@ -60,18 +63,9 @@ a {
   --meterbolic-semantic-heading-3-letter-spacing: 0;
   --meterbolic-figtree-regular-letter-spacing: 0;
   --meterbolic-arial-bold-letter-spacing: 0;
-  
-  /* Font Styles */
-  --meterbolic-semantic-heading-1-font-style: normal;
-  --meterbolic-semantic-heading-2-font-style: normal;
-  --meterbolic-semantic-heading-3-font-style: normal;
-  --meterbolic-figtree-regular-font-style: normal;
-  --meterbolic-arial-bold-font-style: normal;
 }
 
-
-
-/* Hero Section */
+/* ===== HERO SECTION ===== */
 .hero-default {
   display: flex;
   min-height: 829px;
@@ -109,19 +103,6 @@ a {
   z-index: 2;
 }
 
-.hero-default .heading {
-  margin-bottom: 20px;
-}
-
-.hero-default .text-wrapper {
-  font-family: var(--meterbolic-figtree-bold-font-family);
-  font-weight: var(--meterbolic-semantic-heading-1-font-weight);
-  color: #ffffff;
-  font-size: var(--meterbolic-semantic-heading-1-font-size);
-  line-height: var(--meterbolic-semantic-heading-1-line-height);
-  margin-bottom: 20px;
-}
-
 .hero-default .div {
   font-family: var(--meterbolic-figtree-bold-font-family);
   font-weight: var(--meterbolic-semantic-heading-2-font-weight);
@@ -144,39 +125,11 @@ a {
   line-height: var(--meterbolic-figtree-regular-line-height);
 }
 
-.hero-default .component {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 24px;
-  background-color: #8eb205;
-  border-radius: 8px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.hero-default .component:hover {
-  background-color: #7a9e04;
-}
-
-.hero-default .component:focus {
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
-}
-
-.hero-default .text {
-  font-family: "Arial-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 16px;
-}
-
-/* Services Section */
+/* ===== SERVICES SECTION ===== */
 .services-section {
   width: 100%;
   padding: 80px 192px;
+  margin-bottom: 5%;
   background: #FDFDFD;
   display: flex;
   flex-direction: column;
@@ -202,18 +155,25 @@ a {
   align-items: center;
 }
 
-.services-heading h2 {
+.services-heading {
   align-self: stretch;
   text-align: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
+  padding-bottom: 20px;
+  border-bottom: 3px solid #8EB205; /* ADDED BORDER HERE */
+  margin-bottom: 15px;
+}
+
+.services-heading h2 {
   color: #064034;
   font-size: 40px;
   font-family: Lexend, sans-serif;
   font-weight: 700;
   line-height: 48px;
   word-wrap: break-word;
+  margin: 0;
 }
 
 .services-subheading-container {
@@ -273,7 +233,6 @@ a {
 .service-icon {
   width: 80%;
   height: auto;
- 
 }
 
 .service-title {
@@ -313,16 +272,10 @@ a {
   margin: 0;
 }
 
-
-
-
-
-
-
-/* ===== What Makes Meterbolic Different Section ===== */
+/* ===== WHAT MAKES METERBOLIC DIFFERENT SECTION ===== */
 .different-section {
   width: 100%;
-  padding: 100px 60px; /* balanced spacing top/bottom and sides */
+  padding: 100px 60px;
   background: #064034;
   display: flex;
   justify-content: center;
@@ -331,16 +284,15 @@ a {
 
 .different-container {
   width: 100%;
-  max-width: 1400px; /* keeps content centered & not too wide */
+  max-width: 1400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-/* Heading */
 .different-heading-container {
-  margin-bottom: 60px; /* space between title and cards */
+  margin-bottom: 60px;
   text-align: center;
 }
 
@@ -353,19 +305,17 @@ a {
   margin: 0;
 }
 
-/* Features Grid */
 .different-features-container {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  flex-wrap: nowrap; /* ensures all 4 stay on the same row */
-  gap: 30px; /* spacing between cards */
+  flex-wrap: nowrap;
+  gap: 30px;
   width: 100%;
 }
 
-/* Individual Feature Card */
 .different-feature {
-  flex: 1; /* makes all cards equal width */
+  flex: 1;
   max-width: 300px;
   min-height: 180px;
   padding: 32px 28px;
@@ -380,7 +330,6 @@ a {
   text-align: left;
 }
 
-/* Feature Heading */
 .different-feature h3 {
   color: #8EB205;
   font-size: 22px;
@@ -390,7 +339,6 @@ a {
   margin: 0;
 }
 
-/* Feature Text */
 .different-feature p {
   color: white;
   opacity: 0.9;
@@ -401,32 +349,7 @@ a {
   margin: 0;
 }
 
-/* Responsive: stack on smaller screens */
-@media (max-width: 1200px) {
-  .different-features-container {
-    flex-wrap: wrap; /* allow wrapping on smaller screens */
-    justify-content: center;
-  }
-  .different-feature {
-    flex: 1 1 calc(50% - 30px); /* two per row */
-    max-width: 400px;
-  }
-}
-
-@media (max-width: 768px) {
-  .different-feature {
-    flex: 1 1 100%; /* full width on mobile */
-    max-width: none;
-  }
-}
-
-
-
-
-
-
-
-/* CTA Section */
+/* ===== CTA SECTION ===== */
 .services-cta-section {
   width: 100%;
   padding: 80px 192px;
@@ -520,7 +443,7 @@ a {
   word-wrap: break-word;
 }
 
-/* Footer Styles */
+/* ===== FOOTER SECTION ===== */
 .footer {
   width: 100%;
   background: #064034;
@@ -654,7 +577,7 @@ a {
   opacity: 0.8;
 }
 
-/* Responsive Styles */
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1400px) {
   .services-section,
   .different-section,
@@ -688,13 +611,17 @@ a {
   }
   
   .different-features-container {
+    flex-wrap: wrap;
     justify-content: center;
+  }
+  
+  .different-feature {
+    flex: 1 1 calc(50% - 30px);
+    max-width: 400px;
   }
 }
 
 @media (max-width: 992px) {
-
-  
   .services-section,
   .different-section,
   .services-cta-section {
@@ -716,10 +643,6 @@ a {
   .hero-default {
     padding: 60px 40px;
     text-align: center;
-  }
-  
-  .hero-default .text-wrapper {
-    font-size: 40px;
   }
   
   .hero-default .div {
@@ -750,17 +673,16 @@ a {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+  
+  .different-feature {
+    flex: 1 1 100%;
+    max-width: none;
+  }
 }
 
 @media (max-width: 576px) {
-
-  
   .hero-default {
     padding: 40px 20px;
-  }
-  
-  .hero-default .text-wrapper {
-    font-size: 32px;
   }
   
   .hero-default .div {

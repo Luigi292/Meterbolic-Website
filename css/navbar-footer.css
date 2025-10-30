@@ -63,9 +63,6 @@ a {
   --meterbolic-arial-bold-line-height: normal;
 }
 
-
-
-
 /* ====== Navbar Styles ====== */
 .nav-top-variant2 {
   width: 100%;
@@ -73,7 +70,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 40px;
+  padding: 14px 40px;
   position: fixed;
   top: 0;
   z-index: 1000;
@@ -88,7 +85,7 @@ a {
 
 /* Logo */
 .nav-top-variant2 .logo {
-  height: 2rem;
+  height: 1.8rem;
   cursor: pointer;
   z-index: 1001;
   margin-left: 5.6%;
@@ -140,16 +137,18 @@ a {
   color: #064034;
 }
 
-/* Get Started Button */
+/* Get Started Button - UPDATED HOVER EFFECT */
 .nav-top-variant2 .get-started-btn {
   background: #8EB205;
   color: #064034;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 
 .nav-top-variant2 .get-started-btn:hover {
-  background: #ffffff;
-  color: #064034;
-  border: 1px solid #8EB205;
+  background: #7a9e04;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 /* Hamburger Toggle (hidden by default on desktop) */
@@ -197,7 +196,6 @@ a {
 @media (max-width: 1000px) {
   .nav-top-variant2 {
     padding: 12px 20px;
-    
   }
 
   /* Show hamburger toggle on mobile */
@@ -282,6 +280,18 @@ a {
     text-align: center;
     padding: 12px;
   }
+
+  /* Mobile Get Started Button - UPDATED HOVER EFFECT */
+  .nav-top-variant2 .mobile-menu .get-started-btn {
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-top-variant2 .mobile-menu .get-started-btn:hover {
+    background: #7a9e04;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  }
 }
 
 @media (max-width: 600px) {
@@ -294,18 +304,11 @@ a {
   }
 }
 
-
-
-
-
-
-
 /* Footer Styles */
 .footer {
   width: 100%;
   background: #064034;
   padding: 70px 0 20px;
-
 }
 
 .footer-container {
@@ -436,8 +439,6 @@ a {
   opacity: 0.8;
 }
 
-
-
 /* ================ SCROLL TO TOP BUTTON ================ */
 .scrollToTop {
   position: fixed;
@@ -470,5 +471,3 @@ a {
   background-color: var(--primary-dark);
   transform: translateY(-3px);
 }
-
-
