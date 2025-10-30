@@ -48,4 +48,36 @@ document.addEventListener('DOMContentLoaded', function() {
       hamburgerToggle.classList.remove('active');
     }
   });
+
+  // Add active class to current page link
+  function setActiveNavLink() {
+    const currentPage = window.location.pathname.split('/').pop();
+    const allNavLinks = document.querySelectorAll('.nav-links a');
+    const mobileNavLinks = document.querySelectorAll('.mobile-menu .nav-links a');
+    
+    // Handle desktop navigation links
+    allNavLinks.forEach(link => {
+      const linkPage = link.getAttribute('href');
+      // Remove active class first
+      link.classList.remove('active');
+      // Add active class if it matches current page
+      if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+        link.classList.add('active');
+      }
+    });
+    
+    // Handle mobile navigation links
+    mobileNavLinks.forEach(link => {
+      const linkPage = link.getAttribute('href');
+      // Remove active class first
+      link.classList.remove('active');
+      // Add active class if it matches current page
+      if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  // Initialize active nav link on page load
+  setActiveNavLink();
 });
