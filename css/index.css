@@ -772,6 +772,344 @@ a {
 
 
 
+
+/* =========================
+   Start Your Journey Section - FIXED
+============================= */
+.section-journey-start {
+  width: 100%;
+  padding: 100px 90px;
+  background: var(--color-light-bg);
+  display: flex;
+  justify-content: center;
+}
+
+.section-journey-start .container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.heading-journey {
+  font-family: var(--meterbolic-figtree-bold-font-family);
+  font-weight: var(--meterbolic-semantic-heading-2-font-weight);
+  color: var(--color-cyan-14);
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.journey-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-bottom: 60px;
+  align-items: stretch; /* This ensures both cards stretch to same height */
+}
+
+.journey-card {
+  background: var(--color-white);
+  border-radius: 16px;
+  padding: 40px 35px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid rgba(142, 178, 5, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Make cards take full height of grid cell */
+  min-height: 650px; /* Set a minimum height to ensure consistency */
+}
+
+.journey-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.journey-card.featured {
+  border: 2px solid #8EB205;
+  position: relative;
+}
+
+.featured-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #8EB205;
+  color: var(--color-white);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+.journey-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.journey-card-header h2 {
+  font-family: var(--meterbolic-figtree-bold-font-family);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-cyan-14);
+  margin: 0;
+}
+
+.journey-price {
+  font-family: var(--meterbolic-figtree-bold-font-family);
+  font-size: 32px;
+  font-weight: 700;
+  color: #8EB205;
+}
+
+.journey-subtitle {
+  color: var(--color-grey-40);
+  font-size: 18px;
+  margin-bottom: 25px;
+  font-style: italic;
+  flex-shrink: 0; /* Prevent subtitle from shrinking */
+}
+
+.journey-features {
+  margin-bottom: 25px;
+  flex-grow: 1; /* Allow features to grow and take available space */
+}
+
+.journey-features h3 {
+  font-family: var(--meterbolic-figtree-bold-font-family);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-cyan-14);
+  margin-bottom: 15px;
+}
+
+.journey-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.journey-features li {
+  color: var(--color-grey-20);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.journey-features li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #8EB205;
+  font-weight: 700;
+}
+
+.journey-why {
+  color: var(--color-grey-20);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  padding: 15px;
+  background: rgba(142, 178, 5, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid #8EB205;
+  flex-shrink: 0; /* Prevent why section from shrinking */
+}
+
+.journey-button-container {
+  margin-top: auto; /* Push button to bottom */
+  flex-shrink: 0; /* Prevent button container from shrinking */
+}
+
+.journey-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: var(--color-cyan-14);
+  color: var(--color-white);
+  border-radius: 8px;
+  font-family: var(--meterbolic-figtree-bold-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  min-height: 50px; /* Ensure consistent button height */
+}
+
+.journey-button.primary {
+  background: #8EB205;
+}
+
+.journey-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.journey-button.primary:hover {
+  background: #7a9e04;
+}
+
+.journey-button:not(.primary):hover {
+  background: #053028;
+}
+
+/* Enhanced content for Baseline card to balance heights */
+.journey-card:not(.featured) .journey-features ul {
+  margin-bottom: 20px;
+}
+
+.journey-card:not(.featured) .journey-why {
+  background: rgba(6, 64, 52, 0.05);
+  border-left: 3px solid var(--color-cyan-14);
+}
+
+/* Feature Comparison Table */
+.feature-comparison {
+  background: var(--color-white);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.feature-comparison h3 {
+  font-family: var(--meterbolic-figtree-bold-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-cyan-14);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.feature-comparison table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.feature-comparison th {
+  background: var(--color-cyan-14);
+  color: var(--color-white);
+  padding: 15px 20px;
+  text-align: left;
+  font-family: var(--meterbolic-figtree-bold-font-family);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.feature-comparison th:first-child {
+  border-radius: 8px 0 0 0;
+}
+
+.feature-comparison th:last-child {
+  border-radius: 0 8px 0 0;
+}
+
+.feature-comparison td {
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--color-grey-20);
+  font-size: 15px;
+}
+
+.feature-comparison tr:last-child td {
+  border-bottom: none;
+}
+
+.feature-comparison tr:nth-child(even) {
+  background: rgba(142, 178, 5, 0.03);
+}
+
+/* Responsive Styles for New Sections */
+@media (max-width: 1200px) {
+  .section-journey-start {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+@media (max-width: 992px) {
+  .section-journey-start {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  .journey-cards {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .journey-card {
+    min-height: auto; /* Remove fixed height on mobile */
+    height: auto;
+  }
+  
+  .feature-comparison {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-journey-start {
+    padding: 60px 20px;
+  }
+  
+  .heading-journey {
+    font-size: 32px;
+  }
+  
+  .journey-card {
+    padding: 30px 25px;
+  }
+  
+  .journey-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .feature-comparison {
+    padding: 20px;
+    overflow-x: auto;
+  }
+  
+  .feature-comparison table {
+    min-width: 500px;
+  }
+}
+
+@media (max-width: 576px) {
+  .heading-journey {
+    font-size: 28px;
+  }
+  
+  .journey-card-header h2 {
+    font-size: 24px;
+  }
+  
+  .journey-price {
+    font-size: 28px;
+  }
+  
+  .feature-comparison h3 {
+    font-size: 20px;
+  }
+}
+
+
+
 /* Responsive Styles */
 @media (max-width: 1200px) {
   
