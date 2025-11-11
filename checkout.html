@@ -113,30 +113,35 @@
         <h1 class="checkout-title-step3">PLEASE ENTER THE DELIVERY DETAILS</h1>
         
         <div class="delivery-form-container">
-          <div class="delivery-form">
+          <!-- Honey Pot Field (hidden from humans) -->
+          <div style="display: none;" aria-hidden="true">
+            <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+          </div>
+          
+          <form class="delivery-form" id="checkoutForm" action="send-checkout.php" method="POST">
             <div class="form-section">
               <h3 class="section-title">Personal Information</h3>
               <div class="form-row">
                 <div class="form-group">
                   <label for="firstName" class="form-label">First Name <span class="required">*</span></label>
-                  <input type="text" id="firstName" class="form-input" placeholder="Enter your first name">
+                  <input type="text" id="firstName" name="firstName" class="form-input" placeholder="Enter your first name" required>
                 </div>
                 <div class="form-group">
                   <label for="lastName" class="form-label">Last Name <span class="required">*</span></label>
-                  <input type="text" id="lastName" class="form-input" placeholder="Enter your last name">
+                  <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Enter your last name" required>
                 </div>
               </div>
               
               <div class="form-row">
                 <div class="form-group">
                   <label for="email" class="form-label">Email Address <span class="required">*</span></label>
-                  <input type="email" id="email" class="form-input" placeholder="your.email@example.com">
+                  <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
                 </div>
                 <div class="form-group phone-group">
                   <label for="phone" class="form-label">Phone Number <span class="required">*</span></label>
                   <div class="phone-input-container">
                     <div class="phone-prefix">+44</div>
-                    <input type="tel" id="phone" class="form-input phone-input" placeholder="Enter your phone number">
+                    <input type="tel" id="phone" name="phone" class="form-input phone-input" placeholder="Enter your phone number" required>
                   </div>
                 </div>
               </div>
@@ -147,51 +152,59 @@
               <div class="form-group">
                 <label class="form-label">Country/Region</label>
                 <div class="form-input region-display">United Kingdom</div>
+                <input type="hidden" name="country" value="United Kingdom">
               </div>
               
               <div class="form-row">
                 <div class="form-group">
                   <label for="postcode" class="form-label">Postcode <span class="required">*</span></label>
-                  <input type="text" id="postcode" class="form-input" placeholder="e.g., SW1A 1AA">
+                  <input type="text" id="postcode" name="postcode" class="form-input" placeholder="e.g., SW1A 1AA" required>
                 </div>
                 <div class="form-group">
                   <label for="town" class="form-label">Town/City <span class="required">*</span></label>
-                  <input type="text" id="town" class="form-input" placeholder="Enter your town or city">
+                  <input type="text" id="town" name="town" class="form-input" placeholder="Enter your town or city" required>
                 </div>
               </div>
               
               <div class="form-group">
                 <label for="address" class="form-label">Street Address <span class="required">*</span></label>
-                <input type="text" id="address" class="form-input" placeholder="Enter your street address">
+                <input type="text" id="address" name="address" class="form-input" placeholder="Enter your street address" required>
               </div>
               
               <div class="form-group">
                 <label for="houseNumber" class="form-label">House Number/Name <span class="required">*</span></label>
-                <input type="text" id="houseNumber" class="form-input" placeholder="e.g., 123 or Rose Cottage">
+                <input type="text" id="houseNumber" name="houseNumber" class="form-input" placeholder="e.g., 123 or Rose Cottage" required>
               </div>
             </div>
             
             <div class="form-section">
               <h3 class="section-title">Preferences</h3>
               <div class="checkbox-group">
-                <input type="checkbox" id="marketing" class="checkbox">
+                <input type="checkbox" id="marketing" name="marketing" class="checkbox" value="1">
                 <label for="marketing" class="checkbox-label">
                   I want to receive personalised commercial communications from Meterbolic by email.
                 </label>
               </div>
               
               <div class="checkbox-group">
-                <input type="checkbox" id="privacy" class="checkbox">
+                <input type="checkbox" id="privacy" name="privacy" class="checkbox" required>
                 <label for="privacy" class="checkbox-label">
                   I have read and understand the Privacy and Cookies Policy.
                 </label>
               </div>
             </div>
-          </div>
+            
+            <!-- Hidden fields to store product selection -->
+            <input type="hidden" id="formSelectedProduct" name="selectedProduct" value="">
+            <input type="hidden" id="formSelectedMethod" name="selectedMethod" value="">
+            <input type="hidden" id="formMethodPrice" name="methodPrice" value="">
+            <input type="hidden" id="formProductPrice" name="productPrice" value="">
+            <input type="hidden" id="formTotalAmount" name="totalAmount" value="">
+          </form>
           
           <div class="checkout-buttons-step3">
             <button class="btn-back-step3" id="backToStep2">Back</button>
-            <button class="btn-next-step3" id="nextBtnStep3">Check out with Stripe</button>
+            <button type="submit" form="checkoutForm" class="btn-next-step3" id="submitBtnStep3">Check out with Stripe</button>
           </div>
         </div>
       </div>
@@ -208,20 +221,20 @@
         <img src="images/mailbox-leaf.png" alt="Meterbolic Test Kit" class="product-image">
         <div class="order-details">
           <h3>Your Selection</h3>
-          <div id="selectedProduct" class="selected-info">
+          <div id="selectedProductDisplay" class="selected-info">
             <p>Please select a test</p>
           </div>
-          <div id="selectedMethod" class="selected-method">
+          <div id="selectedMethodDisplay" class="selected-method">
             <div class="method-selected">
               <h4>Collection Method</h4>
               <p id="methodName"></p>
-              <div class="price" id="methodPrice"></div>
+              <div class="price" id="methodPriceDisplay"></div>
             </div>
           </div>
-          <div id="totalPrice" class="total-price">
+          <div id="totalPriceDisplay" class="total-price">
             <div class="total-selected">
               <h4>Total</h4>
-              <div class="price" id="totalAmount"></div>
+              <div class="price" id="totalAmountDisplay"></div>
             </div>
           </div>
           <div class="delivery-notice">

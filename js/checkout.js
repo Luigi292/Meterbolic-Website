@@ -87,6 +87,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Update right panel
                 updateProductDisplay();
                 
+                // Update hidden form fields
+                updateFormFields();
+                
                 // Enable next button
                 const nextBtn = document.getElementById('nextBtnStep1');
                 if (nextBtn) {
@@ -173,6 +176,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateMethodDisplay();
                 updateTotalDisplay();
                 
+                // Update hidden form fields
+                updateFormFields();
+                
                 // Enable next button for step 2
                 const nextBtnStep2 = document.getElementById(nextBtnId);
                 if (nextBtnStep2) {
@@ -191,6 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 selectedMethod = null;
                 updateMethodDisplay();
                 updateTotalDisplay();
+                updateFormFields();
             });
         }
         
@@ -232,16 +239,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Next button functionality for step 3 - Final checkout
-        const nextBtnStep3 = document.getElementById('nextBtnStep3');
-        if (nextBtnStep3) {
-            nextBtnStep3.addEventListener('click', function() {
-                console.log('Step 3 next button clicked - Final checkout');
-                if (validateDeliveryForm()) {
-                    proceedToFinalCheckout();
-                }
-            });
-        }
+        // Form submission is now handled by the HTML form directly
+        // The submit button will trigger the form submission to send-checkout.php
         
         console.log('Step 3 initialized successfully');
     }
@@ -285,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateProductDisplay() {
-        const selectedProductDisplay = document.getElementById('selectedProduct');
+        const selectedProductDisplay = document.getElementById('selectedProductDisplay');
         if (selectedProductDisplay && selectedProduct) {
             selectedProductDisplay.innerHTML = `
                 <div class="product-selected">
@@ -299,9 +298,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateMethodDisplay() {
-        const selectedMethodDisplay = document.getElementById('selectedMethod');
+        const selectedMethodDisplay = document.getElementById('selectedMethodDisplay');
         const methodNameDisplay = document.getElementById('methodName');
-        const methodPriceDisplay = document.getElementById('methodPrice');
+        const methodPriceDisplay = document.getElementById('methodPriceDisplay');
         
         if (selectedMethod && selectedMethodDisplay && methodNameDisplay && methodPriceDisplay) {
             methodNameDisplay.textContent = selectedMethod.name;
@@ -316,8 +315,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateTotalDisplay() {
-        const totalPriceDisplay = document.getElementById('totalPrice');
-        const totalAmountDisplay = document.getElementById('totalAmount');
+        const totalPriceDisplay = document.getElementById('totalPriceDisplay');
+        const totalAmountDisplay = document.getElementById('totalAmountDisplay');
         
         if (selectedProduct && selectedMethod && totalPriceDisplay && totalAmountDisplay) {
             const totalPrice = selectedProduct.price + selectedMethod.price;
@@ -329,6 +328,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 totalPriceDisplay.style.display = 'none';
             }
         }
+    }
+    
+    // NEW FUNCTION: Update hidden form fields for PHP submission
+    function updateFormFields() {
+        if (selectedProduct) {
+            const productType = selectedProduct.name === 'Baseline' ? 'baseline' : 'response';
+            document.getElementById('formSelectedProduct').value = productType;
+            document.getElementById('formProductPrice').value = selectedProduct.price;
+        }
+        
+        if (selectedMethod) {
+            document.getElementById('formSelectedMethod').value = selectedMethod.method;
+            document.getElementById('formMethodPrice').value = selectedMethod.price;
+        }
+        
+        if (selectedProduct && selectedMethod) {
+            const totalPrice = selectedProduct.price + selectedMethod.price;
+            document.getElementById('formTotalAmount').value = `£${totalPrice}`;
+        }
+        
+        console.log('Updated form fields for PHP submission');
     }
     
     function proceedToFinalCheckout() {
