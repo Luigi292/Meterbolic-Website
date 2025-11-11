@@ -30,6 +30,7 @@ $firstName = isset($_POST['firstName']) ? htmlspecialchars(trim($_POST['firstNam
 $lastName = isset($_POST['lastName']) ? htmlspecialchars(trim($_POST['lastName']), ENT_QUOTES, 'UTF-8') : '';
 $email = isset($_POST['email']) ? filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL) : '';
 $phone = isset($_POST['phone']) ? htmlspecialchars(trim($_POST['phone']), ENT_QUOTES, 'UTF-8') : '';
+$phonePrefix = isset($_POST['phonePrefix']) ? htmlspecialchars(trim($_POST['phonePrefix']), ENT_QUOTES, 'UTF-8') : '+44';
 $postcode = isset($_POST['postcode']) ? htmlspecialchars(trim($_POST['postcode']), ENT_QUOTES, 'UTF-8') : '';
 $town = isset($_POST['town']) ? htmlspecialchars(trim($_POST['town']), ENT_QUOTES, 'UTF-8') : '';
 $address = isset($_POST['address']) ? htmlspecialchars(trim($_POST['address']), ENT_QUOTES, 'UTF-8') : '';
@@ -60,6 +61,9 @@ if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
 if (empty($phone)) {
     $errors[] = 'Phone number is required';
 }
+if (empty($phonePrefix)) {
+    $errors[] = 'Phone prefix is required';
+}
 if (empty($postcode)) {
     $errors[] = 'Postcode is required';
 }
@@ -71,6 +75,9 @@ if (empty($address)) {
 }
 if (empty($houseNumber)) {
     $errors[] = 'House number/name is required';
+}
+if (empty($country)) {
+    $errors[] = 'Country is required';
 }
 if (empty($selectedProduct)) {
     $errors[] = 'Please select a product';
@@ -140,7 +147,7 @@ try {
                 <h3 style='color: #4a5568; margin-top: 0;'>Customer Information:</h3>
                 <p style='font-size: 16px;'><strong>Name:</strong> $firstName $lastName</p>
                 <p style='font-size: 16px;'><strong>Email:</strong> <a href='mailto:$email'>$email</a></p>
-                <p style='font-size: 16px;'><strong>Phone:</strong> +44 $phone</p>
+                <p style='font-size: 16px;'><strong>Phone:</strong> $phonePrefix $phone</p>
                 <p style='font-size: 16px;'><strong>Marketing Consent:</strong> " . ($marketing ? 'Yes' : 'No') . "</p>
             </div>
             

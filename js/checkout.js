@@ -226,6 +226,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function initializeStep3() {
         console.log('Initializing Step 3');
         
+        // Add form validation before submission
+        const checkoutForm = document.getElementById('checkoutForm');
+        if (checkoutForm) {
+            checkoutForm.addEventListener('submit', function(e) {
+                if (!validateDeliveryForm()) {
+                    e.preventDefault();
+                }
+            });
+        }
+        
         // Back button functionality for step 3 - goes back to appropriate step 2
         const backBtnStep3 = document.getElementById('backToStep2');
         if (backBtnStep3) {
@@ -239,9 +249,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Form submission is now handled by the HTML form directly
-        // The submit button will trigger the form submission to send-checkout.php
-        
         console.log('Step 3 initialized successfully');
     }
     
@@ -254,7 +261,9 @@ document.addEventListener('DOMContentLoaded', function() {
             'houseNumber',
             'town',
             'email',
-            'phone'
+            'phone',
+            'country',
+            'phonePrefix'
         ];
         
         let isValid = true;
@@ -351,48 +360,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Updated form fields for PHP submission');
     }
     
-    function proceedToFinalCheckout() {
-        if (!selectedProduct || !selectedMethod) {
-            alert('Please complete your selection to continue.');
-            return;
-        }
-
-        const totalPrice = selectedProduct.price + selectedMethod.price;
-        const deliveryFee = 8.50;
-        const finalTotal = totalPrice + deliveryFee;
-        
-        console.log('Proceeding to final checkout with total:', finalTotal);
-
-        // Store in sessionStorage for the next page
-        const orderData = {
-            product: selectedProduct,
-            method: selectedMethod,
-            total: totalPrice,
-            finalTotal: finalTotal,
-            deliveryFee: deliveryFee,
-            deliveryDetails: getDeliveryDetails()
-        };
-        sessionStorage.setItem('selectedOrder', JSON.stringify(orderData));
-        
-        // Show confirmation and proceed to payment
-        const confirmationMessage = `
-Selected: ${selectedProduct.name}
-Collection Method: ${selectedMethod.name}
-Product Price: £${selectedProduct.price}
-Method Price: £${selectedMethod.price}
-Subtotal: £${totalPrice}
-Delivery Fee: £${deliveryFee.toFixed(2)}
-Final Total: £${finalTotal.toFixed(2)}
-
-Proceeding to Stripe payment...
-        `;
-        
-        alert(confirmationMessage);
-        
-        // Uncomment the line below when you have the payment page ready
-        // window.location.href = `payment.html`;
-    }
-    
     function getDeliveryDetails() {
         return {
             firstName: document.getElementById('firstName').value,
@@ -403,6 +370,8 @@ Proceeding to Stripe payment...
             town: document.getElementById('town').value,
             email: document.getElementById('email').value,
             phone: document.getElementById('phone').value,
+            phonePrefix: document.getElementById('phonePrefix').value,
+            country: document.getElementById('country').value,
             marketing: document.getElementById('marketing').checked,
             privacy: document.getElementById('privacy').checked
         };
