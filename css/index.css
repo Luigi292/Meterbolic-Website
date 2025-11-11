@@ -63,9 +63,6 @@ a {
   --meterbolic-arial-bold-line-height: normal;
 }
 
-
-
-
 /* =========================
    Hero Section 
 ========================= */
@@ -96,7 +93,6 @@ a {
   height: 100%;
   top: 0;
   left: 0;
- 
   object-fit: cover;
   z-index: 0;
 }
@@ -104,11 +100,8 @@ a {
 .hero-default .container {
   position: relative;
   max-width: 1500px;
-  
   width: 100%;
   z-index: 2;
-
-  /* lift content slightly higher */
   margin-top: 5%;
   margin-left: 4%;
 }
@@ -201,11 +194,6 @@ a {
     font-size: 16px;
   }
 }
-
-
-
-
-
 
 /* Partners Section */
 .section-partners {
@@ -606,9 +594,6 @@ a {
   line-height: 1.6;
 }
 
-
-
-
 /* Stay in Touch Section */
 .section-stay-in {
   width: 100%;
@@ -668,21 +653,15 @@ a {
   background: rgba(255, 255, 255, 0.10);
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.20);
-}
-
-.section-stay-in .input-text {
-  color: rgba(255, 255, 255, 0.60);
+  color: white;
   font-size: 15px;
 }
 
-
-/* Make placeholders more visible */
 .section-stay-in .input::placeholder {
-  color: rgba(255, 255, 255, 0.9); /* brighter white */
-  opacity: 1; /* ensure full visibility */
-  font-size: 15px; /* same as input-text */
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 1;
+  font-size: 15px;
 }
-
 
 .section-stay-in .button-subscribe {
   padding: 14px 28px;
@@ -694,87 +673,92 @@ a {
   text-align: center;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  border: none;
 }
 
 .section-stay-in .button-subscribe:hover {
   background: #7a9e04;
 }
 
-
-
 /* Testimonials Section */
-.section-testamonials {
+.section-testimonials {
   width: 100%;
   padding: 100px 90px;
   background: #FDFDFD;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 
-.section-testamonials .heading-2-testimonials {
-  color: #064034;
-  font-size: 40px;
-  font-weight: 700;
-  margin-bottom: 60px;
+.testimonials-container {
+  max-width: 1400px;
+  width: 100%;
   text-align: center;
 }
 
-.section-testamonials .container {
-  max-width: 1400px;
-  width: 94%;
+.testimonials-heading {
+  color: #064034;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  font-family: var(--meterbolic-figtree-bold-font-family);
+}
+
+.testimonials-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
 
-.section-testamonials .background-shadow {
+.testimonial-card {
   background: #FDFDFD;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
-  border-radius: 12px;
-  padding: 35px 25px;
+  border-radius: 8px;
+  padding: 40px 25px;
   text-align: center;
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.section-testamonials .background-shadow:hover {
+.testimonial-card:hover {
   transform: translateY(-5px);
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.section-testamonials .testimonial {
+.testimonial-avatar {
   width: 96px;
   height: 26px;
   background-color: #f0f0f0;
   border-radius: 30px;
-  margin: 0 auto 30px;
+  margin-bottom: 30px;
 }
 
-.section-testamonials .quote {
+.testimonial-quote {
   color: #333333;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
   font-style: italic;
   margin-bottom: 20px;
+  font-family: var(--meterbolic-figtree-regular-font-family);
 }
 
-.section-testamonials .author {
+.testimonial-author {
   color: #064034;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 5px;
+  font-family: var(--meterbolic-figtree-bold-font-family);
 }
 
-.section-testamonials .role {
+.testimonial-role {
   color: #666666;
   font-size: 14px;
+  font-family: var(--meterbolic-figtree-regular-font-family);
 }
 
-
-
-
 /* =========================
-   Start Your Journey Section - FIXED
+   Start Your Journey Section - FIXED HEIGHT
 ============================= */
 .section-journey-start {
   width: 100%;
@@ -804,7 +788,7 @@ a {
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   margin-bottom: 60px;
-  align-items: stretch; /* This ensures both cards stretch to same height */
+  align-items: stretch;
 }
 
 .journey-card {
@@ -817,8 +801,8 @@ a {
   border: 1px solid rgba(142, 178, 5, 0.1);
   display: flex;
   flex-direction: column;
-  height: 100%; /* Make cards take full height of grid cell */
-  min-height: 650px; /* Set a minimum height to ensure consistency */
+  height: auto;
+  min-height: auto;
 }
 
 .journey-card:hover {
@@ -852,7 +836,6 @@ a {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
-  flex-shrink: 0; /* Prevent header from shrinking */
 }
 
 .journey-card-header h2 {
@@ -875,12 +858,10 @@ a {
   font-size: 18px;
   margin-bottom: 25px;
   font-style: italic;
-  flex-shrink: 0; /* Prevent subtitle from shrinking */
 }
 
 .journey-features {
   margin-bottom: 25px;
-  flex-grow: 1; /* Allow features to grow and take available space */
 }
 
 .journey-features h3 {
@@ -923,12 +904,6 @@ a {
   background: rgba(142, 178, 5, 0.05);
   border-radius: 8px;
   border-left: 3px solid #8EB205;
-  flex-shrink: 0; /* Prevent why section from shrinking */
-}
-
-.journey-button-container {
-  margin-top: auto; /* Push button to bottom */
-  flex-shrink: 0; /* Prevent button container from shrinking */
 }
 
 .journey-button {
@@ -947,7 +922,6 @@ a {
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
-  min-height: 50px; /* Ensure consistent button height */
 }
 
 .journey-button.primary {
@@ -965,16 +939,6 @@ a {
 
 .journey-button:not(.primary):hover {
   background: #053028;
-}
-
-/* Enhanced content for Baseline card to balance heights */
-.journey-card:not(.featured) .journey-features ul {
-  margin-bottom: 20px;
-}
-
-.journey-card:not(.featured) .journey-why {
-  background: rgba(6, 64, 52, 0.05);
-  border-left: 3px solid var(--color-cyan-14);
 }
 
 /* Feature Comparison Table */
@@ -1032,87 +996,95 @@ a {
   background: rgba(142, 178, 5, 0.03);
 }
 
-/* Responsive Styles for New Sections */
-@media (max-width: 1200px) {
-  .section-journey-start {
-    padding-left: 60px;
-    padding-right: 60px;
-  }
+/* =========================
+   Journey Section (3 simple cards) - SHORTER
+============================= */
+.section-journey {
+  width: 100%;
+  padding: 100px 90px;
+  background-color: #064034;
+  position: relative;
+  text-align: center;
 }
 
-@media (max-width: 992px) {
-  .section-journey-start {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-  
-  .journey-cards {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .journey-card {
-    min-height: auto; /* Remove fixed height on mobile */
-    height: auto;
-  }
-  
-  .feature-comparison {
-    padding: 30px;
-  }
+.section-journey .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  opacity: 0.1;
 }
 
-@media (max-width: 768px) {
-  .section-journey-start {
-    padding: 60px 20px;
-  }
-  
-  .heading-journey {
-    font-size: 32px;
-  }
-  
-  .journey-card {
-    padding: 30px 25px;
-  }
-  
-  .journey-card-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  
-  .feature-comparison {
-    padding: 20px;
-    overflow-x: auto;
-  }
-  
-  .feature-comparison table {
-    min-width: 500px;
-  }
+.section-journey .container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-@media (max-width: 576px) {
-  .heading-journey {
-    font-size: 28px;
-  }
-  
-  .journey-card-header h2 {
-    font-size: 24px;
-  }
-  
-  .journey-price {
-    font-size: 28px;
-  }
-  
-  .feature-comparison h3 {
-    font-size: 20px;
-  }
+.section-journey .heading-journey {
+  font-family: var(--meterbolic-figtree-bold-font-family);
+  font-weight: var(--meterbolic-semantic-heading-2-font-weight);
+  color: #fdfdfd;
+  font-size: 40px;
+  margin-bottom: 60px;
 }
 
+.section-journey .journey-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
 
+.section-journey .journey-card {
+  flex: 1;
+  background-color: #ffffff1a;
+  border-radius: 12px;
+  border-left: 4px solid #8eb205;
+  padding: 30px 25px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+  min-height: 280px;
+}
+
+.section-journey .journey-card:hover {
+  transform: translateY(-5px);
+}
+
+.section-journey .journey-card img {
+  width: 60px;
+  height: 75px;
+  margin-bottom: 20px;
+  object-fit: contain;
+}
+
+.section-journey .journey-card h2 {
+  font-family: var(--meterbolic-figtree-bold-font-family);
+  font-weight: var(--meterbolic-semantic-heading-3-font-weight);
+  color: #8eb205;
+  font-size: var(--meterbolic-semantic-heading-3-font-size);
+  margin-bottom: 15px;
+}
+
+.section-journey .journey-card p {
+  font-family: var(--meterbolic-figtree-regular-font-family);
+  font-weight: var(--meterbolic-figtree-regular-font-weight);
+  color: #ffffff;
+  font-size: var(--meterbolic-figtree-regular-font-size);
+  line-height: var(--meterbolic-figtree-regular-line-height);
+  opacity: 0.9;
+}
 
 /* Responsive Styles */
 @media (max-width: 1200px) {
-  
   .hero-default,
   .component-section,
   .section-journey,
@@ -1120,23 +1092,18 @@ a {
   .section-where-health,
   .section-small-middle,
   .section-stay-in,
-  .section-testamonials {
+  .section-testimonials,
+  .section-journey-start {
     padding-left: 60px;
     padding-right: 60px;
   }
   
- 
-  
-  .section-testamonials .container {
+  .testimonials-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
- 
 }
 
 @media (max-width: 992px) {
-
-  
   .hero-default,
   .component-section,
   .section-journey,
@@ -1144,7 +1111,8 @@ a {
   .section-where-health,
   .section-small-middle,
   .section-stay-in,
-  .section-testamonials {
+  .section-testimonials,
+  .section-journey-start {
     padding-left: 40px;
     padding-right: 40px;
   }
@@ -1184,7 +1152,8 @@ a {
   
   .section-reveal-the .reveal-the-truth,
   .section-where-health .where-health-meets,
-  .section-stay-in .heading-2-stay {
+  .section-stay-in .heading-2-stay,
+  .testimonials-heading {
     font-size: 36px;
   }
   
@@ -1202,7 +1171,14 @@ a {
     width: 100%;
   }
   
-
+  .journey-cards {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .feature-comparison {
+    padding: 30px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1235,7 +1211,8 @@ a {
   .section-where-health,
   .section-small-middle,
   .section-stay-in,
-  .section-testamonials {
+  .section-testimonials,
+  .section-journey-start {
     padding: 60px 30px;
   }
   
@@ -1250,7 +1227,7 @@ a {
   .section-reveal-the .reveal-the-truth,
   .section-where-health .where-health-meets,
   .section-stay-in .heading-2-stay,
-  .section-testamonials .heading-2-testimonials {
+  .testimonials-heading {
     font-size: 30px;
   }
   
@@ -1258,15 +1235,35 @@ a {
     grid-template-columns: 1fr;
   }
   
-  .section-testamonials .container {
+  .testimonials-grid {
     grid-template-columns: 1fr;
   }
   
-
+  .journey-card {
+    padding: 30px 25px;
+  }
+  
+  .journey-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .section-journey .journey-card {
+    padding: 25px 20px;
+  }
+  
+  .feature-comparison {
+    padding: 20px;
+    overflow-x: auto;
+  }
+  
+  .feature-comparison table {
+    min-width: 500px;
+  }
 }
 
 @media (max-width: 576px) {
-  
   .hero-default {
     padding: 40px 20px;
   }
@@ -1289,14 +1286,36 @@ a {
   .section-where-health,
   .section-small-middle,
   .section-stay-in,
-  .section-testamonials {
+  .section-testimonials,
+  .section-journey-start {
     padding: 40px 20px;
   }
   
   .section-reveal-the .reveal-the-truth,
   .section-where-health .where-health-meets,
   .section-stay-in .heading-2-stay,
-  .section-testamonials .heading-2-testimonials {
+  .testimonials-heading {
     font-size: 26px;
+  }
+  
+  .heading-journey {
+    font-size: 28px;
+  }
+  
+  .journey-card-header h2 {
+    font-size: 24px;
+  }
+  
+  .journey-price {
+    font-size: 28px;
+  }
+  
+  .feature-comparison h3 {
+    font-size: 20px;
+  }
+  
+  .section-journey .journey-card img {
+    width: 50px;
+    height: 65px;
   }
 }

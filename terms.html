@@ -28,51 +28,58 @@
 </head>
 <body>
   <div class="container">
-    <!-- Navbar -->
-    <nav class="navbar">
-      <!-- Logo on the left -->
-      <div class="logo">
-        <a href="/">
-          <img src="images/original-logo.png" alt="Meterbolic Logo" width="300" height="100">
-        </a>
-      </div>
 
-      <!-- Centered Navigation Links - Desktop -->
-      <div class="navLinks">
-        <a href="index.html#home">Home</a>
-        <a href="index.html#features">Features</a>
-        <a href="index.html#journey">Journey</a>
-        <a href="index.html#team">Team</a>
-      </div>
+    
+    <!-- Navigation Bar -->
+<nav class="nav-top-variant2" role="navigation" aria-label="Main navigation">
+  <img class="logo" src="images/logo.png" alt="Meterbolic Logo" />
 
-      <!-- Register Button - Desktop -->
-      <div class="registerButton">
-        <button class="registerBtn" id="registerBtn">
-          <i class="fas fa-user-plus registerIcon"></i>
-          Register with Us
-        </button>
-      </div>
+  <!-- Desktop Navigation (visible on larger screens) -->
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="science.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="partners.html">Partners</a>
+      <!-- <a href="science.html">Science</a> -->
+      <!-- <a href="team.html">Team</a> -->
+      <!-- <a href="press.html">Press</a> -->
+  </div>
+  
+  <div class="nav-buttons">
+    
+  <button class="nav-button get-started-btn">Get Started</button>
+  </div>
 
-      <!-- Mobile Menu Button -->
-      <button class="mobileMenuButton" id="mobileMenuButton" aria-label="Toggle menu">
-        <i class="fas fa-bars mobileMenuIcon"></i>
-      </button>
+  <!-- Mobile Menu Container (hidden on desktop, shown on mobile) -->
+  <div class="mobile-menu">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="science.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="partners.html">Partners</a>
+      <!-- <a href="science.html">Science</a> -->
+      <!-- <a href="team.html">Team</a> -->
+      <!-- <a href="press.html">Press</a> -->
+    </div>
+    
+    <div class="nav-buttons">
+      
+      <button class="nav-button get-started-btn">Get Started</button>
+    </div>
+  </div>
 
-      <!-- Mobile Menu Overlay -->
-      <div class="mobileMenuOverlay" id="mobileMenuOverlay">
-        <div class="mobileMenuContent">
-          <a href="index.html#home" class="mobileLink">Home</a>
-          <a href="index.html#features" class="mobileLink">Features</a>
-          <a href="index.html#journey" class="mobileLink">Journey</a>
-          <a href="index.html#team" class="mobileLink">Team</a>
-          
-          <button class="mobileRegisterBtn" id="mobileRegisterBtn">
-            <i class="fas fa-user-plus registerIcon"></i>
-            Register with Us
-          </button>
-        </div>
-      </div>
-    </nav>
+  <!-- Hamburger Menu Toggle (hidden on desktop, shown on mobile) -->
+  <button class="hamburger-toggle" aria-label="Toggle navigation menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
 
     <!-- Legal Content -->
     <main class="legal-content">

@@ -1,5 +1,7 @@
 /* Global CSS */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+
 * {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
@@ -10,6 +12,8 @@ body {
   margin: 0px;
   height: 100%;
   font-family: 'Figtree', Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: #333;
 }
 
 /* a blue color as a generic focus style */
@@ -65,66 +69,6 @@ a {
   --meterbolic-arial-bold-letter-spacing: 0;
 }
 
-/* ===== HERO SECTION ===== */
-.hero-default {
-  display: flex;
-  min-height: 829px;
-  align-items: center;
-  padding: 0 80px 0 100px;
-  position: relative;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
-  overflow: hidden;
-}
-
-.hero-default .overlay {
-  background-color: #0640344c;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.hero-default .img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-  z-index: 0;
-}
-
-.hero-default .container {
-  position: relative;
-  max-width: 700px;
-  width: 100%;
-  z-index: 2;
-}
-
-.hero-default .div {
-  font-family: var(--meterbolic-figtree-bold-font-family);
-  font-weight: var(--meterbolic-semantic-heading-2-font-weight);
-  color: #ffffff;
-  font-size: var(--meterbolic-semantic-heading-2-font-size);
-  line-height: var(--meterbolic-semantic-heading-2-line-height);
-  margin-bottom: 30px;
-}
-
-.hero-default .introducing-the-only-wrapper {
-  margin-bottom: 40px;
-  opacity: 0.9;
-}
-
-.hero-default .introducing-the-only {
-  font-family: var(--meterbolic-figtree-regular-font-family);
-  font-weight: var(--meterbolic-figtree-regular-font-weight);
-  color: #ffffff;
-  font-size: var(--meterbolic-figtree-regular-font-size);
-  line-height: var(--meterbolic-figtree-regular-line-height);
-}
-
 /* ===== SERVICES SECTION ===== */
 .services-section {
   width: 100%;
@@ -169,7 +113,7 @@ a {
 .services-heading h2 {
   color: #064034;
   font-size: 40px;
-  font-family: Lexend, sans-serif;
+  font-family: var(--meterbolic-figtree-bold-font-family);
   font-weight: 700;
   line-height: 48px;
   word-wrap: break-word;
@@ -192,7 +136,7 @@ a {
   flex-direction: column;
   color: #333333;
   font-size: 20px;
-  font-family: Inter, sans-serif;
+  font-family: var(--meterbolic-figtree-regular-font-family);
   font-weight: 400;
   line-height: 36px;
   word-wrap: break-word;
@@ -247,7 +191,7 @@ a {
   flex-direction: column;
   color: #064034;
   font-size: 24px;
-  font-family: Lexend, sans-serif;
+  font-family: var(--meterbolic-figtree-bold-font-family);
   font-weight: 700;
   line-height: 28.80px;
   word-wrap: break-word;
@@ -265,7 +209,7 @@ a {
   flex-direction: column;
   color: #333333;
   font-size: 18px;
-  font-family: Inter, sans-serif;
+  font-family: var(--meterbolic-figtree-regular-font-family);
   font-weight: 400;
   line-height: 28.80px;
   word-wrap: break-word;
@@ -299,7 +243,7 @@ a {
 .different-heading-container h2 {
   color: white;
   font-size: 42px;
-  font-family: Lexend, sans-serif;
+  font-family: var(--meterbolic-figtree-bold-font-family);
   font-weight: 700;
   line-height: 1.2;
   margin: 0;
@@ -333,7 +277,7 @@ a {
 .different-feature h3 {
   color: #8EB205;
   font-size: 22px;
-  font-family: Lexend, sans-serif;
+  font-family: var(--meterbolic-figtree-bold-font-family);
   font-weight: 700;
   line-height: 1.3;
   margin: 0;
@@ -343,7 +287,7 @@ a {
   color: white;
   opacity: 0.9;
   font-size: 16px;
-  font-family: Inter, sans-serif;
+  font-family: var(--meterbolic-figtree-regular-font-family);
   font-weight: 400;
   line-height: 1.6;
   margin: 0;
@@ -385,7 +329,7 @@ a {
   flex-direction: column;
   color: #064034;
   font-size: 40px;
-  font-family: Lexend, sans-serif;
+  font-family: var(--meterbolic-figtree-bold-font-family);
   font-weight: 700;
   line-height: 48px;
   word-wrap: break-word;
@@ -409,7 +353,7 @@ a {
   flex-direction: column;
   color: #333333;
   font-size: 20px;
-  font-family: Inter, sans-serif;
+  font-family: var(--meterbolic-figtree-regular-font-family);
   font-weight: 400;
   line-height: 36px;
   word-wrap: break-word;
@@ -437,144 +381,10 @@ a {
   flex-direction: column;
   color: white;
   font-size: 18px;
-  font-family: Inter, sans-serif;
+  font-family: var(--meterbolic-figtree-regular-font-family);
   font-weight: 600;
   line-height: 18px;
   word-wrap: break-word;
-}
-
-/* ===== FOOTER SECTION ===== */
-.footer {
-  width: 100%;
-  background: #064034;
-  padding: 80px 0 0;
-}
-
-.footer-container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 60px;
-  margin-bottom: 60px;
-}
-
-.footer-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.footer-heading3 {
-  margin-bottom: 20px;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-.footer-heading-text {
-  color: white;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.footer-divider {
-  position: absolute;
-  bottom: 0;
-  height: 2px;
-  background: #8EB205;
-}
-
-.footer-divider.left {
-  width: 83px;
-}
-
-.footer-divider.middle {
-  width: 58px;
-}
-
-.footer-divider.right {
-  width: 124px;
-}
-
-.footer-component3 {
-  margin-bottom: 15px;
-}
-
-.footer-text {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 16px;
-  transition: color 0.2s ease;
-}
-
-.footer-text:hover {
-  color: #8EB205;
-}
-
-.footer-input {
-  padding: 13px 17px;
-  background: rgba(255, 255, 255, 0.10);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.20);
-  margin-bottom: 15px;
-}
-
-.footer-input-text {
-  color: rgba(255, 255, 255, 0.60);
-  font-size: 16px;
-}
-
-.footer-subscribe-btn {
-  padding: 12px 24px;
-  background: #8EB205;
-  border-radius: 8px;
-  color: white;
-  font-size: 14px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.footer-subscribe-btn:hover {
-  background: #7a9e04;
-}
-
-.footer-social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-bottom: 40px;
-}
-
-.footer-social-icon {
-  width: 48px;
-  height: 48px;
-  background: rgba(255, 255, 255, 0.10);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #FDFDFD;
-  font-size: 20px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.footer-social-icon:hover {
-  background: rgba(255, 255, 255, 0.20);
-}
-
-.footer-copyright {
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
-  padding: 30px 0;
-  text-align: center;
-}
-
-.footer-copyright-text {
-  color: #FDFDFD;
-  font-size: 14px;
-  opacity: 0.8;
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -601,10 +411,6 @@ a {
 }
 
 @media (max-width: 1200px) {
-  .footer-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
   .different-section {
     height: auto;
     padding: 80px 100px;
@@ -640,15 +446,6 @@ a {
 }
 
 @media (max-width: 768px) {
-  .hero-default {
-    padding: 60px 40px;
-    text-align: center;
-  }
-  
-  .hero-default .div {
-    font-size: 28px;
-  }
-  
   .services-section,
   .different-section,
   .services-cta-section {
@@ -669,11 +466,6 @@ a {
     max-width: 100%;
   }
   
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
   .different-feature {
     flex: 1 1 100%;
     max-width: none;
@@ -681,14 +473,6 @@ a {
 }
 
 @media (max-width: 576px) {
-  .hero-default {
-    padding: 40px 20px;
-  }
-  
-  .hero-default .div {
-    font-size: 24px;
-  }
-  
   .services-heading h2,
   .different-heading-container h2,
   .services-cta-heading h2 {

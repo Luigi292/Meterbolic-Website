@@ -8,9 +8,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/navbar-footer.css">
     <link rel="stylesheet" href="css/navbar-footer-responsive.css">
+    <link rel="stylesheet" href="css/index.css">
 
     <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
 </head>
@@ -23,35 +23,32 @@
   <!-- Desktop Navigation (visible on larger screens) -->
   <div class="nav-links">
     <a href="index.html">Home</a>
-    <a href="science.html">Science</a>
-    <a href="team.html">Team</a>
-    <a href="how-it-works.html">How it works</a>
-    <a href="services.html">Services</a>
-    <a href="partners.html">Partners</a>
-    <a href="press.html">Press</a>
+      <a href="about.html">About</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="products.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="partners.html">Partners</a>
   </div>
   
   <div class="nav-buttons">
-    <button class="nav-button login-btn">Login</button>
-    <button class="nav-button get-started-btn">Get Started</button>
-  </div>
+  <a href="checkout.html" class="nav-button get-started-btn">Get Started</a>
+</div>
 
   <!-- Mobile Menu Container (hidden on desktop, shown on mobile) -->
   <div class="mobile-menu">
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="science.html">Science</a>
-      <a href="team.html">Team</a>
+      <a href="about.html">About</a>
       <a href="how-it-works.html">How it works</a>
+      <a href="products.html">Products</a>
       <a href="services.html">Services</a>
       <a href="partners.html">Partners</a>
-      <a href="press.html">Press</a>
     </div>
     
     <div class="nav-buttons">
-      <button class="nav-button login-btn">Login</button>
-      <button class="nav-button get-started-btn">Get Started</button>
-    </div>
+  <a href="checkout.html" class="nav-button get-started-btn">Get Started</a>
+</div>
+
   </div>
 
   <!-- Hamburger Menu Toggle (hidden on desktop, shown on mobile) -->
@@ -117,8 +114,6 @@
   </div>
 </main>
 
-
-
 <!-- Start Your Journey Section -->
 <section class="section-journey-start">
   <div class="container">
@@ -168,7 +163,7 @@
             <li>Clear, personalised insights in your secure dashboard</li>
           </ul>
         </div>
-        <p class="journey-why"><strong>Why you need it:</strong> Spot metabolic warning signs that fasting glucose alone won't reveal. Detect insulin resistance years before standard tests show abnormalities. Understand your energy fluctuations, food cravings, and weight control challenges before they take control of your health.</p>
+        <p class="journey-why"><strong>Why you need it:</strong>Detect metabolic warning signs that fasting glucose can miss. Identify insulin resistance years before standard tests show issues. Understand your energy dips, cravings, and weight challenges before they take control of your health.</p>
         <div class="journey-button-container">
           <button class="journey-button primary">Get Started</button>
         </div>
@@ -222,8 +217,6 @@
     </div>
   </div>
 </section>
-
-
 
 <!-- Journey Section -->
 <section class="section-journey">
@@ -376,7 +369,41 @@
   </div>
 </div>
 
-
+<!-- Testimonials Section -->
+<section class="section-testimonials">
+  <div class="testimonials-container">
+    <h2 class="testimonials-heading">Testimonials</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-avatar"></div>
+        <p class="testimonial-quote">"Meterbolic changed my life. I discovered metabolic issues I never knew I had and finally understand why I felt tired all the time."</p>
+        <div class="testimonial-author">- Sarah J.</div>
+        <div class="testimonial-role">Customer</div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-avatar"></div>
+        <p class="testimonial-quote">"The AI coach helped me make sense of my results and gave me actionable steps to improve my health."</p>
+        <div class="testimonial-author">- Michael T.</div>
+        <div class="testimonial-role">Customer</div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-avatar"></div>
+        <p class="testimonial-quote">"As a doctor, I recommend Meterbolic to all my patients. It's the most comprehensive metabolic test available."</p>
+        <div class="testimonial-author">- Dr. Lisa R.</div>
+        <div class="testimonial-role">Healthcare Professional</div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-avatar"></div>
+        <p class="testimonial-quote">"The insulin response data explained so much about my weight struggles. I'm finally making progress!"</p>
+        <div class="testimonial-author">- David K.</div>
+        <div class="testimonial-role">Customer</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Footer Section -->
 <footer class="footer" role="contentinfo">
@@ -391,10 +418,13 @@
         <div class="footer-text">Meterbolic AI</div>
       </div>
       <div class="footer-component3">
-        <div class="footer-text">How it works</div>
+        <div class="footer-text">How it works</div>    
       </div>
       <div class="footer-component3">
         <div class="footer-text">Features</div>
+      </div>
+       <div class="footer-component3">
+        <div class="footer-text">Subscription plans</div>    
       </div>
       <div class="footer-component3">
         <div class="footer-text">Meterbolic health coaching</div>
